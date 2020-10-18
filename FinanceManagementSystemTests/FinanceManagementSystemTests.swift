@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import FinanceManagementSystem
+//@testable import FinanceManagementSystem
 
 class FinanceManagementSystemTests: XCTestCase {
 
