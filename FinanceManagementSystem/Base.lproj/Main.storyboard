@@ -16,14 +16,240 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="fMr-rq-s03">
+                                <rect key="frame" x="97" y="193" width="181" height="204"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LrO-Ja-7kd">
+                                        <rect key="frame" x="0.0" y="0.0" width="181" height="40"/>
+                                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                        <state key="normal" title="+ Доход">
+                                            <color key="titleColor" systemColor="systemGreenColor"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="VTl-vm-ncn" kind="show" id="hyZ-XS-3C4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dO-uZ-SZh">
+                                        <rect key="frame" x="0.0" y="82" width="181" height="40"/>
+                                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                        <state key="normal" title="- Расход">
+                                            <color key="titleColor" systemColor="systemRedColor"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="wPW-3k-kLG" kind="show" id="fes-Da-PRC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W6g-V5-3ju">
+                                        <rect key="frame" x="0.0" y="164" width="181" height="40"/>
+                                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                        <state key="normal" title="Перевод">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="aeS-7W-Ll9" kind="show" id="mIX-TB-rpu"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fMr-rq-s03" secondAttribute="trailing" constant="97" id="TzY-Gj-Y1D"/>
+                            <constraint firstItem="fMr-rq-s03" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WFI-H3-76A"/>
+                            <constraint firstItem="fMr-rq-s03" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="97" id="d3e-DX-nIA"/>
+                            <constraint firstItem="fMr-rq-s03" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="149" id="fok-du-IwT"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xmt-iR-sQ0"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="114.40000000000001" y="60.719640179910051"/>
+        </scene>
+        <!--Добавить доход-->
+        <scene sceneID="zqy-eK-Az2">
+            <objects>
+                <viewController id="VTl-vm-ncn" customClass="AddIncomeViewController" customModule="FinanceManagementSystem" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dj8-nL-u2Y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Сумма" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jVX-vB-KG7">
+                                <rect key="frame" x="40" y="107" width="295" height="35"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="oco-lX-DBH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21.10.2020" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAj-jR-ZYl">
+                                <rect key="frame" x="129" y="69" width="117" height="20.5"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UxW-G5-hHK">
+                                <rect key="frame" x="40" y="159" width="295" height="30"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="eWX-9F-87X"/>
+                                </constraints>
+                                <state key="normal" title="Выбрать счет ▼">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="chooseTheBillPressed:" destination="VTl-vm-ncn" eventType="touchUpInside" id="lVt-RV-poA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61f-QV-s1F">
+                                <rect key="frame" x="40" y="206" width="295" height="30"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="C3m-R9-eon"/>
+                                </constraints>
+                                <state key="normal" title="Выбрать категорию ▼">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="chooseTheCatPressed:" destination="VTl-vm-ncn" eventType="touchUpInside" id="O3A-9n-PIy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E50-ub-fri">
+                                <rect key="frame" x="40" y="253" width="295" height="30"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="XyS-S6-M46"/>
+                                </constraints>
+                                <state key="normal" title="Проект(не обяз.) ▼">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="chooseProjectButtonPressed:" destination="VTl-vm-ncn" eventType="touchUpInside" id="3He-q5-H4k"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xga-Hn-Ob5">
+                                <rect key="frame" x="40" y="300" width="295" height="30"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="OAt-VN-yDI"/>
+                                </constraints>
+                                <state key="normal" title="Контрагент(не обяз.) ▼">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="chooseTheAgentButtonPressed:" destination="VTl-vm-ncn" eventType="touchUpInside" id="eaM-VF-dKx"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Тэг(не обяз.)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aUt-jI-jGK">
+                                <rect key="frame" x="40" y="347" width="295" height="30"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="QIG-zv-V65"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Комментарий(не обяз.)" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0qX-Fi-4F2">
+                                <rect key="frame" x="40" y="407" width="295" height="90"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="323-b3-UNI"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="akp-BZ-608"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EAj-jR-ZYl" firstAttribute="centerX" secondItem="dj8-nL-u2Y" secondAttribute="centerX" id="0md-IO-nPY"/>
+                            <constraint firstItem="0qX-Fi-4F2" firstAttribute="top" secondItem="aUt-jI-jGK" secondAttribute="bottom" constant="30" id="0xd-0a-I6H"/>
+                            <constraint firstItem="xga-Hn-Ob5" firstAttribute="top" secondItem="E50-ub-fri" secondAttribute="bottom" constant="17" id="2nE-5N-dCv"/>
+                            <constraint firstItem="akp-BZ-608" firstAttribute="trailing" secondItem="xga-Hn-Ob5" secondAttribute="trailing" constant="40" id="3sz-l0-Hwl"/>
+                            <constraint firstItem="akp-BZ-608" firstAttribute="trailing" secondItem="jVX-vB-KG7" secondAttribute="trailing" constant="40" id="7rh-w1-fsC"/>
+                            <constraint firstItem="E50-ub-fri" firstAttribute="leading" secondItem="akp-BZ-608" secondAttribute="leading" constant="40" id="7tu-VN-zO4"/>
+                            <constraint firstItem="jVX-vB-KG7" firstAttribute="leading" secondItem="akp-BZ-608" secondAttribute="leading" constant="40" id="9pl-ln-rmg"/>
+                            <constraint firstItem="xga-Hn-Ob5" firstAttribute="leading" secondItem="akp-BZ-608" secondAttribute="leading" constant="40" id="BR3-LJ-O2g"/>
+                            <constraint firstItem="akp-BZ-608" firstAttribute="trailing" secondItem="0qX-Fi-4F2" secondAttribute="trailing" constant="40" id="CQ1-jN-lH5"/>
+                            <constraint firstItem="aUt-jI-jGK" firstAttribute="leading" secondItem="akp-BZ-608" secondAttribute="leading" constant="40" id="DZF-3H-hLH"/>
+                            <constraint firstItem="akp-BZ-608" firstAttribute="trailing" secondItem="aUt-jI-jGK" secondAttribute="trailing" constant="40" id="G42-tQ-ftr"/>
+                            <constraint firstItem="akp-BZ-608" firstAttribute="trailing" secondItem="61f-QV-s1F" secondAttribute="trailing" constant="40" id="GP7-ZM-ZOF"/>
+                            <constraint firstItem="jVX-vB-KG7" firstAttribute="top" secondItem="EAj-jR-ZYl" secondAttribute="bottom" constant="17.5" id="QGg-5e-agI"/>
+                            <constraint firstItem="61f-QV-s1F" firstAttribute="top" secondItem="UxW-G5-hHK" secondAttribute="bottom" constant="17" id="R6h-Zf-dsw"/>
+                            <constraint firstItem="akp-BZ-608" firstAttribute="trailing" secondItem="E50-ub-fri" secondAttribute="trailing" constant="40" id="S3Y-uF-5MO"/>
+                            <constraint firstItem="akp-BZ-608" firstAttribute="trailing" secondItem="UxW-G5-hHK" secondAttribute="trailing" constant="40" id="Tyh-bn-wDA"/>
+                            <constraint firstItem="EAj-jR-ZYl" firstAttribute="top" secondItem="akp-BZ-608" secondAttribute="top" constant="25" id="UdM-7z-uS2"/>
+                            <constraint firstItem="EAj-jR-ZYl" firstAttribute="leading" secondItem="akp-BZ-608" secondAttribute="leading" constant="129" id="V59-l3-JWw"/>
+                            <constraint firstItem="61f-QV-s1F" firstAttribute="leading" secondItem="akp-BZ-608" secondAttribute="leading" constant="40" id="ciz-6g-mW0"/>
+                            <constraint firstItem="UxW-G5-hHK" firstAttribute="top" secondItem="jVX-vB-KG7" secondAttribute="bottom" constant="17" id="cyX-3B-Ka9"/>
+                            <constraint firstItem="0qX-Fi-4F2" firstAttribute="leading" secondItem="akp-BZ-608" secondAttribute="leading" constant="40" id="epU-io-v8m"/>
+                            <constraint firstItem="UxW-G5-hHK" firstAttribute="leading" secondItem="akp-BZ-608" secondAttribute="leading" constant="40" id="mB5-vc-nvr"/>
+                            <constraint firstItem="akp-BZ-608" firstAttribute="trailing" secondItem="EAj-jR-ZYl" secondAttribute="trailing" constant="129" id="q0H-JJ-S3d"/>
+                            <constraint firstItem="E50-ub-fri" firstAttribute="top" secondItem="61f-QV-s1F" secondAttribute="bottom" constant="17" id="q3E-nW-ksF"/>
+                            <constraint firstItem="aUt-jI-jGK" firstAttribute="top" secondItem="xga-Hn-Ob5" secondAttribute="bottom" constant="17" id="xfL-Fk-ylH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Добавить доход" id="ogY-a3-mlM">
+                        <barButtonItem key="rightBarButtonItem" title="Добавить" id="q9o-pq-dSt">
+                            <connections>
+                                <action selector="addBarButtonPressed:" destination="VTl-vm-ncn" id="NHY-gf-xHH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addBarButton" destination="q9o-pq-dSt" id="VZE-wM-ypc"/>
+                        <outlet property="agentChooseButton" destination="xga-Hn-Ob5" id="BM0-xe-NUB"/>
+                        <outlet property="chooseBillButton" destination="UxW-G5-hHK" id="PmW-4I-oSV"/>
+                        <outlet property="chooseCategoryButton" destination="61f-QV-s1F" id="MH7-Tf-Eyp"/>
+                        <outlet property="chooseTheAgentButton" destination="xga-Hn-Ob5" id="301-Wo-JzK"/>
+                        <outlet property="chooseTheProjectButton" destination="E50-ub-fri" id="1U5-x9-F2W"/>
+                        <outlet property="dateLabel" destination="EAj-jR-ZYl" id="GCA-pQ-IAC"/>
+                        <outlet property="projectChooseButton" destination="E50-ub-fri" id="lvD-yb-Ttv"/>
+                        <outlet property="textFieldForSumm" destination="jVX-vB-KG7" id="PUo-Ru-olb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oC9-z5-LvB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-591.20000000000005" y="-749.7751124437782"/>
+        </scene>
+        <!--Добавить расход-->
+        <scene sceneID="dcN-wF-Awo">
+            <objects>
+                <viewController id="wPW-3k-kLG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qcm-zg-SvO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="vJx-ev-Pp3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Добавить расход" id="gDI-lK-jyQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YhD-wU-pTB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="114" y="-750"/>
+        </scene>
+        <!--Добавить перевод-->
+        <scene sceneID="RMJ-8R-mRQ">
+            <objects>
+                <viewController id="aeS-7W-Ll9" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qWN-wh-dT6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="CMt-pB-Chk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Добавить перевод" id="Iy4-Uv-q5b"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tBJ-hN-skD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="825" y="-751"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Hqg-EE-xzd">
@@ -50,8 +276,20 @@
         <namedColor name="GreenNeobis">
             <color red="0.45711320638656616" green="0.85959070920944214" blue="0.73921811580657959" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

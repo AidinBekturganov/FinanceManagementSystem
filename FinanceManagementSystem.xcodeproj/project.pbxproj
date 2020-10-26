@@ -15,6 +15,7 @@
 		CE5D23AE253471C900AC0678 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE5D23AC253471C900AC0678 /* LaunchScreen.storyboard */; };
 		CE5D23B9253471C900AC0678 /* FinanceManagementSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5D23B8253471C900AC0678 /* FinanceManagementSystemTests.swift */; };
 		CE5D23C4253471C900AC0678 /* FinanceManagementSystemUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5D23C3253471C900AC0678 /* FinanceManagementSystemUITests.swift */; };
+		CEA4845A254412D300B3976F /* AddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA48459254412D300B3976F /* AddIncomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		CE5D23BF253471C900AC0678 /* FinanceManagementSystemUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinanceManagementSystemUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5D23C3253471C900AC0678 /* FinanceManagementSystemUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceManagementSystemUITests.swift; sourceTree = "<group>"; };
 		CE5D23C5253471C900AC0678 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEA48459254412D300B3976F /* AddIncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				CE5D23A1253471C600AC0678 /* AppDelegate.swift */,
 				CE5D23A3253471C600AC0678 /* SceneDelegate.swift */,
 				CE5D23A5253471C600AC0678 /* ViewController.swift */,
+				CEA48459254412D300B3976F /* AddIncomeViewController.swift */,
 				CE5D23A7253471C600AC0678 /* Main.storyboard */,
 				CE5D23AA253471C900AC0678 /* Assets.xcassets */,
 				CE5D23AC253471C900AC0678 /* LaunchScreen.storyboard */,
@@ -261,6 +264,7 @@
 				CE5D23A6253471C600AC0678 /* ViewController.swift in Sources */,
 				CE5D23A2253471C600AC0678 /* AppDelegate.swift in Sources */,
 				CE5D23A4253471C600AC0678 /* SceneDelegate.swift in Sources */,
+				CEA4845A254412D300B3976F /* AddIncomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
