@@ -1,56 +1,50 @@
 //
-//  AddIncomeViewController.swift
+//  AddExpenditureViewController.swift
 //  FinanceManagementSystem
 //
-//  Created by User on 10/24/20.
+//  Created by User on 10/27/20.
 //
 
 import UIKit
 import iOSDropDown
 
 
-struct Accounts {
-    var name: String
-    var sumInAccounts: Double
-}
 
-
-class CellClass: UITableViewCell {
+class CellClassForExpenditure: UITableViewCell {
     
 }
 
+class AddExpenditureViewController: ViewController {
 
-class AddIncomeViewController: UIViewController {
-
-    @IBOutlet weak var textFieldForSumm: UITextField!
-    @IBOutlet weak var chooseBillButton: DropDown!
+    
+    @IBOutlet weak var summTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var textFieldForTags: UITextField!
-    @IBOutlet weak var addBarButton: UIBarButtonItem!
+    @IBOutlet weak var tagTextFied: UITextField!
+    @IBOutlet weak var chooseTheCatButton: DropDown!
+    @IBOutlet weak var chooseBillButton: DropDown!
+    @IBOutlet weak var chooseAgentButton: DropDown!
     @IBOutlet weak var chooseProjectButton: DropDown!
-    @IBOutlet weak var clearBarButton: UIBarButtonItem!
+    @IBOutlet weak var commentTextField: UITextView!
     @IBOutlet weak var descriptionTextView: UITextView!
-    @IBOutlet weak var textFieldForAgent: DropDown!
-    @IBOutlet weak var chooseTheCatefory: DropDown!
-    
-
     
     let transparetView = UIView()
     let tableView = UITableView()
     var selectedButton = UIButton()
-    var selectedTextField = UITextView()
-
+    
     var dataSource = [String]()
-    
-    
-
     let date = Date()
+    var namesOfAgents = [String]()
+    var incomeCategories = [String]()
+    var categories = [String]()
+
+    var accounts = [Accounts]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CellClass.self, forCellReuseIdentifier: "Cell")
+
         
         getProjects {
         }
@@ -75,14 +69,6 @@ class AddIncomeViewController: UIViewController {
         datePicker.datePickerMode = .date
         
     }
-
-
-    
-    var namesOfAgents = [String]()
-    var incomeCategories = [String]()
-    var categories = [String]()
-
-    var accounts = [Accounts]()
     
     
      func getAccounts(completed: @escaping () -> ()) {
@@ -150,7 +136,7 @@ class AddIncomeViewController: UIViewController {
     }
     
      func getCategory(completed: @escaping () -> ()) {
-        let urlString = "https://fms-neobis.herokuapp.com/incomes_categories"
+        let urlString = "https://fms-neobis.herokuapp.com/expenses_categories"
         guard let url = URL(string: urlString) else {
             completed()
             return
@@ -217,8 +203,8 @@ class AddIncomeViewController: UIViewController {
         for i in 0..<accounts.count {
             acounts.append(accounts[i].name)
         }
-        textFieldForAgent.optionArray = namesOfAgents
-        chooseTheCatefory.optionArray = incomeCategories
+        chooseAgentButton.optionArray = namesOfAgents
+        chooseTheCatButton.optionArray = incomeCategories
         chooseBillButton.optionArray = acounts
         chooseProjectButton.optionArray = categories
     }
@@ -251,26 +237,20 @@ class AddIncomeViewController: UIViewController {
             self.tableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 0)
         }, completion: nil)
     }
-
+    
+    
     @IBAction func clearBarButtonClicked(_ sender: Any) {
         
-        textFieldForAgent.text = ""
-        textFieldForSumm.text = ""
-        textFieldForTags.text = ""
-        chooseBillButton.text = "Выбрать счет ▼"
-        chooseTheCatefory.text = ""
-        descriptionTextView.text = ""
-        chooseProjectButton.text = "Выбрать проект(Не обяз.) ▼"
     }
     
     
     @IBAction func addBarButtonPressed(_ sender: Any) {
-        if (textFieldForSumm != nil) && (chooseTheCatefory.text != "") {
+        if (summTextField != nil) && (chooseTheCatButton.text != "") {
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd-MM-yyyy"
-            let income = IncomeData(actualDate: dateFormatter.string(from: datePicker.date), cashAccount: chooseBillButton.text ?? "", category: chooseTheCatefory.text ?? "", contractor: textFieldForAgent.text ?? "", description: descriptionTextView.text, status: true, sumOfTransaction: Int(textFieldForSumm.text ?? "") ?? 0, tags: textFieldForTags.text ?? "")
-            let postRequest = APIRequest(endpoint: "income_transaction")
+            let income = IncomeData(actualDate: dateFormatter.string(from: datePicker.date), cashAccount: chooseBillButton.text ?? "", category: chooseTheCatButton.text ?? "", contractor: chooseAgentButton.text ?? "", description: descriptionTextView.text, status: true, sumOfTransaction: Int(summTextField.text ?? "") ?? 0, tags: tagTextFied.text ?? "")
+            let postRequest = APIRequest(endpoint: "expense_transaction")
             postRequest.save(income, completion: { result in
 
                 switch result {
@@ -304,20 +284,19 @@ class AddIncomeViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
 
             self.present(alert, animated: true)
-            textFieldForAgent.text = ""
-            textFieldForSumm.text = ""
-            textFieldForTags.text = ""
+            chooseAgentButton.text = ""
+            summTextField.text = ""
+            tagTextFied.text = ""
             chooseBillButton.text = "Выбрать счет ▼"
-            chooseTheCatefory.text = ""
+            chooseTheCatButton.text = ""
             descriptionTextView.text = ""
             chooseProjectButton.text = "Выбрать проект(Не обяз.) ▼"
         }
-        
+    
     }
 }
 
-
-extension AddIncomeViewController: UITableViewDelegate, UITableViewDataSource {
+extension AddExpenditureViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
     }
@@ -338,5 +317,6 @@ extension AddIncomeViewController: UITableViewDelegate, UITableViewDataSource {
         selectedButton.setTitle(dataSource[indexPath.row], for: .normal)
         removeTransperenteView()
     }
+    
     
 }
