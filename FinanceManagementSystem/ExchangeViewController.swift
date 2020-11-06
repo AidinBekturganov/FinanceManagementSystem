@@ -15,41 +15,107 @@ class CellClassForExchange: UITableViewCell {
 
 class ExchangeViewController: UIViewController {
 
-    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var summTextField: UITextField!
-    @IBOutlet weak var exchangeFromTheBillOne: UIButton!
-    @IBOutlet weak var exchangeToTheBill: UIButton!
-    @IBOutlet weak var test: DropDown!
     @IBOutlet weak var commentTextField: UITextView!
-    
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var changeFromButton: DropDown!
+    @IBOutlet weak var changeToButton: DropDown!
     
     let transparetView = UIView()
     let tableView = UITableView()
+    var indicatorView = UIActivityIndicatorView()
+
     var dataSource = [String]()
     let date = Date()
     var selectedButton = UIButton()
     
+    var accounts = [Accounts]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CellClassForExchange.self, forCellReuseIdentifier: "Cell")
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy"
-        timeLabel.text = dateFormatter.string(from: date)
-        // The list of array to display. Can be changed dynamically
-        test.optionArray = ["Option 1", "Option 2", "Option 3"]
-        //Its Id Values and its optional
-        test.optionIds = [1,23,54,22]
-        test.selectedRowColor = .clear
-        test.didSelect{(selectedText , index ,id) in
-        var i = "Selected String: \(selectedText) \n index: \(String(describing: index))"
-            print(i)
-            var a = self.test.text
-            print(a)
+        
+        setupIndicator()
+        indicatorView.startAnimating()
+        self.view.isUserInteractionEnabled = false
+        
+        getAccounts {
+            print("sa")
+            DispatchQueue.main.async {
+                self.createDropDownButtons()
+                self.indicatorView.stopAnimating()
+                self.view.isUserInteractionEnabled = true
             }
+        }
+
+        
+        datePicker.datePickerMode = .date
         
         }
+    
+    func setupIndicator() {
+        indicatorView.center = self.view.center
+        indicatorView.hidesWhenStopped = true
+        indicatorView.style = .large
+        indicatorView.color = UIColor.green
+        view.addSubview(indicatorView)
+    }
+    
+    func createDropDownButtons() {
+        var acounts = [String]()
+        for i in 0..<accounts.count {
+            acounts.append(accounts[i].name)
+        }
+        
+        changeToButton.optionArray = acounts
+        changeFromButton.optionArray = acounts
+        
+    }
+    
+    
+     func getAccounts(completed: @escaping () -> ()) {
+        let urlString = "https://fms-neobis.herokuapp.com/cash_accounts"
+        guard let url = URL(string: urlString) else {
+            completed()
+            return
+        }
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: url) { (data, response, error) in
+            if let error = error {
+                print("Error: \(error)")
+            }
+            do {
+                let result: [CashAccounts] = try JSONDecoder().decode([CashAccounts].self, from: data!)
+                
+                for index in 0..<result.count {
+                    let resp = Accounts(name: result[index].name, sumInAccounts: result[index].sumInAccount)
+                   
+                    self.accounts.append(resp)
+                
+                }
+                
+            } catch {
+            
+                print("ERROR")
+            }
+            completed()
+            
+        }
+        task.resume()
+            
+    }
+    
+    
     
     func addTransperenty(frames: CGRect) {
         let window = UIApplication.shared.keyWindow
@@ -80,19 +146,60 @@ class ExchangeViewController: UIViewController {
         }, completion: nil)
     }
 
-    
-    @IBAction func changeButtonFromPressed(_ sender: Any) {
-        dataSource = ["Банк счет", "Элсом", "Касса"]
-        selectedButton = exchangeFromTheBillOne
-        addTransperenty(frames: exchangeFromTheBillOne.frame)
+    @IBAction func addBarButtonPressed(_ sender: Any) {
+        if summTextField != nil {
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd-MM-yyyy"
+            let income = ExchangeData(actualDate: dateFormatter.string(from: datePicker.date), cashAccountFrom: changeFromButton.text ?? "", cashAccountTo: changeToButton.text ?? "", description: commentTextField.text, sumOfTransaction: Int(summTextField.text ?? "") ?? 0)
+//            let postRequest = APIRequest(endpoint: "income_transaction")
+//            postRequest.save(income, completion: { result in
+//
+//                switch result {
+//                case .success(let message):
+//
+//                    print("SUCCCESS \(message.message)")
+//                    DispatchQueue.main.async {
+//                        let alert = UIAlertController(title: "Вывод", message: message.message, preferredStyle: .alert)
+//
+//                        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
+//
+//                                self.navigationController?.popViewController(animated: true)
+//
+//                        }))
+//                        self.present(alert, animated: true)
+//
+//                    }
+//
+//                case .failure(let error):
+//                    print("ERROR: \(error)")
+//                }
+//
+//
+//
+//            })
+            
+            
+        } else {
+            let alert = UIAlertController(title: "Не заполнены обязательные поля", message: "Пожалуйста заполните поля зеленого цвета", preferredStyle: .alert)
+
+            alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
+
+            self.present(alert, animated: true)
+            changeFromButton.text = ""
+            changeToButton.text = ""
+            summTextField.text = ""
+            commentTextField.text = ""
+        }
     }
     
-    
-    @IBAction func changeButtonToPressed(_ sender: Any) {
-        dataSource = ["Банк счет", "Элсом", "Касса"]
-        selectedButton = exchangeToTheBill
-        addTransperenty(frames: exchangeToTheBill.frame)
+    @IBAction func clearBarButtonPressed(_ sender: Any) {
+        changeFromButton.text = ""
+        changeToButton.text = ""
+        summTextField.text = ""
+        commentTextField.text = ""
     }
+    
 }
 
 

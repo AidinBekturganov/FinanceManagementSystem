@@ -30,6 +30,7 @@ class AddExpenditureViewController: ViewController {
     let transparetView = UIView()
     let tableView = UITableView()
     var selectedButton = UIButton()
+    var indicatorView = UIActivityIndicatorView()
     
     var dataSource = [String]()
     let date = Date()
@@ -41,10 +42,17 @@ class AddExpenditureViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CellClass.self, forCellReuseIdentifier: "Cell")
-
+        setupIndicator()
+        indicatorView.startAnimating()
+        self.view.isUserInteractionEnabled = false
         
         getProjects {
         }
@@ -59,7 +67,11 @@ class AddExpenditureViewController: ViewController {
             print("DONE")
             self.getAgents {
                 print("Ready")
-                self.createDropDownButtons()
+                DispatchQueue.main.async {
+                    self.createDropDownButtons()
+                    self.indicatorView.stopAnimating()
+                    self.view.isUserInteractionEnabled = true
+                }
             }
             
             
@@ -70,6 +82,15 @@ class AddExpenditureViewController: ViewController {
         
     }
     
+    
+    func setupIndicator() {
+        indicatorView.center = self.view.center
+        indicatorView.hidesWhenStopped = true
+        indicatorView.style = .large
+        indicatorView.color = UIColor.green
+        view.addSubview(indicatorView)
+    }
+  
     
      func getAccounts(completed: @escaping () -> ()) {
         let urlString = "https://fms-neobis.herokuapp.com/cash_accounts"

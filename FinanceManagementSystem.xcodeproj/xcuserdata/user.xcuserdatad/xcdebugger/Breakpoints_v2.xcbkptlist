@@ -14,8 +14,8 @@
             filePath = "FinanceManagementSystem/AddIncomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "230"
-            endingLineNumber = "230"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
             landmarkName = "addTransperenty(frames:)"
             landmarkType = "7">
          </BreakpointContent>

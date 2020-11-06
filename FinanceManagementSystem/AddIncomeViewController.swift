@@ -28,9 +28,9 @@ class AddIncomeViewController: UIViewController {
     @IBOutlet weak var textFieldForTags: UITextField!
     @IBOutlet weak var addBarButton: UIBarButtonItem!
     @IBOutlet weak var chooseProjectButton: DropDown!
+    @IBOutlet weak var textFieldForContractor: DropDown!
     @IBOutlet weak var clearBarButton: UIBarButtonItem!
     @IBOutlet weak var descriptionTextView: UITextView!
-    @IBOutlet weak var textFieldForAgent: DropDown!
     @IBOutlet weak var chooseTheCatefory: DropDown!
     
 
@@ -39,19 +39,32 @@ class AddIncomeViewController: UIViewController {
     let tableView = UITableView()
     var selectedButton = UIButton()
     var selectedTextField = UITextView()
+    var indicatorView = UIActivityIndicatorView()
 
     var dataSource = [String]()
     
+    
+    var namesOfAgents = [String]()
+    var incomeCategories = [String]()
+    var categories = [String]()
+
+    var accounts = [Accounts]()
     
 
     let date = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CellClass.self, forCellReuseIdentifier: "Cell")
-        
+        setupIndicator()
+        indicatorView.startAnimating()
+        self.view.isUserInteractionEnabled = false
         getProjects {
         }
         
@@ -65,7 +78,12 @@ class AddIncomeViewController: UIViewController {
             print("DONE")
             self.getAgents {
                 print("Ready")
-                self.createDropDownButtons()
+                DispatchQueue.main.async {
+                    self.createDropDownButtons()
+                    self.indicatorView.stopAnimating()
+                    self.view.isUserInteractionEnabled = true
+                }
+             
             }
             
             
@@ -78,12 +96,14 @@ class AddIncomeViewController: UIViewController {
 
 
     
-    var namesOfAgents = [String]()
-    var incomeCategories = [String]()
-    var categories = [String]()
-
-    var accounts = [Accounts]()
-    
+    func setupIndicator() {
+        indicatorView.center = self.view.center
+        indicatorView.hidesWhenStopped = true
+        indicatorView.style = .large
+        indicatorView.color = UIColor.green
+        view.addSubview(indicatorView)
+    }
+  
     
      func getAccounts(completed: @escaping () -> ()) {
         let urlString = "https://fms-neobis.herokuapp.com/cash_accounts"
@@ -217,7 +237,7 @@ class AddIncomeViewController: UIViewController {
         for i in 0..<accounts.count {
             acounts.append(accounts[i].name)
         }
-        textFieldForAgent.optionArray = namesOfAgents
+        textFieldForContractor.optionArray = namesOfAgents
         chooseTheCatefory.optionArray = incomeCategories
         chooseBillButton.optionArray = acounts
         chooseProjectButton.optionArray = categories
@@ -254,22 +274,22 @@ class AddIncomeViewController: UIViewController {
 
     @IBAction func clearBarButtonClicked(_ sender: Any) {
         
-        textFieldForAgent.text = ""
+        textFieldForContractor.text = ""
         textFieldForSumm.text = ""
         textFieldForTags.text = ""
-        chooseBillButton.text = "Выбрать счет ▼"
+        chooseBillButton.text = "Выбрать счет"
         chooseTheCatefory.text = ""
         descriptionTextView.text = ""
-        chooseProjectButton.text = "Выбрать проект(Не обяз.) ▼"
+        chooseProjectButton.text = "Выбрать проект(Не обяз.)"
     }
     
     
     @IBAction func addBarButtonPressed(_ sender: Any) {
-        if (textFieldForSumm != nil) && (chooseTheCatefory.text != "") {
+        if (textFieldForSumm != nil) && (chooseTheCatefory.text != "") && (chooseBillButton.text != "Выбрать счет"){
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd-MM-yyyy"
-            let income = IncomeData(actualDate: dateFormatter.string(from: datePicker.date), cashAccount: chooseBillButton.text ?? "", category: chooseTheCatefory.text ?? "", contractor: textFieldForAgent.text ?? "", description: descriptionTextView.text, status: true, sumOfTransaction: Int(textFieldForSumm.text ?? "") ?? 0, tags: textFieldForTags.text ?? "")
+            let income = IncomeData(actualDate: dateFormatter.string(from: datePicker.date), cashAccount: chooseBillButton.text ?? "", category: chooseTheCatefory.text ?? "", contractor: textFieldForContractor.text ?? "", description: descriptionTextView.text, status: true, sumOfTransaction: Int(textFieldForSumm.text ?? "") ?? 0, tags: textFieldForTags.text ?? "")
             let postRequest = APIRequest(endpoint: "income_transaction")
             postRequest.save(income, completion: { result in
 
@@ -304,13 +324,13 @@ class AddIncomeViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
 
             self.present(alert, animated: true)
-            textFieldForAgent.text = ""
+            textFieldForContractor.text = ""
             textFieldForSumm.text = ""
             textFieldForTags.text = ""
-            chooseBillButton.text = "Выбрать счет ▼"
+            chooseBillButton.text = "Выбрать счет"
             chooseTheCatefory.text = ""
             descriptionTextView.text = ""
-            chooseProjectButton.text = "Выбрать проект(Не обяз.) ▼"
+            chooseProjectButton.text = "Выбрать проект(Не обяз.)"
         }
         
     }

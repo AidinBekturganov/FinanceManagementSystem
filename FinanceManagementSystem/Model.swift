@@ -11,8 +11,21 @@ import Foundation
 
 struct Model {
     
-
+    var transactions = [Transactions]()
  
+}
+
+
+struct Transactions {
+    var date: String
+    var account: String
+    var project: String
+    var type: String
+    var category: String
+    var contractor: String
+    var description1: String
+    var sumOfTransaction: Double
+    var tags: [String]
 }
 
 
@@ -39,18 +52,38 @@ final class IncomeData: Codable {
     
 }
 
+final class ExchangeData: Codable {
+    var actualDate: String
+    var cashAccountFrom: String
+    var cashAccountTo: String
+    var description: String?
+    var sumOfTransaction: Int
+
+    
+    init(actualDate: String, cashAccountFrom: String, cashAccountTo: String, description: String, sumOfTransaction: Int) {
+        self.actualDate = actualDate
+        self.cashAccountFrom = cashAccountFrom
+        self.cashAccountTo = cashAccountTo
+        self.description = description
+        self.sumOfTransaction = sumOfTransaction
+    }
+    
+}
+
 struct ModelOfBook: Codable {
     var actualDate: String
     var cashAccount: String
-    var category: String
-    var contractor: String
-    var description: String
-    var sumOfTransaction: Int
+    var type: String
+    var category: String?
+    var project: String?
+    var contractor: String?
+    var description: String?
+    var sumOfTransaction: Double
     var tags: [Tags]
 }
 
 struct Tags: Codable {
-    var name: String
+    var name: String?
 }
 
 struct Agents: Codable {

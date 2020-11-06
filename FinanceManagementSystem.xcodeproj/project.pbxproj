@@ -23,6 +23,8 @@
 		CE9366F82547C54F008EEBE0 /* AddExpenditureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9366F72547C54F008EEBE0 /* AddExpenditureViewController.swift */; };
 		CE9366FD25480E2E008EEBE0 /* ExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9366FC25480E2E008EEBE0 /* ExchangeViewController.swift */; };
 		CEA4845A254412D300B3976F /* AddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA48459254412D300B3976F /* AddIncomeViewController.swift */; };
+		CEA55537255414F400B8B68D /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA55536255414F400B8B68D /* TransactionTableViewCell.swift */; };
+		CEA5553C25554B1E00B8B68D /* DetailOfTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA5553B25554B1E00B8B68D /* DetailOfTransactionViewController.swift */; };
 		CEA9E97D254FC3A40015527A /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA9E97C254FC3A40015527A /* iOSDropDown.framework */; };
 		DD5F028BF367BCBA2985604E /* Pods_FinanceManagementSystem_FinanceManagementSystemUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B736F1775BAC8B5B6D0E081 /* Pods_FinanceManagementSystem_FinanceManagementSystemUITests.framework */; };
 /* End PBXBuildFile section */
@@ -74,6 +76,8 @@
 		CE9366F72547C54F008EEBE0 /* AddExpenditureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenditureViewController.swift; sourceTree = "<group>"; };
 		CE9366FC25480E2E008EEBE0 /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
 		CEA48459254412D300B3976F /* AddIncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeViewController.swift; sourceTree = "<group>"; };
+		CEA55536255414F400B8B68D /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		CEA5553B25554B1E00B8B68D /* DetailOfTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOfTransactionViewController.swift; sourceTree = "<group>"; };
 		CEA9E97C254FC3A40015527A /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -162,6 +166,8 @@
 				CE9366F72547C54F008EEBE0 /* AddExpenditureViewController.swift */,
 				CE9366FC25480E2E008EEBE0 /* ExchangeViewController.swift */,
 				CE90609E254ECA4200313D02 /* BookOfTransactionsViewController.swift */,
+				CEA5553B25554B1E00B8B68D /* DetailOfTransactionViewController.swift */,
+				CEA55536255414F400B8B68D /* TransactionTableViewCell.swift */,
 				CE5D23A7253471C600AC0678 /* Main.storyboard */,
 				CE5D23AA253471C900AC0678 /* Assets.xcassets */,
 				CE5D23AC253471C900AC0678 /* LaunchScreen.storyboard */,
@@ -429,11 +435,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE5D23A6253471C600AC0678 /* ViewController.swift in Sources */,
+				CEA5553C25554B1E00B8B68D /* DetailOfTransactionViewController.swift in Sources */,
 				CE75988F25497ACC0017595F /* APIRequest.swift in Sources */,
 				CE9366FD25480E2E008EEBE0 /* ExchangeViewController.swift in Sources */,
 				CE5D23A2253471C600AC0678 /* AppDelegate.swift in Sources */,
 				CE5D23A4253471C600AC0678 /* SceneDelegate.swift in Sources */,
 				CEA4845A254412D300B3976F /* AddIncomeViewController.swift in Sources */,
+				CEA55537255414F400B8B68D /* TransactionTableViewCell.swift in Sources */,
 				CE90609F254ECA4200313D02 /* BookOfTransactionsViewController.swift in Sources */,
 				CE9366F82547C54F008EEBE0 /* AddExpenditureViewController.swift in Sources */,
 				CE75989425497CBB0017595F /* Model.swift in Sources */,
