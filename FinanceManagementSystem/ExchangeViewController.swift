@@ -67,6 +67,12 @@ class ExchangeViewController: UIViewController {
         indicatorView.style = .large
         indicatorView.color = UIColor.green
         view.addSubview(indicatorView)
+        
+        summTextField.layer.cornerRadius = 8
+        changeFromButton.layer.cornerRadius = 8
+        changeToButton.layer.cornerRadius = 8
+        commentTextField.layer.cornerRadius = 8
+
     }
     
     func createDropDownButtons() {
@@ -148,36 +154,42 @@ class ExchangeViewController: UIViewController {
 
     @IBAction func addBarButtonPressed(_ sender: Any) {
         if summTextField != nil {
-            
+            setupIndicator()
+            indicatorView.startAnimating()
+            self.view.isUserInteractionEnabled = false
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd-MM-yyyy"
-            let income = ExchangeData(actualDate: dateFormatter.string(from: datePicker.date), cashAccountFrom: changeFromButton.text ?? "", cashAccountTo: changeToButton.text ?? "", description: commentTextField.text, sumOfTransaction: Int(summTextField.text ?? "") ?? 0)
-//            let postRequest = APIRequest(endpoint: "income_transaction")
-//            postRequest.save(income, completion: { result in
-//
-//                switch result {
-//                case .success(let message):
-//
-//                    print("SUCCCESS \(message.message)")
-//                    DispatchQueue.main.async {
-//                        let alert = UIAlertController(title: "Вывод", message: message.message, preferredStyle: .alert)
-//
-//                        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
-//
-//                                self.navigationController?.popViewController(animated: true)
-//
-//                        }))
-//                        self.present(alert, animated: true)
-//
-//                    }
-//
-//                case .failure(let error):
-//                    print("ERROR: \(error)")
-//                }
-//
-//
-//
-//            })
+            //let exchange = ExchangeData(actualDate: "07-11-2020", fromCashAccount: "Demir", toCashAccount: "Демир", tags: "", description: "", sumOfTransaction: 1)
+            let exchange = ExchangeData(actualDate: dateFormatter.string(from: datePicker.date), fromCashAccount: changeFromButton.text ?? "", toCashAccount: changeToButton.text ?? "", tags: "", description: commentTextField.text, sumOfTransaction: Double(summTextField.text ?? "") ?? 0.0)
+            
+            let postRequest = APIRequest(endpoint: "transfer_transaction")
+            postRequest.saveExchange(exchange, completion: { result in
+
+                switch result {
+                case .success(let message):
+
+                    print("SUCCCESS \(message.message)")
+                    DispatchQueue.main.async {
+                        self.indicatorView.stopAnimating()
+                        self.view.isUserInteractionEnabled = true
+                        let alert = UIAlertController(title: "Вывод", message: message.message, preferredStyle: .alert)
+
+                        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
+
+                                self.navigationController?.popViewController(animated: true)
+
+                        }))
+                        self.present(alert, animated: true)
+
+                    }
+
+                case .failure(let error):
+                    print("ERROR: \(error)")
+                }
+
+
+
+            })
             
             
         } else {

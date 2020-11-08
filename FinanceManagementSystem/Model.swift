@@ -19,6 +19,7 @@ struct Model {
 struct Transactions {
     var date: String
     var account: String
+    var cashAccount: String
     var project: String
     var type: String
     var category: String
@@ -34,7 +35,7 @@ final class IncomeData: Codable {
     var cashAccount: String
     var category: String
     var contractor: String?
-    var description: String?
+    var description: String
     var status: Bool
     var sumOfTransaction: Int
     var tags: String?
@@ -54,16 +55,21 @@ final class IncomeData: Codable {
 
 final class ExchangeData: Codable {
     var actualDate: String
-    var cashAccountFrom: String
-    var cashAccountTo: String
     var description: String?
-    var sumOfTransaction: Int
+    var fromCashAccount: String
+    var sumOfTransaction: Double
+    var tags: String?
+    var toCashAccount: String
+   
+   
+  
 
     
-    init(actualDate: String, cashAccountFrom: String, cashAccountTo: String, description: String, sumOfTransaction: Int) {
+    init(actualDate: String, fromCashAccount: String, toCashAccount: String, tags: String, description: String, sumOfTransaction: Double) {
         self.actualDate = actualDate
-        self.cashAccountFrom = cashAccountFrom
-        self.cashAccountTo = cashAccountTo
+        self.tags = tags
+        self.fromCashAccount = fromCashAccount
+        self.toCashAccount = toCashAccount
         self.description = description
         self.sumOfTransaction = sumOfTransaction
     }

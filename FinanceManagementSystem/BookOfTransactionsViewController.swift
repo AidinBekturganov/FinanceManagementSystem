@@ -71,7 +71,6 @@ class BookOfTransactionsViewController: UIViewController {
             
             do {
                 let result: [ModelOfBook] = try JSONDecoder().decode([ModelOfBook].self, from: data ?? Data())
-                print(result)
                 
                 for i in 0..<result.count {
                     self.date = result[i].actualDate
@@ -84,10 +83,15 @@ class BookOfTransactionsViewController: UIViewController {
                     self.description1 = result[i].description ?? "-"
                     self.sumOfTransaction = result[i].sumOfTransaction
                     for index in 0..<result[i].tags.count {
-                        let name1 = result[i].tags[index].name ?? "-"
-                        self.tags.append(name1)
+                        if result[i].tags[index].name == "" {
+                            
+                        } else {
+                            let name1 = result[i].tags[index].name ?? "-"
+                            self.tags.append(name1)
+                        }
+                        
                     }
-                    let trans = Transactions(date: self.date, account: self.account, project: self.project, type: self.type, category: self.category, contractor: self.contractor, description1: self.description1, sumOfTransaction: self.sumOfTransaction, tags: self.tags)
+                    let trans = Transactions(date: self.date, account: self.account, cashAccount: self.account, project: self.project, type: self.type, category: self.category, contractor: self.contractor, description1: self.description1, sumOfTransaction: self.sumOfTransaction, tags: self.tags)
                     self.model.transactions.append(trans)
                 }
                 
@@ -120,7 +124,6 @@ class BookOfTransactionsViewController: UIViewController {
         indicatorView.startAnimating()
         self.view.isUserInteractionEnabled = false
         getData {
-            print("DONE FOR REFRESH BUTTON")
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 self.indicatorView.stopAnimating()
@@ -139,6 +142,10 @@ extension BookOfTransactionsViewController: UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

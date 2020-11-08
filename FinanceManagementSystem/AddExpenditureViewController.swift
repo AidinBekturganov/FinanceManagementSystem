@@ -89,6 +89,14 @@ class AddExpenditureViewController: ViewController {
         indicatorView.style = .large
         indicatorView.color = UIColor.green
         view.addSubview(indicatorView)
+        
+        summTextField.layer.cornerRadius = 8
+        chooseBillButton.layer.cornerRadius = 8
+        tagTextFied.layer.cornerRadius = 8
+        chooseProjectButton.layer.cornerRadius = 8
+        chooseAgentButton.layer.cornerRadius = 8
+        chooseTheCatButton.layer.cornerRadius = 8
+        descriptionTextView.layer.cornerRadius = 8
     }
   
     
@@ -267,7 +275,9 @@ class AddExpenditureViewController: ViewController {
     
     @IBAction func addBarButtonPressed(_ sender: Any) {
         if (summTextField != nil) && (chooseTheCatButton.text != "") {
-            
+            setupIndicator()
+            indicatorView.startAnimating()
+            self.view.isUserInteractionEnabled = false
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd-MM-yyyy"
             let income = IncomeData(actualDate: dateFormatter.string(from: datePicker.date), cashAccount: chooseBillButton.text ?? "", category: chooseTheCatButton.text ?? "", contractor: chooseAgentButton.text ?? "", description: descriptionTextView.text, status: true, sumOfTransaction: Int(summTextField.text ?? "") ?? 0, tags: tagTextFied.text ?? "")
@@ -279,6 +289,8 @@ class AddExpenditureViewController: ViewController {
                     
                     print("SUCCCESS \(message.message)")
                     DispatchQueue.main.async {
+                        self.indicatorView.stopAnimating()
+                        self.view.isUserInteractionEnabled = true
                         let alert = UIAlertController(title: "Вывод", message: message.message, preferredStyle: .alert)
 
                         alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in

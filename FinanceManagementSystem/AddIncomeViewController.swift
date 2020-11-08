@@ -102,6 +102,13 @@ class AddIncomeViewController: UIViewController {
         indicatorView.style = .large
         indicatorView.color = UIColor.green
         view.addSubview(indicatorView)
+        textFieldForSumm.layer.cornerRadius = 8
+        chooseBillButton.layer.cornerRadius = 8
+        textFieldForTags.layer.cornerRadius = 8
+        chooseProjectButton.layer.cornerRadius = 8
+        textFieldForContractor.layer.cornerRadius = 8
+        chooseTheCatefory.layer.cornerRadius = 8
+        descriptionTextView.layer.cornerRadius = 8
     }
   
     
@@ -243,35 +250,7 @@ class AddIncomeViewController: UIViewController {
         chooseProjectButton.optionArray = categories
     }
     
-    func addTransperenty(frames: CGRect) {
-        let window = UIApplication.shared.keyWindow
-        transparetView.frame = window?.frame ?? self.view.frame
-        self.view.addSubview(transparetView)
-        
-        tableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 0)
-        self.view.addSubview(tableView)
-        tableView.layer.cornerRadius = 5
-        
-        transparetView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
-        tableView.reloadData()
-        
-        let tappGesture = UITapGestureRecognizer(target: self, action: #selector(removeTransperenteView))
-        transparetView.addGestureRecognizer(tappGesture)
-        transparetView.alpha = 0
-        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
-            self.transparetView.alpha = 0.5
-            self.tableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height + 5, width: frames.width, height: CGFloat(self.dataSource.count * 50))
-        }, completion: nil)
-    }
-    
-    @objc func removeTransperenteView() {
-        let frames = selectedButton.frame
-        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
-            self.transparetView.alpha = 0
-            self.tableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 0)
-        }, completion: nil)
-    }
-
+   
     @IBAction func clearBarButtonClicked(_ sender: Any) {
         
         textFieldForContractor.text = ""
@@ -285,7 +264,10 @@ class AddIncomeViewController: UIViewController {
     
     
     @IBAction func addBarButtonPressed(_ sender: Any) {
-        if (textFieldForSumm != nil) && (chooseTheCatefory.text != "") && (chooseBillButton.text != "Выбрать счет"){
+        if (textFieldForSumm.text != "") && (chooseTheCatefory.text != "") && (chooseBillButton.text != "Выбрать счет"){
+            setupIndicator()
+            indicatorView.startAnimating()
+            self.view.isUserInteractionEnabled = false
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd-MM-yyyy"
@@ -298,6 +280,8 @@ class AddIncomeViewController: UIViewController {
                     
                     print("SUCCCESS \(message.message)")
                     DispatchQueue.main.async {
+                        self.indicatorView.stopAnimating()
+                        self.view.isUserInteractionEnabled = true
                         let alert = UIAlertController(title: "Вывод", message: message.message, preferredStyle: .alert)
 
                         alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
@@ -324,13 +308,13 @@ class AddIncomeViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
 
             self.present(alert, animated: true)
-            textFieldForContractor.text = ""
-            textFieldForSumm.text = ""
-            textFieldForTags.text = ""
-            chooseBillButton.text = "Выбрать счет"
-            chooseTheCatefory.text = ""
-            descriptionTextView.text = ""
-            chooseProjectButton.text = "Выбрать проект(Не обяз.)"
+//            textFieldForContractor.text = ""
+//            textFieldForSumm.text = ""
+//            textFieldForTags.text = ""
+//            chooseBillButton.text = "Выбрать счет"
+//            chooseTheCatefory.text = ""
+//            descriptionTextView.text = ""
+//            chooseProjectButton.text = "Выбрать проект(Не обяз.)"
         }
         
     }
@@ -356,7 +340,6 @@ extension AddIncomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedButton.setTitle(dataSource[indexPath.row], for: .normal)
-        removeTransperenteView()
     }
     
 }

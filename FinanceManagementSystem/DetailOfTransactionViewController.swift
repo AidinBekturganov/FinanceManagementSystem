@@ -16,6 +16,7 @@ class DetailOfTransactionViewController: UIViewController {
     @IBOutlet weak var tagLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var agentLabel: UILabel!
+    @IBOutlet weak var cashAccountLabel: UILabel!
     @IBOutlet weak var descriptionLAbel: UITextView!
     
 
@@ -32,6 +33,7 @@ class DetailOfTransactionViewController: UIViewController {
     func updateUserInterface() {
         print(item.date)
         dateLabel.text = item.date
+        cashAccountLabel.text = item.account
         categoryLabel.text = "Категория: \(item.category)"
         projectLabel.text = "Проект: \(item.project)"
         summLabel.text = "Сумма: \(String(item.sumOfTransaction))"

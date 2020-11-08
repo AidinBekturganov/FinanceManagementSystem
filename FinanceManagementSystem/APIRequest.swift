@@ -60,4 +60,38 @@ class APIRequest {
             completion(.failure(.encodingProblem))
         }
     }
+    
+    func saveExchange(_ messageToSave: ExchangeData, completion: @escaping(Result<ResponseCatch, APIError>) -> Void) {
+        
+        do {
+            var urlRequest = URLRequest(url: resourceURL)
+            urlRequest.httpMethod = "POST"
+            urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            urlRequest.httpBody = try JSONEncoder().encode(messageToSave)
+            
+            let dataTask = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200, let jsonData = data else {
+                    completion(.failure(.responseProblem))
+                    
+                    return
+                }
+                
+                if let data = data {
+                    do {
+                       let messageData = try JSONDecoder().decode(ResponseCatch.self, from: jsonData)
+                        completion(.success(messageData))
+ 
+                    } catch {
+                        print("ERROR IN CATCH")
+                    }
+                }
+                
+            }
+            
+            dataTask.resume()
+        } catch {
+            completion(.failure(.encodingProblem))
+        }
+    }
+
 }
