@@ -15,16 +15,19 @@ class TransactionTableViewCell: UITableViewCell {
     
     var trans: Transactions! {
         didSet {
-            dateLabel.text = trans.date
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd-MM-yyyy"
+            let dateString = dateFormatter.string(from: trans.date )
+            dateLabel.text = "\(dateString)"
             categoryLabel.text = trans.category
             if trans.type == "Доход" {
-                summLabel.textColor = .green
+                summLabel.textColor = UIColor(red: 36/255, green: 180/255, blue: 130/255, alpha: 1)
                 summLabel.text = "+ \(String(trans.sumOfTransaction))"
             } else if trans.type == "Расход" {
                 summLabel.text = "- \(String(trans.sumOfTransaction))"
-                summLabel.textColor = .red
+                summLabel.textColor = UIColor(red: 224/255, green: 47/255, blue: 47/255, alpha: 0.89)
             } else if trans.type == "Перевод" {
-                summLabel.textColor = .black
+                summLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.69)
                 summLabel.text = "  \(String(trans.sumOfTransaction))"
             }
         }

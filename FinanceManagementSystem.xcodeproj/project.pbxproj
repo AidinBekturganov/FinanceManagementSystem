@@ -9,20 +9,30 @@
 /* Begin PBXBuildFile section */
 		93924538ADDD9C37F3517373 /* Pods_FinanceManagementSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91CC4DF69C02FA80E334835F /* Pods_FinanceManagementSystem.framework */; };
 		A70500E2FCCADF61715B57D2 /* Pods_FinanceManagementSystemTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EDCA8BB69937CC322D32B54 /* Pods_FinanceManagementSystemTests.framework */; };
+		CE11595D256661E300BBCB2C /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11595C256661E300BBCB2C /* TestViewController.swift */; };
+		CE11596525682BB600BBCB2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE11596425682BB500BBCB2C /* Assets.xcassets */; };
+		CE11597225682CA800BBCB2C /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE11596F25682CA800BBCB2C /* Roboto-Regular.ttf */; };
+		CE11597325682CA800BBCB2C /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE11597025682CA800BBCB2C /* Roboto-Medium.ttf */; };
+		CE11597425682CA800BBCB2C /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE11597125682CA800BBCB2C /* Roboto-Light.ttf */; };
+		CE11597E25682EF900BBCB2C /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11597D25682EF900BBCB2C /* MainPageViewController.swift */; };
 		CE5D23A2253471C600AC0678 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5D23A1253471C600AC0678 /* AppDelegate.swift */; };
 		CE5D23A4253471C600AC0678 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5D23A3253471C600AC0678 /* SceneDelegate.swift */; };
 		CE5D23A6253471C600AC0678 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5D23A5253471C600AC0678 /* ViewController.swift */; };
 		CE5D23A9253471C600AC0678 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE5D23A7253471C600AC0678 /* Main.storyboard */; };
-		CE5D23AB253471C900AC0678 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE5D23AA253471C900AC0678 /* Assets.xcassets */; };
 		CE5D23AE253471C900AC0678 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE5D23AC253471C900AC0678 /* LaunchScreen.storyboard */; };
 		CE5D23B9253471C900AC0678 /* FinanceManagementSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5D23B8253471C900AC0678 /* FinanceManagementSystemTests.swift */; };
 		CE5D23C4253471C900AC0678 /* FinanceManagementSystemUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5D23C3253471C900AC0678 /* FinanceManagementSystemUITests.swift */; };
+		CE73ADD92572C1CA00718BA3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73ADD82572C1CA00718BA3 /* Constants.swift */; };
 		CE75988F25497ACC0017595F /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75988E25497ACC0017595F /* APIRequest.swift */; };
 		CE75989425497CBB0017595F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75989325497CBB0017595F /* Model.swift */; };
+		CE76702B255FB0A400036C3E /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76702A255FB0A400036C3E /* AuthViewController.swift */; };
+		CE767030255FB12D00036C3E /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76702F255FB12D00036C3E /* DesignableView.swift */; };
+		CE77B4062568D35B00E0DCFC /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE77B4052568D35B00E0DCFC /* Roboto-Bold.ttf */; };
 		CE90609F254ECA4200313D02 /* BookOfTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90609E254ECA4200313D02 /* BookOfTransactionsViewController.swift */; };
 		CE9366F82547C54F008EEBE0 /* AddExpenditureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9366F72547C54F008EEBE0 /* AddExpenditureViewController.swift */; };
 		CE9366FD25480E2E008EEBE0 /* ExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9366FC25480E2E008EEBE0 /* ExchangeViewController.swift */; };
 		CEA4845A254412D300B3976F /* AddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA48459254412D300B3976F /* AddIncomeViewController.swift */; };
+		CEA53671256907E9004762AB /* BillsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA53670256907E9004762AB /* BillsTableViewCell.swift */; };
 		CEA55537255414F400B8B68D /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA55536255414F400B8B68D /* TransactionTableViewCell.swift */; };
 		CEA5553C25554B1E00B8B68D /* DetailOfTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA5553B25554B1E00B8B68D /* DetailOfTransactionViewController.swift */; };
 		CEA9E97D254FC3A40015527A /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA9E97C254FC3A40015527A /* iOSDropDown.framework */; };
@@ -57,12 +67,17 @@
 		8EDCA8BB69937CC322D32B54 /* Pods_FinanceManagementSystemTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinanceManagementSystemTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91CC4DF69C02FA80E334835F /* Pods_FinanceManagementSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinanceManagementSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96F3265E1C34DE5406F504AE /* Pods-FinanceManagementSystem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinanceManagementSystem.debug.xcconfig"; path = "Target Support Files/Pods-FinanceManagementSystem/Pods-FinanceManagementSystem.debug.xcconfig"; sourceTree = "<group>"; };
+		CE11595C256661E300BBCB2C /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		CE11596425682BB500BBCB2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CE11596F25682CA800BBCB2C /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "FinanceManagementSystem/Assets/Fonts/Roboto-Regular.ttf"; sourceTree = SOURCE_ROOT; };
+		CE11597025682CA800BBCB2C /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Medium.ttf"; path = "FinanceManagementSystem/Assets/Fonts/Roboto-Medium.ttf"; sourceTree = SOURCE_ROOT; };
+		CE11597125682CA800BBCB2C /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Light.ttf"; path = "FinanceManagementSystem/Assets/Fonts/Roboto-Light.ttf"; sourceTree = SOURCE_ROOT; };
+		CE11597D25682EF900BBCB2C /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		CE5D239E253471C600AC0678 /* FinanceManagementSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceManagementSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5D23A1253471C600AC0678 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE5D23A3253471C600AC0678 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CE5D23A5253471C600AC0678 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CE5D23A8253471C600AC0678 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CE5D23AA253471C900AC0678 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE5D23AD253471C900AC0678 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE5D23AF253471C900AC0678 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE5D23B4253471C900AC0678 /* FinanceManagementSystemTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinanceManagementSystemTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,12 +86,17 @@
 		CE5D23BF253471C900AC0678 /* FinanceManagementSystemUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinanceManagementSystemUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5D23C3253471C900AC0678 /* FinanceManagementSystemUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceManagementSystemUITests.swift; sourceTree = "<group>"; };
 		CE5D23C5253471C900AC0678 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE73ADD82572C1CA00718BA3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CE75988E25497ACC0017595F /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		CE75989325497CBB0017595F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		CE76702A255FB0A400036C3E /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		CE76702F255FB12D00036C3E /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
+		CE77B4052568D35B00E0DCFC /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		CE90609E254ECA4200313D02 /* BookOfTransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookOfTransactionsViewController.swift; sourceTree = "<group>"; };
 		CE9366F72547C54F008EEBE0 /* AddExpenditureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenditureViewController.swift; sourceTree = "<group>"; };
 		CE9366FC25480E2E008EEBE0 /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
 		CEA48459254412D300B3976F /* AddIncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeViewController.swift; sourceTree = "<group>"; };
+		CEA53670256907E9004762AB /* BillsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillsTableViewCell.swift; sourceTree = "<group>"; };
 		CEA55536255414F400B8B68D /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		CEA5553B25554B1E00B8B68D /* DetailOfTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOfTransactionViewController.swift; sourceTree = "<group>"; };
 		CEA9E97C254FC3A40015527A /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +156,55 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		CE11596925682BD600BBCB2C /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				CE11596E25682C7100BBCB2C /* Font */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		CE11596E25682C7100BBCB2C /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				CE11597125682CA800BBCB2C /* Roboto-Light.ttf */,
+				CE77B4052568D35B00E0DCFC /* Roboto-Bold.ttf */,
+				CE11597025682CA800BBCB2C /* Roboto-Medium.ttf */,
+				CE11596F25682CA800BBCB2C /* Roboto-Regular.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		CE11597825682E7500BBCB2C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CEA48459254412D300B3976F /* AddIncomeViewController.swift */,
+				CE90609E254ECA4200313D02 /* BookOfTransactionsViewController.swift */,
+				CE11597D25682EF900BBCB2C /* MainPageViewController.swift */,
+				CEA53670256907E9004762AB /* BillsTableViewCell.swift */,
+				CEA55536255414F400B8B68D /* TransactionTableViewCell.swift */,
+				CE76702A255FB0A400036C3E /* AuthViewController.swift */,
+				CE5D23A5253471C600AC0678 /* ViewController.swift */,
+				CE9366F72547C54F008EEBE0 /* AddExpenditureViewController.swift */,
+				CE9366FC25480E2E008EEBE0 /* ExchangeViewController.swift */,
+				CEA5553B25554B1E00B8B68D /* DetailOfTransactionViewController.swift */,
+				CEAAE9852556C14E00844173 /* FilterTableViewController.swift */,
+				CE76702F255FB12D00036C3E /* DesignableView.swift */,
+				CE11595C256661E300BBCB2C /* TestViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CE11597925682E9D00BBCB2C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CE75988E25497ACC0017595F /* APIRequest.swift */,
+				CE75989325497CBB0017595F /* Model.swift */,
+				CE73ADD82572C1CA00718BA3 /* Constants.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		CE5D2395253471C600AC0678 = {
 			isa = PBXGroup;
 			children = (
@@ -163,20 +232,13 @@
 			children = (
 				CE5D23A1253471C600AC0678 /* AppDelegate.swift */,
 				CE5D23A3253471C600AC0678 /* SceneDelegate.swift */,
-				CE5D23A5253471C600AC0678 /* ViewController.swift */,
-				CEA48459254412D300B3976F /* AddIncomeViewController.swift */,
-				CE9366F72547C54F008EEBE0 /* AddExpenditureViewController.swift */,
-				CE9366FC25480E2E008EEBE0 /* ExchangeViewController.swift */,
-				CE90609E254ECA4200313D02 /* BookOfTransactionsViewController.swift */,
-				CEA5553B25554B1E00B8B68D /* DetailOfTransactionViewController.swift */,
-				CEAAE9852556C14E00844173 /* FilterTableViewController.swift */,
-				CEA55536255414F400B8B68D /* TransactionTableViewCell.swift */,
+				CE11597925682E9D00BBCB2C /* Models */,
+				CE11597825682E7500BBCB2C /* Controllers */,
+				CE11596425682BB500BBCB2C /* Assets.xcassets */,
 				CE5D23A7253471C600AC0678 /* Main.storyboard */,
-				CE5D23AA253471C900AC0678 /* Assets.xcassets */,
 				CE5D23AC253471C900AC0678 /* LaunchScreen.storyboard */,
 				CE5D23AF253471C900AC0678 /* Info.plist */,
-				CE75988E25497ACC0017595F /* APIRequest.swift */,
-				CE75989325497CBB0017595F /* Model.swift */,
+				CE11596925682BD600BBCB2C /* Assets */,
 			);
 			path = FinanceManagementSystem;
 			sourceTree = "<group>";
@@ -307,8 +369,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE77B4062568D35B00E0DCFC /* Roboto-Bold.ttf in Resources */,
+				CE11597325682CA800BBCB2C /* Roboto-Medium.ttf in Resources */,
 				CE5D23AE253471C900AC0678 /* LaunchScreen.storyboard in Resources */,
-				CE5D23AB253471C900AC0678 /* Assets.xcassets in Resources */,
+				CE11597425682CA800BBCB2C /* Roboto-Light.ttf in Resources */,
+				CE11596525682BB600BBCB2C /* Assets.xcassets in Resources */,
+				CE11597225682CA800BBCB2C /* Roboto-Regular.ttf in Resources */,
 				CE5D23A9253471C600AC0678 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,14 +507,20 @@
 				CEA5553C25554B1E00B8B68D /* DetailOfTransactionViewController.swift in Sources */,
 				CE75988F25497ACC0017595F /* APIRequest.swift in Sources */,
 				CE9366FD25480E2E008EEBE0 /* ExchangeViewController.swift in Sources */,
+				CEA53671256907E9004762AB /* BillsTableViewCell.swift in Sources */,
+				CE767030255FB12D00036C3E /* DesignableView.swift in Sources */,
 				CE5D23A2253471C600AC0678 /* AppDelegate.swift in Sources */,
 				CE5D23A4253471C600AC0678 /* SceneDelegate.swift in Sources */,
 				CEA4845A254412D300B3976F /* AddIncomeViewController.swift in Sources */,
+				CE11597E25682EF900BBCB2C /* MainPageViewController.swift in Sources */,
 				CEAAE9862556C14E00844173 /* FilterTableViewController.swift in Sources */,
+				CE76702B255FB0A400036C3E /* AuthViewController.swift in Sources */,
+				CE11595D256661E300BBCB2C /* TestViewController.swift in Sources */,
 				CEA55537255414F400B8B68D /* TransactionTableViewCell.swift in Sources */,
 				CE90609F254ECA4200313D02 /* BookOfTransactionsViewController.swift in Sources */,
 				CE9366F82547C54F008EEBE0 /* AddExpenditureViewController.swift in Sources */,
 				CE75989425497CBB0017595F /* Model.swift in Sources */,
+				CE73ADD92572C1CA00718BA3 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

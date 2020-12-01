@@ -1,5 +1,5 @@
 //
-//  AddExpenditureViewController.swift
+//  ExchangeViewController.swift
 //  FinanceManagementSystem
 //
 //  Created by User on 10/27/20.
@@ -9,36 +9,29 @@ import UIKit
 import iOSDropDown
 
 
-
-class CellClassForExpenditure: UITableViewCell {
+class CellClassForExchange: UITableViewCell {
     
 }
 
-class AddExpenditureViewController: ViewController {
+class ExchangeViewController: UIViewController {
 
-    
     @IBOutlet weak var summTextField: UITextField!
-    @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var tagTextFied: UITextField!
-    @IBOutlet weak var chooseTheCatButton: DropDown!
-    @IBOutlet weak var chooseBillButton: DropDown!
-    @IBOutlet weak var chooseAgentButton: DropDown!
-    @IBOutlet weak var chooseProjectButton: DropDown!
     @IBOutlet weak var commentTextField: UITextView!
-    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var changeFromButton: DropDown!
+    @IBOutlet weak var changeToButton: DropDown!
     
     let transparetView = UIView()
     let tableView = UITableView()
-    var selectedButton = UIButton()
     var indicatorView = UIActivityIndicatorView()
-    
+
     var dataSource = [String]()
     let date = Date()
-    var namesOfAgents = [String]()
-    var incomeCategories = [String]()
-    var categories = [String]()
-
+    var selectedButton = UIButton()
+    let defaults = UserDefaults()
+    
     var accounts = [Accounts]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,39 +42,25 @@ class AddExpenditureViewController: ViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(CellClass.self, forCellReuseIdentifier: "Cell")
+        tableView.register(CellClassForExchange.self, forCellReuseIdentifier: "Cell")
+        
         setupIndicator()
         indicatorView.startAnimating()
         self.view.isUserInteractionEnabled = false
         
-        getProjects {
-        }
-        
         getAccounts {
             print("sa")
-        }
-        
-        
-      
-        getCategory {
-            print("DONE")
-            self.getAgents {
-                print("Ready")
-                DispatchQueue.main.async {
-                    self.createDropDownButtons()
-                    self.indicatorView.stopAnimating()
-                    self.view.isUserInteractionEnabled = true
-                }
+            DispatchQueue.main.async {
+                self.createDropDownButtons()
+                self.indicatorView.stopAnimating()
+                self.view.isUserInteractionEnabled = true
             }
-            
-            
         }
-    
+
         
         datePicker.datePickerMode = .date
         
-    }
-    
+        }
     
     func setupIndicator() {
         indicatorView.center = self.view.center
@@ -91,14 +70,28 @@ class AddExpenditureViewController: ViewController {
         view.addSubview(indicatorView)
         
         summTextField.layer.cornerRadius = 8
-        chooseBillButton.layer.cornerRadius = 8
-        tagTextFied.layer.cornerRadius = 8
-        chooseProjectButton.layer.cornerRadius = 8
-        chooseAgentButton.layer.cornerRadius = 8
-        chooseTheCatButton.layer.cornerRadius = 8
-        descriptionTextView.layer.cornerRadius = 8
+        changeFromButton.layer.cornerRadius = 8
+        changeToButton.layer.cornerRadius = 8
+        commentTextField.layer.cornerRadius = 8
+
     }
-  
+    
+    func createDropDownButtons() {
+        var acounts = [String]()
+        for i in 0..<accounts.count {
+            acounts.append(accounts[i].name)
+        }
+        
+        changeToButton.optionArray = acounts
+        changeFromButton.optionArray = acounts
+        
+        changeToButton.checkMarkEnabled = false
+        changeFromButton.checkMarkEnabled = false
+        changeToButton.selectedRowColor = .black
+        changeFromButton.selectedRowColor = .black
+        
+    }
+    
     
      func getAccounts(completed: @escaping () -> ()) {
         let urlString = "https://fms-neobis.herokuapp.com/cash_accounts"
@@ -107,9 +100,13 @@ class AddExpenditureViewController: ViewController {
             return
         }
         
+        let token = defaults.object(forKey:"token") as? String ?? ""
+        var request = URLRequest(url: url)
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
         let session = URLSession.shared
         
-        let task = session.dataTask(with: url) { (data, response, error) in
+        let task = session.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print("Error: \(error)")
             }
@@ -117,7 +114,7 @@ class AddExpenditureViewController: ViewController {
                 let result: [CashAccounts] = try JSONDecoder().decode([CashAccounts].self, from: data!)
                 
                 for index in 0..<result.count {
-                    let resp = Accounts(name: result[index].name, sumInAccounts: result[index].sumInAccount)
+                    let resp = Accounts(name: result[index].name ?? "", sumInAccounts: result[index].sumInAccount ?? 0)
                    
                     self.accounts.append(resp)
                 
@@ -134,109 +131,7 @@ class AddExpenditureViewController: ViewController {
             
     }
     
-     func getAgents(completed: @escaping () -> ()) {
-        let urlString = "https://fms-neobis.herokuapp.com/contractors"
-        guard let url = URL(string: urlString) else {
-            completed()
-            return
-        }
-        
-        let session = URLSession.shared
-        
-        let task = session.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                print("Error: \(error)")
-            }
-            do {
-                let result: [Agents] = try JSONDecoder().decode([Agents].self, from: data!)
-                print(result)
-                for index in 0..<result.count {
-                    self.namesOfAgents.append(result[index].name)
-                }
-            } catch {
-                
-                print("ERROR")
-            }
-            completed()
-            
-        }
-        task.resume()
-            
-    }
     
-     func getCategory(completed: @escaping () -> ()) {
-        let urlString = "https://fms-neobis.herokuapp.com/expenses_categories"
-        guard let url = URL(string: urlString) else {
-            completed()
-            return
-        }
-        
-        let session = URLSession.shared
-        
-        let task = session.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                print("Error: \(error)")
-            }
-            do {
-                let result: [IncomeCategories] = try JSONDecoder().decode([IncomeCategories].self, from: data!)
-                print(result)
-                for index in 0..<result.count {
-                    print(result[index].categoryName)
-                    self.incomeCategories.append(result[index].categoryName)
-                }
-            } catch {
-                
-                print("ERROR")
-            }
-            completed()
-            
-        }
-        task.resume()
-            
-    }
-    
-     func getProjects(completed: @escaping () -> ()) {
-        let urlString = "https://fms-neobis.herokuapp.com/projects"
-        guard let url = URL(string: urlString) else {
-            completed()
-            return
-        }
-        
-        let session = URLSession.shared
-        
-        let task = session.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                print("Error: \(error)")
-            }
-            do {
-                let result: [Categories] = try JSONDecoder().decode([Categories].self, from: data!)
-                print(result)
-                for index in 0..<result.count {
-                    print(result[index].name)
-                    self.categories.append(result[index].name)
-                }
-            } catch {
-                
-                print("ERROR")
-            }
-            completed()
-            
-        }
-        task.resume()
-            
-    }
-    
-  
-    func createDropDownButtons() {
-        var acounts = [String]()
-        for i in 0..<accounts.count {
-            acounts.append(accounts[i].name)
-        }
-        chooseAgentButton.optionArray = namesOfAgents
-        chooseTheCatButton.optionArray = incomeCategories
-        chooseBillButton.optionArray = acounts
-        chooseProjectButton.optionArray = categories
-    }
     
     func addTransperenty(frames: CGRect) {
         let window = UIApplication.shared.keyWindow
@@ -266,27 +161,23 @@ class AddExpenditureViewController: ViewController {
             self.tableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 0)
         }, completion: nil)
     }
-    
-    
-    @IBAction func clearBarButtonClicked(_ sender: Any) {
-        
-    }
-    
-    
+
     @IBAction func addBarButtonPressed(_ sender: Any) {
-        if (summTextField != nil) && (chooseTheCatButton.text != "") {
+        if summTextField != nil {
             setupIndicator()
             indicatorView.startAnimating()
             self.view.isUserInteractionEnabled = false
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd-MM-yyyy"
-            let income = IncomeData(actualDate: dateFormatter.string(from: datePicker.date), cashAccount: chooseBillButton.text ?? "", category: chooseTheCatButton.text ?? "", contractor: chooseAgentButton.text ?? "", description: descriptionTextView.text, status: true, sumOfTransaction: Int(summTextField.text ?? "") ?? 0, tags: tagTextFied.text ?? "")
-            let postRequest = APIRequest(endpoint: "expense_transaction")
-            postRequest.save(income, completion: { result in
+            //let exchange = ExchangeData(actualDate: "07-11-2020", fromCashAccount: "Demir", toCashAccount: "Демир", tags: "", description: "", sumOfTransaction: 1)
+            let exchange = ExchangeData(actualDate: dateFormatter.string(from: datePicker.date), fromCashAccount: changeFromButton.text ?? "", toCashAccount: changeToButton.text ?? "", tags: "", description: commentTextField.text, sumOfTransaction: Double(summTextField.text ?? "") ?? 0.0)
+            
+            let postRequest = APIRequest(endpoint: "transfer_transaction")
+            postRequest.saveExchange(exchange, completion: { result in
 
                 switch result {
                 case .success(let message):
-                    
+
                     print("SUCCCESS \(message.message)")
                     DispatchQueue.main.async {
                         self.indicatorView.stopAnimating()
@@ -294,19 +185,31 @@ class AddExpenditureViewController: ViewController {
                         let alert = UIAlertController(title: "Вывод", message: message.message, preferredStyle: .alert)
 
                         alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
-                           
+
                                 self.navigationController?.popViewController(animated: true)
+
+                        }))
+                        self.present(alert, animated: true)
+
+                    }
+
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        self.indicatorView.stopAnimating()
+                        self.view.isUserInteractionEnabled = true
+                        let alert = UIAlertController(title: "Ошибка сервера", message: "Попробуйте отправить запрос позже или обратитесь администратору", preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
+                            
+                            self.navigationController?.popViewController(animated: true)
                             
                         }))
                         self.present(alert, animated: true)
-                        
                     }
-                    
-                case .failure(let error):
                     print("ERROR: \(error)")
                 }
-               
-                
+
+
 
             })
             
@@ -317,19 +220,24 @@ class AddExpenditureViewController: ViewController {
             alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
 
             self.present(alert, animated: true)
-            chooseAgentButton.text = ""
+            changeFromButton.text = ""
+            changeToButton.text = ""
             summTextField.text = ""
-            tagTextFied.text = ""
-            chooseBillButton.text = "Выбрать счет ▼"
-            chooseTheCatButton.text = ""
-            descriptionTextView.text = ""
-            chooseProjectButton.text = "Выбрать проект(Не обяз.) ▼"
+            commentTextField.text = ""
         }
-    
     }
+    
+    @IBAction func clearBarButtonPressed(_ sender: Any) {
+        changeFromButton.text = ""
+        changeToButton.text = ""
+        summTextField.text = ""
+        commentTextField.text = ""
+    }
+    
 }
 
-extension AddExpenditureViewController: UITableViewDelegate, UITableViewDataSource {
+
+extension ExchangeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
     }

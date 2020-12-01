@@ -7,7 +7,9 @@ target 'FinanceManagementSystem' do
 
   # Pods for FinanceManagementSystem
 
+  pod 'PieCharts'
   pod 'iOSDropDown'
+  pod 'ChartLegends'
 
   target 'FinanceManagementSystemTests' do
     inherit! :search_paths

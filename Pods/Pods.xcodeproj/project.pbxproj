@@ -3,95 +3,249 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07EC05367FB06380F8534C2019A4B573 /* PieChartDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CE666AF2B7F223F8A91C31841386EE /* PieChartDelegate.swift */; };
+		0BBAB7A3752980B5B6CCB9CEC7B0778E /* DefaultShapeChartLegend.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5319F07FC72ACDD9F749DB46B8D6D26 /* DefaultShapeChartLegend.swift */; };
+		0C9E8BCCB172BB6150E5E700AE6DD12A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 276842F3A283EE87124FE6C3EAAFD184 /* CoreGraphics.framework */; };
+		17A15506D75DE971652E32CB537F907A /* ChartLegend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862FA2A587A85B61CD9F8FF384E1C3E1 /* ChartLegend.swift */; };
+		1842EC7C7D3701CD9077493C2D83BE2A /* TextLabelChartLegendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06D8978F5F42BAD58B5522204A20FD29 /* TextLabelChartLegendCell.xib */; };
+		18B8C262593617A927666E1B87BB1CF4 /* PieChartLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206C022614679072D4B1F07CB86EDA32 /* PieChartLayer.swift */; };
+		1C63CBD5EB153DB04E704EEC544F1012 /* ChartLegendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8659E803657C9CAEEAA5B0CEB1358AAD /* ChartLegendCell.swift */; };
+		1E86E343525E87979BCFC276BBA27AF9 /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B6BF9FF30CEAD07758A355D9CE96F3 /* CGRect.swift */; };
+		3727D81A8E60CB1969513D03205F4D1F /* AlphaPieViewLayerAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3D495ED02BC4CB2722B8F891CB1479 /* AlphaPieViewLayerAnimator.swift */; };
+		3960830A7A0E2FD4F1DCA21A9E90BB8A /* ChartLegends-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FC37CC993A8C01E3A58C1E0CEB12880D /* ChartLegends-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AE21F83CEC0ED6D1C6C1F8D3AFDD02D /* ShapeChartLegend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799A138785209AAD7C6D6AE7F56101B /* ShapeChartLegend.swift */; };
+		3BA0B6BB4AE8C5DCF676C4C64F06ABAD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BDA658338AD3813D969D7011B56B8D /* UIKit.framework */; };
+		3D2774F90EF7669ECF497E09A1CEFC52 /* Pods-FinanceManagementSystem-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 415D492E427A4CB0A02D69EF77D8CA48 /* Pods-FinanceManagementSystem-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3EBC4ACD6C48C7B09A39480409CEB6B7 /* Pods-FinanceManagementSystemTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 47643EE0F1C314C97353FC1B60ECE602 /* Pods-FinanceManagementSystemTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4142EA60DB5CDDBFBA710C77CEC6B6FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
-		46DD08FB7D6071E99E75ECDBA47E90C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312B988EF117AE4DE76A268D970131FE /* UIKit.framework */; };
+		445E44384801E7271307965BFE1D1338 /* ChartLegendsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11257EC7C8FCA464E360FF38C57651DD /* ChartLegendsDelegate.swift */; };
+		46DD08FB7D6071E99E75ECDBA47E90C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BDA658338AD3813D969D7011B56B8D /* UIKit.framework */; };
+		47CE76EFE3E1B1CEFA939F7A4CE0AD48 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD608BCCF279B1277BB911F33106997F /* Foundation.framework */; };
+		4A7CC7D372F1661E31FAF25EBCDC93E8 /* ChartLegends.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F90B446F0A7A459520FB4056C07A158F /* ChartLegends.bundle */; };
+		4B2B588D271EDCD225B678A0B28C655E /* DefaultPlainChartLegend.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E95B417495692909A4F1141D75A62D /* DefaultPlainChartLegend.swift */; };
+		4CADD26CD9642C4BBA9CBF7CC93FE999 /* Pods-FinanceManagementSystem-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AED7859A5C97A2097EE8A9B726DD005 /* Pods-FinanceManagementSystem-dummy.m */; };
+		4F1482B381CE2F3CCC62015F22F2CD86 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6581DF8330D5A3A7426C7EFD6E6F7C6E /* PieChart.swift */; };
+		4FFB7B92EADD1ACB274481479CC7A4AD /* DefaultChartLegendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3021292D99C2D699CA902FAD98AA0AA /* DefaultChartLegendCell.swift */; };
+		589D45297AE8374C02A9DC0F719C2474 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86167512EB0DB2A8CD976442AB211F01 /* LeftAlignedCollectionViewFlowLayout.swift */; };
+		5FDBACE328D82B6557E164F4C21A7B1F /* PieCustomViewsLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C625242A03599406FCBBAC117BBF8B /* PieCustomViewsLayer.swift */; };
 		6094CC0BEC5377F8303B2B3F36E211B0 /* Pods-FinanceManagementSystemTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 71504E6E21E5E1ED1D7E1D01CD717BFA /* Pods-FinanceManagementSystemTests-dummy.m */; };
-		6762724102132C861217B911E70056ED /* iOSDropDown-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A78BF6B03DED20C609704AE7C949C04 /* iOSDropDown-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6ADFB626C34AA35AC883469526699F8D /* iOSDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2DBD197BF8C4A95CF11BB10B92F671 /* iOSDropDown.swift */; };
-		70D95F2B34F42FB76FB5E7188D2A3608 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
-		76EF964EB3C96D622C7AC617EB13BC48 /* Pods-FinanceManagementSystem-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AED7859A5C97A2097EE8A9B726DD005 /* Pods-FinanceManagementSystem-dummy.m */; };
-		7FE17244EBDDD99F89B190D7E879742F /* Pods-FinanceManagementSystem-FinanceManagementSystemUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 748B660D094ECF3359F6E1E4A5DFA806 /* Pods-FinanceManagementSystem-FinanceManagementSystemUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8372258821D0708558A8965679C64DF4 /* Pods-FinanceManagementSystem-FinanceManagementSystemUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B994076442B7FDA6571F86E216E244B /* Pods-FinanceManagementSystem-FinanceManagementSystemUITests-dummy.m */; };
-		8D764497CB15A4328CD24CC29F6CBD0B /* Pods-FinanceManagementSystem-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 415D492E427A4CB0A02D69EF77D8CA48 /* Pods-FinanceManagementSystem-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C312131E6526BFB7C1CB92D93D58FCC7 /* iOSDropDown-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 562E1B0CB7AF0F74F35EBD9B634DF54D /* iOSDropDown-dummy.m */; };
-		DF7F7B12B8671C47A0BB16093CEBD91E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
-		FB1A59DAD92E574036C966A2CD221FAB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		63263C8E6CCEEDE151A12FABE6E0CE46 /* PlainChartLegend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0575BEADF34F4D34665994EE0D7968C3 /* PlainChartLegend.swift */; };
+		6762724102132C861217B911E70056ED /* iOSDropDown-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 131970A3064E7EF06A899F8CD2CBDD83 /* iOSDropDown-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6817252EC3EEB201A9A25F15E1E2579C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BDA658338AD3813D969D7011B56B8D /* UIKit.framework */; };
+		688010A7770B6DC9E7E1A69636A6A1BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD608BCCF279B1277BB911F33106997F /* Foundation.framework */; };
+		6ADFB626C34AA35AC883469526699F8D /* iOSDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6736BAE44FE05BA9BFCDC6676B0D20C2 /* iOSDropDown.swift */; };
+		6D42FD4C06FBECD4D0076BA0F164E3D7 /* AlphaPieLineTextLayerAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861DEF61A7E4D2170C03E39D022ADB67 /* AlphaPieLineTextLayerAnimator.swift */; };
+		70D95F2B34F42FB76FB5E7188D2A3608 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD608BCCF279B1277BB911F33106997F /* Foundation.framework */; };
+		72DFA52251B1CCDA8EA52EC58691117C /* TextLabelChartLegendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01067DC31967CF9D2E12F51E202EE7A /* TextLabelChartLegendCell.swift */; };
+		78FAD6E2B3FE9DD871270AF82D20D4DA /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5361B65375CB166D7B76C0CA0CA2A1B /* Globals.swift */; };
+		7901467B041E7B64C0C2FB421D545B63 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD608BCCF279B1277BB911F33106997F /* Foundation.framework */; };
+		7A7984E07262D3ECB6277289F157F11F /* Pods-FinanceManagementSystem-FinanceManagementSystemUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 748B660D094ECF3359F6E1E4A5DFA806 /* Pods-FinanceManagementSystem-FinanceManagementSystemUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E6B196CAF3158C2DD5587DFC9E8F453 /* ChartLegendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D877D859BB277B5371F036925FF61D /* ChartLegendsView.swift */; };
+		913AF8577C52A01F3C0DCAF27FDE9AA5 /* PieSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8527F151C274A4B47F36D2EB4AB4B4A2 /* PieSlice.swift */; };
+		945F66CC57EB589300296B053DE94D2C /* PieSliceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A30AC11B0BE324C68F146CD1A531513 /* PieSliceLayer.swift */; };
+		9792F96C394A295EDD2FB7659C5DADC8 /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D13B77D2FF786D683EB899DF3BAAE4 /* CellType.swift */; };
+		9D42D95CF916C54F70AB417E50ABCFD2 /* PieLineTextLayerAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE403FBB85AC951354AFCBE27991299 /* PieLineTextLayerAnimator.swift */; };
+		9DD6B8B401394DFCD218A02A3BDB5C03 /* ChartLegendsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C192EA40F6E91CD2569F8D2B6F68768 /* ChartLegendsLayout.swift */; };
+		A885151A6F1300266EDE677E27EA8CF7 /* PieSliceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C80DE70C6D815AC34D11595727F8FF1 /* PieSliceModel.swift */; };
+		AF63525C26B16ECA99775FEEB5D9DAFB /* CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C8FBD64F6D15B01F397C5F68445C92 /* CGPoint.swift */; };
+		B03E8E2F62190B19257A70EAABA5B97C /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6F8793CCDCDD4EFFBE08EB6D91FDFC /* Int.swift */; };
+		B2AC85E53FA4319F6FF7D0CC6BBFB40D /* PieViewLayerAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBC2DFF659A10D7C8C5382F17959668 /* PieViewLayerAnimator.swift */; };
+		B4276F94CA06EAE3BCCCC62FE31BA272 /* ChartLegendsConstraintConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053AB3AD5E0BF98AA1EBB0C87BFB5870 /* ChartLegendsConstraintConstants.swift */; };
+		BBAF931620A2C7B622EC073B2FA16F89 /* PieCharts-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEDF704F5585BE052CDC58E9207385C /* PieCharts-dummy.m */; };
+		BCD6AA5DAAC2C1EF829F74DEC81D9308 /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117A226AE7282B7C4C5ECB425EFAB795 /* CGRect.swift */; };
+		C312131E6526BFB7C1CB92D93D58FCC7 /* iOSDropDown-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DBACCA962939F7BE42D9A1B8A68FF170 /* iOSDropDown-dummy.m */; };
+		C5A555CACA72784F132972ED90003993 /* ChartLegendsView+InitHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0745730A204ADE7EFC0189BFBE45D9 /* ChartLegendsView+InitHelpers.swift */; };
+		C76BF61E4968CD16E92EC3F5A47A4F64 /* PieSliceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660D21F489AA7D597F95DF68A4C9DF6B /* PieSliceDelegate.swift */; };
+		C8E0D25B4B31731E2D9AE57508C5458C /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFE70B6B537C48AD15F16D1E516F44 /* CGSize.swift */; };
+		CD683A40B68E215866CEE0ED609C5EFD /* PieLineTextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3645B7A91DC5F001DDBFF830BE950B48 /* PieLineTextLayer.swift */; };
+		CFED1D8E117462229AD408C055556D88 /* PieSliceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65B9AE2C79A68EA7E1FD9222C8291E /* PieSliceData.swift */; };
+		D63E22038D157AA162B92B8FD0AE3232 /* FloatingPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D854566D364ECCEA632370EC5B1C0268 /* FloatingPoint.swift */; };
+		D67CC19989649C3C862F4347342DE3B7 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80FD95D3C9CAADEFA29DF46330A8570 /* ReusableView.swift */; };
+		D77483E153D9327C337288531B48D3E6 /* PieChartLabelSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B318FEA12585C7E704453F2F664A44 /* PieChartLabelSettings.swift */; };
+		E43D057B58DBD2160214148E2290C9FE /* DefaultChartLegendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91695031DFACB29A7F4E4B447804AC63 /* DefaultChartLegendCell.xib */; };
+		E4EBFADC8B2C90F5310907FF21A45B54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD608BCCF279B1277BB911F33106997F /* Foundation.framework */; };
+		EC975F7502419A2CBAAEE9C4F98184EA /* PieCharts-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 13EC29714A34203FFDBB896AF6C7A2BA /* PieCharts-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EEACA44143892E7253D7181DD54F22B3 /* ChartLegends-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7726661A5DBA8D8517D4E21F729CA26B /* ChartLegends-dummy.m */; };
+		F416418C794FCA137962287221D2B15B /* PiePlainTextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E150F09D1155F7C492E79A370F04A7 /* PiePlainTextLayer.swift */; };
+		FB1A59DAD92E574036C966A2CD221FAB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD608BCCF279B1277BB911F33106997F /* Foundation.framework */; };
+		FECCC3BBE9ABFC99C8DBA4A5B354F9B4 /* Pods-FinanceManagementSystem-FinanceManagementSystemUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B994076442B7FDA6571F86E216E244B /* Pods-FinanceManagementSystem-FinanceManagementSystemUITests-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		03D04DBCA36AB4ADCFAAAEE78C1FEE95 /* PBXContainerItemProxy */ = {
+		07284B29F3CE08A9F4C70C041BD18E3A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3C76CE6CD60B1CE55A174F03CC59AE17;
+			remoteInfo = iOSDropDown;
+		};
+		08CB54247D83D27F71E1BA330FA34101 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AF4BDD3A7F7F2D9C076B7D87CEDB3EE4;
+			remoteInfo = ChartLegends;
+		};
+		16F7B690A8762BC95AA65C138DF49948 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AF4BDD3A7F7F2D9C076B7D87CEDB3EE4;
+			remoteInfo = ChartLegends;
+		};
+		6A7AE2F9691584916D37AC893B6CE2B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5352E9F7E2BA40B729D6F4355D629ED5;
+			remoteInfo = PieCharts;
+		};
+		717DCB2192D0EDB21847EB735FED37CD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B9C37617C0D5EAEB3E34885EF4EAF30C;
 			remoteInfo = "Pods-FinanceManagementSystem";
 		};
-		537DF99CF1BADDAA9ADE343A33350661 /* PBXContainerItemProxy */ = {
+		7742E912D781981691761F651D5E37AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2552D20C1565654615FEDD6B058F7985;
+			remoteInfo = "ChartLegends-ChartLegends";
+		};
+		7C9B819F1FE783842A3EAD6F9729DC6D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3C76CE6CD60B1CE55A174F03CC59AE17;
 			remoteInfo = iOSDropDown;
 		};
-		A410426D12D1F23F62EE8C6E2848D49A /* PBXContainerItemProxy */ = {
+		B382A5F0B94705BD4BAC683BBC333C2F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3C76CE6CD60B1CE55A174F03CC59AE17;
-			remoteInfo = iOSDropDown;
+			remoteGlobalIDString = 5352E9F7E2BA40B729D6F4355D629ED5;
+			remoteInfo = PieCharts;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01BDA658338AD3813D969D7011B56B8D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		053AB3AD5E0BF98AA1EBB0C87BFB5870 /* ChartLegendsConstraintConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartLegendsConstraintConstants.swift; path = ChartLegends/Cell/ChartLegendsConstraintConstants.swift; sourceTree = "<group>"; };
+		0575BEADF34F4D34665994EE0D7968C3 /* PlainChartLegend.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PlainChartLegend.swift; path = ChartLegends/Legend/PlainChartLegend.swift; sourceTree = "<group>"; };
+		06D8978F5F42BAD58B5522204A20FD29 /* TextLabelChartLegendCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = TextLabelChartLegendCell.xib; path = ChartLegends/Cell/PlainText/TextLabelChartLegendCell.xib; sourceTree = "<group>"; };
 		0B994076442B7FDA6571F86E216E244B /* Pods-FinanceManagementSystem-FinanceManagementSystemUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FinanceManagementSystem-FinanceManagementSystemUITests-dummy.m"; sourceTree = "<group>"; };
+		0C65B9AE2C79A68EA7E1FD9222C8291E /* PieSliceData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieSliceData.swift; path = PieCharts/Model/PieSliceData.swift; sourceTree = "<group>"; };
+		0CE403FBB85AC951354AFCBE27991299 /* PieLineTextLayerAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieLineTextLayerAnimator.swift; path = PieCharts/Layer/Impl/LineText/Anim/PieLineTextLayerAnimator.swift; sourceTree = "<group>"; };
 		0F2D46D61C1ADFEE94F5CEC9CA661AFA /* Pods-FinanceManagementSystemTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FinanceManagementSystemTests.debug.xcconfig"; sourceTree = "<group>"; };
-		1A78BF6B03DED20C609704AE7C949C04 /* iOSDropDown-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iOSDropDown-umbrella.h"; sourceTree = "<group>"; };
+		11257EC7C8FCA464E360FF38C57651DD /* ChartLegendsDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartLegendsDelegate.swift; path = ChartLegends/View/ChartLegendsDelegate.swift; sourceTree = "<group>"; };
+		117A226AE7282B7C4C5ECB425EFAB795 /* CGRect.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CGRect.swift; path = PieCharts/Extensions/CGRect.swift; sourceTree = "<group>"; };
+		1223A8AC8F2A138642133740156F442E /* PieCharts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PieCharts.debug.xcconfig; sourceTree = "<group>"; };
+		131970A3064E7EF06A899F8CD2CBDD83 /* iOSDropDown-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iOSDropDown-umbrella.h"; sourceTree = "<group>"; };
+		13DF8D82AFF508EC6CC04293983A9789 /* iOSDropDown.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iOSDropDown.release.xcconfig; sourceTree = "<group>"; };
+		13EC29714A34203FFDBB896AF6C7A2BA /* PieCharts-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PieCharts-umbrella.h"; sourceTree = "<group>"; };
+		141C771D00B32327501B56425523D398 /* PieCharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PieCharts.framework; path = PieCharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E035E29211EDB608CA976E962C0045F /* iOSDropDown-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "iOSDropDown-Info.plist"; sourceTree = "<group>"; };
+		206C022614679072D4B1F07CB86EDA32 /* PieChartLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieChartLayer.swift; path = PieCharts/Layer/PieChartLayer.swift; sourceTree = "<group>"; };
+		22D877D859BB277B5371F036925FF61D /* ChartLegendsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartLegendsView.swift; path = ChartLegends/View/ChartLegendsView.swift; sourceTree = "<group>"; };
+		26B6BF9FF30CEAD07758A355D9CE96F3 /* CGRect.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CGRect.swift; path = ChartLegends/Extension/CGRect.swift; sourceTree = "<group>"; };
+		276842F3A283EE87124FE6C3EAAFD184 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		277BB1B98374C0A093C19FAF7C9A35D9 /* Pods-FinanceManagementSystemTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FinanceManagementSystemTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		312B988EF117AE4DE76A268D970131FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		2C192EA40F6E91CD2569F8D2B6F68768 /* ChartLegendsLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartLegendsLayout.swift; path = ChartLegends/Enum/ChartLegendsLayout.swift; sourceTree = "<group>"; };
+		3169D9FF5961648280DF90990D696A15 /* PieCharts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PieCharts.release.xcconfig; sourceTree = "<group>"; };
+		33B318FEA12585C7E704453F2F664A44 /* PieChartLabelSettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieChartLabelSettings.swift; path = PieCharts/Layer/Impl/Common/PieChartLabelSettings.swift; sourceTree = "<group>"; };
+		3645B7A91DC5F001DDBFF830BE950B48 /* PieLineTextLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieLineTextLayer.swift; path = PieCharts/Layer/Impl/LineText/PieLineTextLayer.swift; sourceTree = "<group>"; };
 		38F6C285F950AD1AF3160FF9D7A4EBD0 /* Pods-FinanceManagementSystemTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FinanceManagementSystemTests.modulemap"; sourceTree = "<group>"; };
+		3A6DBABCA96443E6750E698E16215F73 /* iOSDropDown-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iOSDropDown-prefix.pch"; sourceTree = "<group>"; };
 		415D492E427A4CB0A02D69EF77D8CA48 /* Pods-FinanceManagementSystem-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FinanceManagementSystem-umbrella.h"; sourceTree = "<group>"; };
-		436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		44CC1E913A10FF9BC0AF6F16B79482E7 /* Pods_FinanceManagementSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinanceManagementSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		41D13B77D2FF786D683EB899DF3BAAE4 /* CellType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CellType.swift; path = ChartLegends/Enum/CellType.swift; sourceTree = "<group>"; };
+		44CC1E913A10FF9BC0AF6F16B79482E7 /* Pods_FinanceManagementSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FinanceManagementSystem.framework; path = "Pods-FinanceManagementSystem.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		451F40B213A230C9447F03998EB6DD8E /* Pods-FinanceManagementSystem-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FinanceManagementSystem-frameworks.sh"; sourceTree = "<group>"; };
 		46A3D4DC6602258534AA337A9D252EE7 /* Pods-FinanceManagementSystem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FinanceManagementSystem.debug.xcconfig"; sourceTree = "<group>"; };
 		47643EE0F1C314C97353FC1B60ECE602 /* Pods-FinanceManagementSystemTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FinanceManagementSystemTests-umbrella.h"; sourceTree = "<group>"; };
-		4A2DBD197BF8C4A95CF11BB10B92F671 /* iOSDropDown.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = iOSDropDown.swift; path = iOSDropDown/Classes/iOSDropDown.swift; sourceTree = "<group>"; };
-		562E1B0CB7AF0F74F35EBD9B634DF54D /* iOSDropDown-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "iOSDropDown-dummy.m"; sourceTree = "<group>"; };
-		5D353A3B0921AAE7DD1731B2F1A0E95D /* Pods_FinanceManagementSystem_FinanceManagementSystemUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinanceManagementSystem_FinanceManagementSystemUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5FE3FAAF89E5C3D34984F3CC7E26E179 /* iOSDropDown-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "iOSDropDown-Info.plist"; sourceTree = "<group>"; };
+		4B07C3D85976DC0D03BCA77033EC2896 /* PieCharts.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PieCharts.modulemap; sourceTree = "<group>"; };
+		52DF39227BCAE1F388E85285784A4E15 /* PieCharts-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "PieCharts-Info.plist"; sourceTree = "<group>"; };
+		54C156D8599D59C59DAE075ADC55B51E /* ChartLegends.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ChartLegends.modulemap; sourceTree = "<group>"; };
+		5799A138785209AAD7C6D6AE7F56101B /* ShapeChartLegend.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ShapeChartLegend.swift; path = ChartLegends/Legend/ShapeChartLegend.swift; sourceTree = "<group>"; };
+		5D353A3B0921AAE7DD1731B2F1A0E95D /* Pods_FinanceManagementSystem_FinanceManagementSystemUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FinanceManagementSystem_FinanceManagementSystemUITests.framework; path = "Pods-FinanceManagementSystem-FinanceManagementSystemUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6581DF8330D5A3A7426C7EFD6E6F7C6E /* PieChart.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieChart.swift; path = PieCharts/Core/Chart/PieChart.swift; sourceTree = "<group>"; };
+		660D21F489AA7D597F95DF68A4C9DF6B /* PieSliceDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieSliceDelegate.swift; path = PieCharts/Core/Slice/PieSliceDelegate.swift; sourceTree = "<group>"; };
+		6736BAE44FE05BA9BFCDC6676B0D20C2 /* iOSDropDown.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = iOSDropDown.swift; path = iOSDropDown/Classes/iOSDropDown.swift; sourceTree = "<group>"; };
+		68CE666AF2B7F223F8A91C31841386EE /* PieChartDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieChartDelegate.swift; path = PieCharts/Core/Chart/PieChartDelegate.swift; sourceTree = "<group>"; };
+		6A30AC11B0BE324C68F146CD1A531513 /* PieSliceLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieSliceLayer.swift; path = PieCharts/Core/Slice/PieSliceLayer.swift; sourceTree = "<group>"; };
 		71504E6E21E5E1ED1D7E1D01CD717BFA /* Pods-FinanceManagementSystemTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FinanceManagementSystemTests-dummy.m"; sourceTree = "<group>"; };
+		722EDC0D3C9E0D406777981203F33268 /* ChartLegends-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ChartLegends-prefix.pch"; sourceTree = "<group>"; };
 		73CECA0F3D74183473B809883620B548 /* Pods-FinanceManagementSystem-FinanceManagementSystemUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FinanceManagementSystem-FinanceManagementSystemUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		748B660D094ECF3359F6E1E4A5DFA806 /* Pods-FinanceManagementSystem-FinanceManagementSystemUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FinanceManagementSystem-FinanceManagementSystemUITests-umbrella.h"; sourceTree = "<group>"; };
+		7726661A5DBA8D8517D4E21F729CA26B /* ChartLegends-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ChartLegends-dummy.m"; sourceTree = "<group>"; };
 		7B275C2B38DD6595C19D200777EA67FA /* Pods-FinanceManagementSystem-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FinanceManagementSystem-Info.plist"; sourceTree = "<group>"; };
 		7BC5FD7A3344E03352BAD0086962B127 /* Pods-FinanceManagementSystem-FinanceManagementSystemUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FinanceManagementSystem-FinanceManagementSystemUITests-frameworks.sh"; sourceTree = "<group>"; };
+		7C80DE70C6D815AC34D11595727F8FF1 /* PieSliceModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieSliceModel.swift; path = PieCharts/Model/PieSliceModel.swift; sourceTree = "<group>"; };
 		80B0B6E149B2B51B252D5E5A3A06EBA7 /* Pods-FinanceManagementSystem-FinanceManagementSystemUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FinanceManagementSystem-FinanceManagementSystemUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8527F151C274A4B47F36D2EB4AB4B4A2 /* PieSlice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieSlice.swift; path = PieCharts/Core/Slice/PieSlice.swift; sourceTree = "<group>"; };
+		86167512EB0DB2A8CD976442AB211F01 /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LeftAlignedCollectionViewFlowLayout.swift; path = ChartLegends/Layout/LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		861DEF61A7E4D2170C03E39D022ADB67 /* AlphaPieLineTextLayerAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlphaPieLineTextLayerAnimator.swift; path = PieCharts/Layer/Impl/LineText/Anim/AlphaPieLineTextLayerAnimator.swift; sourceTree = "<group>"; };
+		862FA2A587A85B61CD9F8FF384E1C3E1 /* ChartLegend.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartLegend.swift; path = ChartLegends/Legend/ChartLegend.swift; sourceTree = "<group>"; };
+		8659E803657C9CAEEAA5B0CEB1358AAD /* ChartLegendCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartLegendCell.swift; path = ChartLegends/Cell/ChartLegendCell.swift; sourceTree = "<group>"; };
+		8D3D495ED02BC4CB2722B8F891CB1479 /* AlphaPieViewLayerAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlphaPieViewLayerAnimator.swift; path = PieCharts/Layer/Impl/View/Anim/AlphaPieViewLayerAnimator.swift; sourceTree = "<group>"; };
+		9111D45FAF79DD6B9C427D736677D10E /* ChartLegends-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ChartLegends-Info.plist"; sourceTree = "<group>"; };
 		914D87BBDA8E61C2429C19077A0B3214 /* Pods-FinanceManagementSystem-FinanceManagementSystemUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FinanceManagementSystem-FinanceManagementSystemUITests-Info.plist"; sourceTree = "<group>"; };
+		91695031DFACB29A7F4E4B447804AC63 /* DefaultChartLegendCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = DefaultChartLegendCell.xib; path = ChartLegends/Cell/ShapeText/DefaultChartLegendCell.xib; sourceTree = "<group>"; };
+		93E150F09D1155F7C492E79A370F04A7 /* PiePlainTextLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PiePlainTextLayer.swift; path = PieCharts/Layer/Impl/PlainText/PiePlainTextLayer.swift; sourceTree = "<group>"; };
 		977988949DC7373EF97951DF3EE03DAF /* Pods-FinanceManagementSystem-FinanceManagementSystemUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FinanceManagementSystem-FinanceManagementSystemUITests.modulemap"; sourceTree = "<group>"; };
 		9AED7859A5C97A2097EE8A9B726DD005 /* Pods-FinanceManagementSystem-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FinanceManagementSystem-dummy.m"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9CAAB93C2555CAE6240BF4E5668495A0 /* iOSDropDown.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iOSDropDown.debug.xcconfig; sourceTree = "<group>"; };
+		9CEDF704F5585BE052CDC58E9207385C /* PieCharts-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PieCharts-dummy.m"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A464BE53116BFB16C450954C52DA6439 /* Pods-FinanceManagementSystemTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FinanceManagementSystemTests.release.xcconfig"; sourceTree = "<group>"; };
+		A5F9F545C9C51F02DD8C7451D8F373DA /* ResourceBundle-ChartLegends-ChartLegends-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-ChartLegends-ChartLegends-Info.plist"; sourceTree = "<group>"; };
+		A80FD95D3C9CAADEFA29DF46330A8570 /* ReusableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReusableView.swift; path = ChartLegends/Extension/ReusableView.swift; sourceTree = "<group>"; };
+		AA9905F9CBC720F4D4D5CAF1AE38620F /* ChartLegends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ChartLegends.release.xcconfig; sourceTree = "<group>"; };
+		AAAA2C5736B184DC394B3BDD90499CDE /* PieCharts-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PieCharts-prefix.pch"; sourceTree = "<group>"; };
 		AEE7D144F30EF0AFC915FEFD800650E4 /* Pods-FinanceManagementSystemTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FinanceManagementSystemTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		B01067DC31967CF9D2E12F51E202EE7A /* TextLabelChartLegendCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextLabelChartLegendCell.swift; path = ChartLegends/Cell/PlainText/TextLabelChartLegendCell.swift; sourceTree = "<group>"; };
 		B1621DCF11734754D150F24FF5AB2753 /* Pods-FinanceManagementSystemTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FinanceManagementSystemTests-Info.plist"; sourceTree = "<group>"; };
-		BF58B08E2E4F30F24A42E1F63F109E96 /* iOSDropDown.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iOSDropDown.release.xcconfig; sourceTree = "<group>"; };
+		B1D83F5BA2F7E85D8532EA577F47F960 /* ChartLegends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ChartLegends.framework; path = ChartLegends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3021292D99C2D699CA902FAD98AA0AA /* DefaultChartLegendCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DefaultChartLegendCell.swift; path = ChartLegends/Cell/ShapeText/DefaultChartLegendCell.swift; sourceTree = "<group>"; };
+		B7C625242A03599406FCBBAC117BBF8B /* PieCustomViewsLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieCustomViewsLayer.swift; path = PieCharts/Layer/Impl/View/PieCustomViewsLayer.swift; sourceTree = "<group>"; };
+		BE6F8793CCDCDD4EFFBE08EB6D91FDFC /* Int.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Int.swift; path = PieCharts/Extensions/Int.swift; sourceTree = "<group>"; };
 		C0572CCEF6B6DD02849F8FC74A4C24F9 /* Pods-FinanceManagementSystem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FinanceManagementSystem.release.xcconfig"; sourceTree = "<group>"; };
-		C6A203E22246BADE78D1981895E516AA /* iOSDropDown.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iOSDropDown.debug.xcconfig; sourceTree = "<group>"; };
+		CE0745730A204ADE7EFC0189BFBE45D9 /* ChartLegendsView+InitHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ChartLegendsView+InitHelpers.swift"; path = "ChartLegends/View/ChartLegendsView+InitHelpers.swift"; sourceTree = "<group>"; };
 		CE4AA5972F1BFBE1BFC3CF8CCB8793AE /* Pods-FinanceManagementSystem-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FinanceManagementSystem-acknowledgements.markdown"; sourceTree = "<group>"; };
+		D5319F07FC72ACDD9F749DB46B8D6D26 /* DefaultShapeChartLegend.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DefaultShapeChartLegend.swift; path = ChartLegends/Legend/Default/DefaultShapeChartLegend.swift; sourceTree = "<group>"; };
 		D7FFD155782F9EE27A52062902D16077 /* Pods-FinanceManagementSystem-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FinanceManagementSystem-acknowledgements.plist"; sourceTree = "<group>"; };
+		D854566D364ECCEA632370EC5B1C0268 /* FloatingPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatingPoint.swift; path = PieCharts/Extensions/FloatingPoint.swift; sourceTree = "<group>"; };
+		DBACCA962939F7BE42D9A1B8A68FF170 /* iOSDropDown-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "iOSDropDown-dummy.m"; sourceTree = "<group>"; };
+		DCBC2DFF659A10D7C8C5382F17959668 /* PieViewLayerAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieViewLayerAnimator.swift; path = PieCharts/Layer/Impl/View/Anim/PieViewLayerAnimator.swift; sourceTree = "<group>"; };
 		DD0F07AE52BEF2E0E70A511DA28274D7 /* Pods-FinanceManagementSystem-FinanceManagementSystemUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FinanceManagementSystem-FinanceManagementSystemUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		E394704805E5E41C40BC600EC788AF71 /* iOSDropDown.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = iOSDropDown.modulemap; sourceTree = "<group>"; };
+		E5361B65375CB166D7B76C0CA0CA2A1B /* Globals.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Globals.swift; path = PieCharts/Util/Globals.swift; sourceTree = "<group>"; };
+		E8E95B417495692909A4F1141D75A62D /* DefaultPlainChartLegend.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DefaultPlainChartLegend.swift; path = ChartLegends/Legend/Default/DefaultPlainChartLegend.swift; sourceTree = "<group>"; };
 		E9F00A2D237E02105C8245654682D722 /* Pods-FinanceManagementSystem-FinanceManagementSystemUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FinanceManagementSystem-FinanceManagementSystemUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EA493A2FBFABBD9A2EA4BDE1848838D8 /* Pods-FinanceManagementSystem.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FinanceManagementSystem.modulemap"; sourceTree = "<group>"; };
-		F7C0E7D451DF09B403F4E7B1E4343892 /* iOSDropDown-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iOSDropDown-prefix.pch"; sourceTree = "<group>"; };
-		FCEEA8BBD9DA8D0CCE0A3092B20E3FA7 /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FE07E8FA2748EB7398EB52DFC03BF07B /* Pods_FinanceManagementSystemTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinanceManagementSystemTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECE1E1C47A38FD7F7D8624396897E71F /* iOSDropDown.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = iOSDropDown.modulemap; sourceTree = "<group>"; };
+		F1C8FBD64F6D15B01F397C5F68445C92 /* CGPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CGPoint.swift; path = PieCharts/Extensions/CGPoint.swift; sourceTree = "<group>"; };
+		F26757987675ACFDB52FBC4CBA3B2AC7 /* ChartLegends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ChartLegends.debug.xcconfig; sourceTree = "<group>"; };
+		F90B446F0A7A459520FB4056C07A158F /* ChartLegends.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ChartLegends.bundle; path = "ChartLegends-ChartLegends.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAEFE70B6B537C48AD15F16D1E516F44 /* CGSize.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CGSize.swift; path = PieCharts/Extensions/CGSize.swift; sourceTree = "<group>"; };
+		FC37CC993A8C01E3A58C1E0CEB12880D /* ChartLegends-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ChartLegends-umbrella.h"; sourceTree = "<group>"; };
+		FCEEA8BBD9DA8D0CCE0A3092B20E3FA7 /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = iOSDropDown.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD608BCCF279B1277BB911F33106997F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		FE07E8FA2748EB7398EB52DFC03BF07B /* Pods_FinanceManagementSystemTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FinanceManagementSystemTests.framework; path = "Pods-FinanceManagementSystemTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		03F6C9BE21438697DD44FDC809616D52 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47CE76EFE3E1B1CEFA939F7A4CE0AD48 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		143BD85206CF2EEAD67C0F8423BCE96F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -109,25 +263,66 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ABF10FAFA7915DD57B4B8EA842B56290 /* Frameworks */ = {
+		26BDB0F35AEC5D20F0F3B32AF8E69E12 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4142EA60DB5CDDBFBA710C77CEC6B6FE /* Foundation.framework in Frameworks */,
+				7901467B041E7B64C0C2FB421D545B63 /* Foundation.framework in Frameworks */,
+				3BA0B6BB4AE8C5DCF676C4C64F06ABAD /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C46770C9F8A7710CA636411335FCDA8C /* Frameworks */ = {
+		36893873780E3BCAD4C7CD48D047AA2C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF7F7B12B8671C47A0BB16093CEBD91E /* Foundation.framework in Frameworks */,
+				688010A7770B6DC9E7E1A69636A6A1BB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91ABE3255636E8EEAAA179E2F8261305 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4587802A9E6EC1DA0596665E3E11F18 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C9E8BCCB172BB6150E5E700AE6DD12A /* CoreGraphics.framework in Frameworks */,
+				E4EBFADC8B2C90F5310907FF21A45B54 /* Foundation.framework in Frameworks */,
+				6817252EC3EEB201A9A25F15E1E2579C /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01C1A57DC6BC614F806B6CFD587B83F4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				ECE1E1C47A38FD7F7D8624396897E71F /* iOSDropDown.modulemap */,
+				DBACCA962939F7BE42D9A1B8A68FF170 /* iOSDropDown-dummy.m */,
+				1E035E29211EDB608CA976E962C0045F /* iOSDropDown-Info.plist */,
+				3A6DBABCA96443E6750E698E16215F73 /* iOSDropDown-prefix.pch */,
+				131970A3064E7EF06A899F8CD2CBDD83 /* iOSDropDown-umbrella.h */,
+				9CAAB93C2555CAE6240BF4E5668495A0 /* iOSDropDown.debug.xcconfig */,
+				13DF8D82AFF508EC6CC04293983A9789 /* iOSDropDown.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/iOSDropDown";
+			sourceTree = "<group>";
+		};
+		03C5C200A0787E300053CFA8F53CA094 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABE8076CBFEE71A3B199C34F20F66745 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		07AD3DFFA4CDDDD6660926DF2A364D56 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,27 +333,29 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
+		1503AF6D875CBD904F6D489FF7E510BF /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				E2983683FD097A93297E2F5D4E382B36 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4304240AA3F97B8DA63732BED71C92CD /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				E394704805E5E41C40BC600EC788AF71 /* iOSDropDown.modulemap */,
-				562E1B0CB7AF0F74F35EBD9B634DF54D /* iOSDropDown-dummy.m */,
-				5FE3FAAF89E5C3D34984F3CC7E26E179 /* iOSDropDown-Info.plist */,
-				F7C0E7D451DF09B403F4E7B1E4343892 /* iOSDropDown-prefix.pch */,
-				1A78BF6B03DED20C609704AE7C949C04 /* iOSDropDown-umbrella.h */,
-				C6A203E22246BADE78D1981895E516AA /* iOSDropDown.debug.xcconfig */,
-				BF58B08E2E4F30F24A42E1F63F109E96 /* iOSDropDown.release.xcconfig */,
+				4B07C3D85976DC0D03BCA77033EC2896 /* PieCharts.modulemap */,
+				9CEDF704F5585BE052CDC58E9207385C /* PieCharts-dummy.m */,
+				52DF39227BCAE1F388E85285784A4E15 /* PieCharts-Info.plist */,
+				AAAA2C5736B184DC394B3BDD90499CDE /* PieCharts-prefix.pch */,
+				13EC29714A34203FFDBB896AF6C7A2BA /* PieCharts-umbrella.h */,
+				1223A8AC8F2A138642133740156F442E /* PieCharts.debug.xcconfig */,
+				3169D9FF5961648280DF90990D696A15 /* PieCharts.release.xcconfig */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/iOSDropDown";
+			path = "../Target Support Files/PieCharts";
+			sourceTree = "<group>";
+		};
+		376AA2C3B615A502046E3E5AE4319EC2 /* iOSDropDown */ = {
+			isa = PBXGroup;
+			children = (
+				6736BAE44FE05BA9BFCDC6676B0D20C2 /* iOSDropDown.swift */,
+				01C1A57DC6BC614F806B6CFD587B83F4 /* Support Files */,
+			);
+			name = iOSDropDown;
+			path = iOSDropDown;
 			sourceTree = "<group>";
 		};
 		51590A9D506015FC68E4BBA6795C508C /* Pods-FinanceManagementSystem-FinanceManagementSystemUITests */ = {
@@ -178,32 +375,72 @@
 			path = "Target Support Files/Pods-FinanceManagementSystem-FinanceManagementSystemUITests";
 			sourceTree = "<group>";
 		};
-		60E09F58A4B6EF1F34AC349248B764C0 /* Pods */ = {
+		6D6EB92816F9FB6B805C201BB6023C6C /* ChartLegends */ = {
 			isa = PBXGroup;
 			children = (
-				A3D57C222983B3ACBD29F20BAE9203E6 /* iOSDropDown */,
+				41D13B77D2FF786D683EB899DF3BAAE4 /* CellType.swift */,
+				26B6BF9FF30CEAD07758A355D9CE96F3 /* CGRect.swift */,
+				862FA2A587A85B61CD9F8FF384E1C3E1 /* ChartLegend.swift */,
+				8659E803657C9CAEEAA5B0CEB1358AAD /* ChartLegendCell.swift */,
+				053AB3AD5E0BF98AA1EBB0C87BFB5870 /* ChartLegendsConstraintConstants.swift */,
+				11257EC7C8FCA464E360FF38C57651DD /* ChartLegendsDelegate.swift */,
+				2C192EA40F6E91CD2569F8D2B6F68768 /* ChartLegendsLayout.swift */,
+				22D877D859BB277B5371F036925FF61D /* ChartLegendsView.swift */,
+				CE0745730A204ADE7EFC0189BFBE45D9 /* ChartLegendsView+InitHelpers.swift */,
+				B3021292D99C2D699CA902FAD98AA0AA /* DefaultChartLegendCell.swift */,
+				E8E95B417495692909A4F1141D75A62D /* DefaultPlainChartLegend.swift */,
+				D5319F07FC72ACDD9F749DB46B8D6D26 /* DefaultShapeChartLegend.swift */,
+				86167512EB0DB2A8CD976442AB211F01 /* LeftAlignedCollectionViewFlowLayout.swift */,
+				0575BEADF34F4D34665994EE0D7968C3 /* PlainChartLegend.swift */,
+				A80FD95D3C9CAADEFA29DF46330A8570 /* ReusableView.swift */,
+				5799A138785209AAD7C6D6AE7F56101B /* ShapeChartLegend.swift */,
+				B01067DC31967CF9D2E12F51E202EE7A /* TextLabelChartLegendCell.swift */,
+				DA6F907373CE8387F98F1A7D36E0D619 /* Resources */,
+				D7BD8EA5473F763DAFBC34C30A5C9401 /* Support Files */,
 			);
-			name = Pods;
+			name = ChartLegends;
+			path = ChartLegends;
 			sourceTree = "<group>";
 		};
-		714F037F70693118139BB03051DB3899 /* Products */ = {
+		A6FDBB898DAECE64F79E1EC6570E07F7 /* PieCharts */ = {
 			isa = PBXGroup;
 			children = (
-				FCEEA8BBD9DA8D0CCE0A3092B20E3FA7 /* iOSDropDown.framework */,
-				44CC1E913A10FF9BC0AF6F16B79482E7 /* Pods_FinanceManagementSystem.framework */,
-				5D353A3B0921AAE7DD1731B2F1A0E95D /* Pods_FinanceManagementSystem_FinanceManagementSystemUITests.framework */,
-				FE07E8FA2748EB7398EB52DFC03BF07B /* Pods_FinanceManagementSystemTests.framework */,
+				861DEF61A7E4D2170C03E39D022ADB67 /* AlphaPieLineTextLayerAnimator.swift */,
+				8D3D495ED02BC4CB2722B8F891CB1479 /* AlphaPieViewLayerAnimator.swift */,
+				F1C8FBD64F6D15B01F397C5F68445C92 /* CGPoint.swift */,
+				117A226AE7282B7C4C5ECB425EFAB795 /* CGRect.swift */,
+				FAEFE70B6B537C48AD15F16D1E516F44 /* CGSize.swift */,
+				D854566D364ECCEA632370EC5B1C0268 /* FloatingPoint.swift */,
+				E5361B65375CB166D7B76C0CA0CA2A1B /* Globals.swift */,
+				BE6F8793CCDCDD4EFFBE08EB6D91FDFC /* Int.swift */,
+				6581DF8330D5A3A7426C7EFD6E6F7C6E /* PieChart.swift */,
+				68CE666AF2B7F223F8A91C31841386EE /* PieChartDelegate.swift */,
+				33B318FEA12585C7E704453F2F664A44 /* PieChartLabelSettings.swift */,
+				206C022614679072D4B1F07CB86EDA32 /* PieChartLayer.swift */,
+				B7C625242A03599406FCBBAC117BBF8B /* PieCustomViewsLayer.swift */,
+				3645B7A91DC5F001DDBFF830BE950B48 /* PieLineTextLayer.swift */,
+				0CE403FBB85AC951354AFCBE27991299 /* PieLineTextLayerAnimator.swift */,
+				93E150F09D1155F7C492E79A370F04A7 /* PiePlainTextLayer.swift */,
+				8527F151C274A4B47F36D2EB4AB4B4A2 /* PieSlice.swift */,
+				0C65B9AE2C79A68EA7E1FD9222C8291E /* PieSliceData.swift */,
+				660D21F489AA7D597F95DF68A4C9DF6B /* PieSliceDelegate.swift */,
+				6A30AC11B0BE324C68F146CD1A531513 /* PieSliceLayer.swift */,
+				7C80DE70C6D815AC34D11595727F8FF1 /* PieSliceModel.swift */,
+				DCBC2DFF659A10D7C8C5382F17959668 /* PieViewLayerAnimator.swift */,
+				1503AF6D875CBD904F6D489FF7E510BF /* Support Files */,
 			);
-			name = Products;
+			name = PieCharts;
+			path = PieCharts;
 			sourceTree = "<group>";
 		};
-		A3D57C222983B3ACBD29F20BAE9203E6 /* iOSDropDown */ = {
+		ABE8076CBFEE71A3B199C34F20F66745 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				4A2DBD197BF8C4A95CF11BB10B92F671 /* iOSDropDown.swift */,
-				4304240AA3F97B8DA63732BED71C92CD /* Support Files */,
+				276842F3A283EE87124FE6C3EAAFD184 /* CoreGraphics.framework */,
+				FD608BCCF279B1277BB911F33106997F /* Foundation.framework */,
+				01BDA658338AD3813D969D7011B56B8D /* UIKit.framework */,
 			);
-			path = iOSDropDown;
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		B0FD26BB0AD04FC256EDA5D7A39587EA /* Pods-FinanceManagementSystemTests */ = {
@@ -222,24 +459,54 @@
 			path = "Target Support Files/Pods-FinanceManagementSystemTests";
 			sourceTree = "<group>";
 		};
+		C90B28E34C0B595546A5D65483E8B837 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F90B446F0A7A459520FB4056C07A158F /* ChartLegends.bundle */,
+				B1D83F5BA2F7E85D8532EA577F47F960 /* ChartLegends.framework */,
+				FCEEA8BBD9DA8D0CCE0A3092B20E3FA7 /* iOSDropDown.framework */,
+				141C771D00B32327501B56425523D398 /* PieCharts.framework */,
+				44CC1E913A10FF9BC0AF6F16B79482E7 /* Pods_FinanceManagementSystem.framework */,
+				5D353A3B0921AAE7DD1731B2F1A0E95D /* Pods_FinanceManagementSystem_FinanceManagementSystemUITests.framework */,
+				FE07E8FA2748EB7398EB52DFC03BF07B /* Pods_FinanceManagementSystemTests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
-				60E09F58A4B6EF1F34AC349248B764C0 /* Pods */,
-				714F037F70693118139BB03051DB3899 /* Products */,
+				03C5C200A0787E300053CFA8F53CA094 /* Frameworks */,
+				F720A9273A6AF2BB9B81A497046EC58D /* Pods */,
+				C90B28E34C0B595546A5D65483E8B837 /* Products */,
 				07AD3DFFA4CDDDD6660926DF2A364D56 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		E2983683FD097A93297E2F5D4E382B36 /* iOS */ = {
+		D7BD8EA5473F763DAFBC34C30A5C9401 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */,
-				312B988EF117AE4DE76A268D970131FE /* UIKit.framework */,
+				54C156D8599D59C59DAE075ADC55B51E /* ChartLegends.modulemap */,
+				7726661A5DBA8D8517D4E21F729CA26B /* ChartLegends-dummy.m */,
+				9111D45FAF79DD6B9C427D736677D10E /* ChartLegends-Info.plist */,
+				722EDC0D3C9E0D406777981203F33268 /* ChartLegends-prefix.pch */,
+				FC37CC993A8C01E3A58C1E0CEB12880D /* ChartLegends-umbrella.h */,
+				F26757987675ACFDB52FBC4CBA3B2AC7 /* ChartLegends.debug.xcconfig */,
+				AA9905F9CBC720F4D4D5CAF1AE38620F /* ChartLegends.release.xcconfig */,
+				A5F9F545C9C51F02DD8C7451D8F373DA /* ResourceBundle-ChartLegends-ChartLegends-Info.plist */,
 			);
-			name = iOS;
+			name = "Support Files";
+			path = "../Target Support Files/ChartLegends";
+			sourceTree = "<group>";
+		};
+		DA6F907373CE8387F98F1A7D36E0D619 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				91695031DFACB29A7F4E4B447804AC63 /* DefaultChartLegendCell.xib */,
+				06D8978F5F42BAD58B5522204A20FD29 /* TextLabelChartLegendCell.xib */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		F2D48BC0DB40C932C1C7A59757278128 /* Pods-FinanceManagementSystem */ = {
@@ -259,22 +526,24 @@
 			path = "Target Support Files/Pods-FinanceManagementSystem";
 			sourceTree = "<group>";
 		};
+		F720A9273A6AF2BB9B81A497046EC58D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6D6EB92816F9FB6B805C201BB6023C6C /* ChartLegends */,
+				376AA2C3B615A502046E3E5AE4319EC2 /* iOSDropDown */,
+				A6FDBB898DAECE64F79E1EC6570E07F7 /* PieCharts */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		2F0A7F832251E9002F9D96AB990B6B05 /* Headers */ = {
+		0C71138041912DD8CC66E56F8B8A2838 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FE17244EBDDD99F89B190D7E879742F /* Pods-FinanceManagementSystem-FinanceManagementSystemUITests-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		32E0AC1B8E367177330D3E143997BBF2 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8D764497CB15A4328CD24CC29F6CBD0B /* Pods-FinanceManagementSystem-umbrella.h in Headers */,
+				7A7984E07262D3ECB6277289F157F11F /* Pods-FinanceManagementSystem-FinanceManagementSystemUITests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,9 +563,50 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F15EAF85C124A4F3537985C41149C87C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC975F7502419A2CBAAEE9C4F98184EA /* PieCharts-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2243D5451B8EF7C773F39726C67240A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D2774F90EF7669ECF497E09A1CEFC52 /* Pods-FinanceManagementSystem-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F22472283C11EF992ED56B54637C897D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3960830A7A0E2FD4F1DCA21A9E90BB8A /* ChartLegends-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		2552D20C1565654615FEDD6B058F7985 /* ChartLegends-ChartLegends */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E5ED0A6535EDC236B6B6A6D51DA8452 /* Build configuration list for PBXNativeTarget "ChartLegends-ChartLegends" */;
+			buildPhases = (
+				0E5AFBF1472604225B67400DC4EA458A /* Sources */,
+				91ABE3255636E8EEAAA179E2F8261305 /* Frameworks */,
+				2C204ADF75D969D2B763A1F56A843EE3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ChartLegends-ChartLegends";
+			productName = "ChartLegends-ChartLegends";
+			productReference = F90B446F0A7A459520FB4056C07A158F /* ChartLegends.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		3C76CE6CD60B1CE55A174F03CC59AE17 /* iOSDropDown */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A476A331E996DC82BDA1CD0E8A43F8B6 /* Build configuration list for PBXNativeTarget "iOSDropDown" */;
@@ -315,6 +625,24 @@
 			productReference = FCEEA8BBD9DA8D0CCE0A3092B20E3FA7 /* iOSDropDown.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		5352E9F7E2BA40B729D6F4355D629ED5 /* PieCharts */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8DA41CBA4B931F1A9E7DE3E4D1E69EC9 /* Build configuration list for PBXNativeTarget "PieCharts" */;
+			buildPhases = (
+				F15EAF85C124A4F3537985C41149C87C /* Headers */,
+				438196256BCAB393BC19E79EAC70B86C /* Sources */,
+				F4587802A9E6EC1DA0596665E3E11F18 /* Frameworks */,
+				79E684FEA95D6A26F12A60AF88F1B2E9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PieCharts;
+			productName = PieCharts;
+			productReference = 141C771D00B32327501B56425523D398 /* PieCharts.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		690CC8FDD7B6B5350725E118925AC0FC /* Pods-FinanceManagementSystemTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1C8D81673C6E6E57C9CBA4CE6FCCFA7 /* Build configuration list for PBXNativeTarget "Pods-FinanceManagementSystemTests" */;
@@ -327,7 +655,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				CC5DB9FE99D2B1AEB730736AFE880066 /* PBXTargetDependency */,
+				16BFE1BA51732E044AAEE6A77C2865A2 /* PBXTargetDependency */,
 			);
 			name = "Pods-FinanceManagementSystemTests";
 			productName = "Pods-FinanceManagementSystemTests";
@@ -336,36 +664,59 @@
 		};
 		6FB7C119766D333A337D8534D424CE53 /* Pods-FinanceManagementSystem-FinanceManagementSystemUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 169D7111AEA849A144053636796F9387 /* Build configuration list for PBXNativeTarget "Pods-FinanceManagementSystem-FinanceManagementSystemUITests" */;
+			buildConfigurationList = 42DD98A691E1D12D8F37C3C0E1A64F17 /* Build configuration list for PBXNativeTarget "Pods-FinanceManagementSystem-FinanceManagementSystemUITests" */;
 			buildPhases = (
-				2F0A7F832251E9002F9D96AB990B6B05 /* Headers */,
-				B90B14E2350ADAFEC4D31F9E157996F2 /* Sources */,
-				ABF10FAFA7915DD57B4B8EA842B56290 /* Frameworks */,
-				D7D0F85BA8827827F53E57A2D60F6135 /* Resources */,
+				0C71138041912DD8CC66E56F8B8A2838 /* Headers */,
+				F4A84E3639F18CCD68994AE8EC216BC5 /* Sources */,
+				03F6C9BE21438697DD44FDC809616D52 /* Frameworks */,
+				14ADBB664AE3F7CFA85BB1F3C3AA8605 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B818ABCB5BC6A4AB8B54249920411468 /* PBXTargetDependency */,
+				38956D47043797FF0649767FF8CF2C92 /* PBXTargetDependency */,
+				ADE9741F9DFA8F486C3B9085C7BF3DDB /* PBXTargetDependency */,
+				48990635241084810C1A238896EAF332 /* PBXTargetDependency */,
 			);
 			name = "Pods-FinanceManagementSystem-FinanceManagementSystemUITests";
 			productName = "Pods-FinanceManagementSystem-FinanceManagementSystemUITests";
 			productReference = 5D353A3B0921AAE7DD1731B2F1A0E95D /* Pods_FinanceManagementSystem_FinanceManagementSystemUITests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		B9C37617C0D5EAEB3E34885EF4EAF30C /* Pods-FinanceManagementSystem */ = {
+		AF4BDD3A7F7F2D9C076B7D87CEDB3EE4 /* ChartLegends */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D9CF2352D936C3D799C88E00BDB268D5 /* Build configuration list for PBXNativeTarget "Pods-FinanceManagementSystem" */;
+			buildConfigurationList = D09C1487D74DC65260309D8B63928216 /* Build configuration list for PBXNativeTarget "ChartLegends" */;
 			buildPhases = (
-				32E0AC1B8E367177330D3E143997BBF2 /* Headers */,
-				BF5F926A2AA40053F79A5705DA04427C /* Sources */,
-				C46770C9F8A7710CA636411335FCDA8C /* Frameworks */,
-				2D619A33BF124A8CFDA0C5C2A8B01DE3 /* Resources */,
+				F22472283C11EF992ED56B54637C897D /* Headers */,
+				0FDD52FDAD2B1179F37572ADE738E54A /* Sources */,
+				26BDB0F35AEC5D20F0F3B32AF8E69E12 /* Frameworks */,
+				4FDD55D4F54CAF2E8C9A4F3E2A3888D5 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E10DBCE04E01D086BEA38A2B2E5DC49C /* PBXTargetDependency */,
+				AC0053C37BEFD64F16D86BD99E0ED80E /* PBXTargetDependency */,
+			);
+			name = ChartLegends;
+			productName = ChartLegends;
+			productReference = B1D83F5BA2F7E85D8532EA577F47F960 /* ChartLegends.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B9C37617C0D5EAEB3E34885EF4EAF30C /* Pods-FinanceManagementSystem */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BBA49AD4170F2F37EE2908D557AAB2B /* Build configuration list for PBXNativeTarget "Pods-FinanceManagementSystem" */;
+			buildPhases = (
+				F2243D5451B8EF7C773F39726C67240A /* Headers */,
+				09FD97C16F62DC9FE6EA9FF145841574 /* Sources */,
+				36893873780E3BCAD4C7CD48D047AA2C /* Frameworks */,
+				EC7FDA50272413BE8099F7CCC89E404E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7C3A7604E20165D7A73F6BA66D3D2DEF /* PBXTargetDependency */,
+				3E792CC2914EAF8743520800441FE785 /* PBXTargetDependency */,
+				8BDFE7D03EE18FC32FC1B47C32BD15E9 /* PBXTargetDependency */,
 			);
 			name = "Pods-FinanceManagementSystem";
 			productName = "Pods-FinanceManagementSystem";
@@ -380,14 +731,9 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
-				TargetAttributes = {
-					3C76CE6CD60B1CE55A174F03CC59AE17 = {
-						LastSwiftMigration = 1200;
-					};
-				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -395,11 +741,14 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 714F037F70693118139BB03051DB3899 /* Products */;
+			productRefGroup = C90B28E34C0B595546A5D65483E8B837 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				AF4BDD3A7F7F2D9C076B7D87CEDB3EE4 /* ChartLegends */,
+				2552D20C1565654615FEDD6B058F7985 /* ChartLegends-ChartLegends */,
 				3C76CE6CD60B1CE55A174F03CC59AE17 /* iOSDropDown */,
+				5352E9F7E2BA40B729D6F4355D629ED5 /* PieCharts */,
 				B9C37617C0D5EAEB3E34885EF4EAF30C /* Pods-FinanceManagementSystem */,
 				6FB7C119766D333A337D8534D424CE53 /* Pods-FinanceManagementSystem-FinanceManagementSystemUITests */,
 				690CC8FDD7B6B5350725E118925AC0FC /* Pods-FinanceManagementSystemTests */,
@@ -408,14 +757,38 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2D619A33BF124A8CFDA0C5C2A8B01DE3 /* Resources */ = {
+		14ADBB664AE3F7CFA85BB1F3C3AA8605 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2C204ADF75D969D2B763A1F56A843EE3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E43D057B58DBD2160214148E2290C9FE /* DefaultChartLegendCell.xib in Resources */,
+				1842EC7C7D3701CD9077493C2D83BE2A /* TextLabelChartLegendCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4F2761F0F0D962265232D9EE899A184E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FDD55D4F54CAF2E8C9A4F3E2A3888D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A7CC7D372F1661E31FAF25EBCDC93E8 /* ChartLegends.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79E684FEA95D6A26F12A60AF88F1B2E9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -429,7 +802,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D7D0F85BA8827827F53E57A2D60F6135 /* Resources */ = {
+		EC7FDA50272413BE8099F7CCC89E404E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -439,6 +812,76 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		09FD97C16F62DC9FE6EA9FF145841574 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CADD26CD9642C4BBA9CBF7CC93FE999 /* Pods-FinanceManagementSystem-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E5AFBF1472604225B67400DC4EA458A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0FDD52FDAD2B1179F37572ADE738E54A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9792F96C394A295EDD2FB7659C5DADC8 /* CellType.swift in Sources */,
+				1E86E343525E87979BCFC276BBA27AF9 /* CGRect.swift in Sources */,
+				17A15506D75DE971652E32CB537F907A /* ChartLegend.swift in Sources */,
+				1C63CBD5EB153DB04E704EEC544F1012 /* ChartLegendCell.swift in Sources */,
+				EEACA44143892E7253D7181DD54F22B3 /* ChartLegends-dummy.m in Sources */,
+				B4276F94CA06EAE3BCCCC62FE31BA272 /* ChartLegendsConstraintConstants.swift in Sources */,
+				445E44384801E7271307965BFE1D1338 /* ChartLegendsDelegate.swift in Sources */,
+				9DD6B8B401394DFCD218A02A3BDB5C03 /* ChartLegendsLayout.swift in Sources */,
+				C5A555CACA72784F132972ED90003993 /* ChartLegendsView+InitHelpers.swift in Sources */,
+				7E6B196CAF3158C2DD5587DFC9E8F453 /* ChartLegendsView.swift in Sources */,
+				4FFB7B92EADD1ACB274481479CC7A4AD /* DefaultChartLegendCell.swift in Sources */,
+				4B2B588D271EDCD225B678A0B28C655E /* DefaultPlainChartLegend.swift in Sources */,
+				0BBAB7A3752980B5B6CCB9CEC7B0778E /* DefaultShapeChartLegend.swift in Sources */,
+				589D45297AE8374C02A9DC0F719C2474 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
+				63263C8E6CCEEDE151A12FABE6E0CE46 /* PlainChartLegend.swift in Sources */,
+				D67CC19989649C3C862F4347342DE3B7 /* ReusableView.swift in Sources */,
+				3AE21F83CEC0ED6D1C6C1F8D3AFDD02D /* ShapeChartLegend.swift in Sources */,
+				72DFA52251B1CCDA8EA52EC58691117C /* TextLabelChartLegendCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		438196256BCAB393BC19E79EAC70B86C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D42FD4C06FBECD4D0076BA0F164E3D7 /* AlphaPieLineTextLayerAnimator.swift in Sources */,
+				3727D81A8E60CB1969513D03205F4D1F /* AlphaPieViewLayerAnimator.swift in Sources */,
+				AF63525C26B16ECA99775FEEB5D9DAFB /* CGPoint.swift in Sources */,
+				BCD6AA5DAAC2C1EF829F74DEC81D9308 /* CGRect.swift in Sources */,
+				C8E0D25B4B31731E2D9AE57508C5458C /* CGSize.swift in Sources */,
+				D63E22038D157AA162B92B8FD0AE3232 /* FloatingPoint.swift in Sources */,
+				78FAD6E2B3FE9DD871270AF82D20D4DA /* Globals.swift in Sources */,
+				B03E8E2F62190B19257A70EAABA5B97C /* Int.swift in Sources */,
+				4F1482B381CE2F3CCC62015F22F2CD86 /* PieChart.swift in Sources */,
+				07EC05367FB06380F8534C2019A4B573 /* PieChartDelegate.swift in Sources */,
+				D77483E153D9327C337288531B48D3E6 /* PieChartLabelSettings.swift in Sources */,
+				18B8C262593617A927666E1B87BB1CF4 /* PieChartLayer.swift in Sources */,
+				BBAF931620A2C7B622EC073B2FA16F89 /* PieCharts-dummy.m in Sources */,
+				5FDBACE328D82B6557E164F4C21A7B1F /* PieCustomViewsLayer.swift in Sources */,
+				CD683A40B68E215866CEE0ED609C5EFD /* PieLineTextLayer.swift in Sources */,
+				9D42D95CF916C54F70AB417E50ABCFD2 /* PieLineTextLayerAnimator.swift in Sources */,
+				F416418C794FCA137962287221D2B15B /* PiePlainTextLayer.swift in Sources */,
+				913AF8577C52A01F3C0DCAF27FDE9AA5 /* PieSlice.swift in Sources */,
+				CFED1D8E117462229AD408C055556D88 /* PieSliceData.swift in Sources */,
+				C76BF61E4968CD16E92EC3F5A47A4F64 /* PieSliceDelegate.swift in Sources */,
+				945F66CC57EB589300296B053DE94D2C /* PieSliceLayer.swift in Sources */,
+				A885151A6F1300266EDE677E27EA8CF7 /* PieSliceModel.swift in Sources */,
+				B2AC85E53FA4319F6FF7D0CC6BBFB40D /* PieViewLayerAnimator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		51ADBD82176C61B9136F2C18746D6E55 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -456,47 +899,107 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B90B14E2350ADAFEC4D31F9E157996F2 /* Sources */ = {
+		F4A84E3639F18CCD68994AE8EC216BC5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8372258821D0708558A8965679C64DF4 /* Pods-FinanceManagementSystem-FinanceManagementSystemUITests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BF5F926A2AA40053F79A5705DA04427C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				76EF964EB3C96D622C7AC617EB13BC48 /* Pods-FinanceManagementSystem-dummy.m in Sources */,
+				FECCC3BBE9ABFC99C8DBA4A5B354F9B4 /* Pods-FinanceManagementSystem-FinanceManagementSystemUITests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B818ABCB5BC6A4AB8B54249920411468 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = iOSDropDown;
-			target = 3C76CE6CD60B1CE55A174F03CC59AE17 /* iOSDropDown */;
-			targetProxy = 537DF99CF1BADDAA9ADE343A33350661 /* PBXContainerItemProxy */;
-		};
-		CC5DB9FE99D2B1AEB730736AFE880066 /* PBXTargetDependency */ = {
+		16BFE1BA51732E044AAEE6A77C2865A2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-FinanceManagementSystem";
 			target = B9C37617C0D5EAEB3E34885EF4EAF30C /* Pods-FinanceManagementSystem */;
-			targetProxy = 03D04DBCA36AB4ADCFAAAEE78C1FEE95 /* PBXContainerItemProxy */;
+			targetProxy = 717DCB2192D0EDB21847EB735FED37CD /* PBXContainerItemProxy */;
 		};
-		E10DBCE04E01D086BEA38A2B2E5DC49C /* PBXTargetDependency */ = {
+		38956D47043797FF0649767FF8CF2C92 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ChartLegends;
+			target = AF4BDD3A7F7F2D9C076B7D87CEDB3EE4 /* ChartLegends */;
+			targetProxy = 08CB54247D83D27F71E1BA330FA34101 /* PBXContainerItemProxy */;
+		};
+		3E792CC2914EAF8743520800441FE785 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PieCharts;
+			target = 5352E9F7E2BA40B729D6F4355D629ED5 /* PieCharts */;
+			targetProxy = 6A7AE2F9691584916D37AC893B6CE2B7 /* PBXContainerItemProxy */;
+		};
+		48990635241084810C1A238896EAF332 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = iOSDropDown;
 			target = 3C76CE6CD60B1CE55A174F03CC59AE17 /* iOSDropDown */;
-			targetProxy = A410426D12D1F23F62EE8C6E2848D49A /* PBXContainerItemProxy */;
+			targetProxy = 7C9B819F1FE783842A3EAD6F9729DC6D /* PBXContainerItemProxy */;
+		};
+		7C3A7604E20165D7A73F6BA66D3D2DEF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ChartLegends;
+			target = AF4BDD3A7F7F2D9C076B7D87CEDB3EE4 /* ChartLegends */;
+			targetProxy = 16F7B690A8762BC95AA65C138DF49948 /* PBXContainerItemProxy */;
+		};
+		8BDFE7D03EE18FC32FC1B47C32BD15E9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = iOSDropDown;
+			target = 3C76CE6CD60B1CE55A174F03CC59AE17 /* iOSDropDown */;
+			targetProxy = 07284B29F3CE08A9F4C70C041BD18E3A /* PBXContainerItemProxy */;
+		};
+		AC0053C37BEFD64F16D86BD99E0ED80E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ChartLegends-ChartLegends";
+			target = 2552D20C1565654615FEDD6B058F7985 /* ChartLegends-ChartLegends */;
+			targetProxy = 7742E912D781981691761F651D5E37AE /* PBXContainerItemProxy */;
+		};
+		ADE9741F9DFA8F486C3B9085C7BF3DDB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PieCharts;
+			target = 5352E9F7E2BA40B729D6F4355D629ED5 /* PieCharts */;
+			targetProxy = B382A5F0B94705BD4BAC683BBC333C2F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		57923B06E9900EC0A19B50DF8FF481A4 /* Debug */ = {
+		2A33A79D282414C34ED079462FA63E7D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46A3D4DC6602258534AA337A9D252EE7 /* Pods-FinanceManagementSystem.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-FinanceManagementSystem/Pods-FinanceManagementSystem-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-FinanceManagementSystem/Pods-FinanceManagementSystem.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5E5CCC150F9C4A85D6F619E73A663A49 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 80B0B6E149B2B51B252D5E5A3A06EBA7 /* Pods-FinanceManagementSystem-FinanceManagementSystemUITests.debug.xcconfig */;
 			buildSettings = {
@@ -534,12 +1037,10 @@
 			};
 			name = Debug;
 		};
-		62EA198ADFF3BF633880DE07D7895492 /* Release */ = {
+		6B69046C126E9024F7720F29FF3FCAD6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E9F00A2D237E02105C8245654682D722 /* Pods-FinanceManagementSystem-FinanceManagementSystemUITests.release.xcconfig */;
+			baseConfigurationReference = 3169D9FF5961648280DF90990D696A15 /* PieCharts.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -549,23 +1050,22 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-FinanceManagementSystem-FinanceManagementSystemUITests/Pods-FinanceManagementSystem-FinanceManagementSystemUITests-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/PieCharts/PieCharts-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PieCharts/PieCharts-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-FinanceManagementSystem-FinanceManagementSystemUITests/Pods-FinanceManagementSystem-FinanceManagementSystemUITests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				MODULEMAP_FILE = "Target Support Files/PieCharts/PieCharts.modulemap";
+				PRODUCT_MODULE_NAME = PieCharts;
+				PRODUCT_NAME = PieCharts;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -639,7 +1139,7 @@
 		};
 		92111D7F4357A63D476FF4384C052E33 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BF58B08E2E4F30F24A42E1F63F109E96 /* iOSDropDown.release.xcconfig */;
+			baseConfigurationReference = 13DF8D82AFF508EC6CC04293983A9789 /* iOSDropDown.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -665,7 +1165,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -713,7 +1213,7 @@
 		};
 		9777F8A98343527160CF9950B9A6980B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C6A203E22246BADE78D1981895E516AA /* iOSDropDown.debug.xcconfig */;
+			baseConfigurationReference = 9CAAB93C2555CAE6240BF4E5668495A0 /* iOSDropDown.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -739,14 +1239,14 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		9BF219B43C5484D828964CC4828CE28B /* Release */ = {
+		AE83A4E195C6792D7DA8FF4E115E41C7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C0572CCEF6B6DD02849F8FC74A4C24F9 /* Pods-FinanceManagementSystem.release.xcconfig */;
 			buildSettings = {
@@ -784,44 +1284,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		A02AB28FC3C16B45785EEB58D6B78875 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 46A3D4DC6602258534AA337A9D252EE7 /* Pods-FinanceManagementSystem.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-FinanceManagementSystem/Pods-FinanceManagementSystem-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-FinanceManagementSystem/Pods-FinanceManagementSystem.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 		AF1F8D2941B0228930706FA0F2C9BB78 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -883,6 +1345,77 @@
 			};
 			name = Release;
 		};
+		B090D406910C71821209DAB1E306BE32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA9905F9CBC720F4D4D5CAF1AE38620F /* ChartLegends.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ChartLegends/ChartLegends-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ChartLegends/ChartLegends-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/ChartLegends/ChartLegends.modulemap";
+				PRODUCT_MODULE_NAME = ChartLegends;
+				PRODUCT_NAME = ChartLegends;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C5A984A3BA2E80D228A5CEE569900643 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1223A8AC8F2A138642133740156F442E /* PieCharts.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/PieCharts/PieCharts-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PieCharts/PieCharts-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/PieCharts/PieCharts.modulemap";
+				PRODUCT_MODULE_NAME = PieCharts;
+				PRODUCT_NAME = PieCharts;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		C7EB1C7A974FFCA06A40D528E8590BD7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A464BE53116BFB16C450954C52DA6439 /* Pods-FinanceManagementSystemTests.release.xcconfig */;
@@ -922,14 +1455,140 @@
 			};
 			name = Release;
 		};
+		D1235E4DA156D31A6A09F205EA79A8A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9F00A2D237E02105C8245654682D722 /* Pods-FinanceManagementSystem-FinanceManagementSystemUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-FinanceManagementSystem-FinanceManagementSystemUITests/Pods-FinanceManagementSystem-FinanceManagementSystemUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-FinanceManagementSystem-FinanceManagementSystemUITests/Pods-FinanceManagementSystem-FinanceManagementSystemUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D2B9E2CD3D06AAD91B06268699F01617 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F26757987675ACFDB52FBC4CBA3B2AC7 /* ChartLegends.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/ChartLegends";
+				IBSC_MODULE = ChartLegends;
+				INFOPLIST_FILE = "Target Support Files/ChartLegends/ResourceBundle-ChartLegends-ChartLegends-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = ChartLegends;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		F770999E2AF4D23C35D99115F1546D52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA9905F9CBC720F4D4D5CAF1AE38620F /* ChartLegends.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/ChartLegends";
+				IBSC_MODULE = ChartLegends;
+				INFOPLIST_FILE = "Target Support Files/ChartLegends/ResourceBundle-ChartLegends-ChartLegends-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = ChartLegends;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		FF569C6891EE77E820659367CC128073 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F26757987675ACFDB52FBC4CBA3B2AC7 /* ChartLegends.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ChartLegends/ChartLegends-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ChartLegends/ChartLegends-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/ChartLegends/ChartLegends.modulemap";
+				PRODUCT_MODULE_NAME = ChartLegends;
+				PRODUCT_NAME = ChartLegends;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		169D7111AEA849A144053636796F9387 /* Build configuration list for PBXNativeTarget "Pods-FinanceManagementSystem-FinanceManagementSystemUITests" */ = {
+		3BBA49AD4170F2F37EE2908D557AAB2B /* Build configuration list for PBXNativeTarget "Pods-FinanceManagementSystem" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				57923B06E9900EC0A19B50DF8FF481A4 /* Debug */,
-				62EA198ADFF3BF633880DE07D7895492 /* Release */,
+				2A33A79D282414C34ED079462FA63E7D /* Debug */,
+				AE83A4E195C6792D7DA8FF4E115E41C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3E5ED0A6535EDC236B6B6A6D51DA8452 /* Build configuration list for PBXNativeTarget "ChartLegends-ChartLegends" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2B9E2CD3D06AAD91B06268699F01617 /* Debug */,
+				F770999E2AF4D23C35D99115F1546D52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		42DD98A691E1D12D8F37C3C0E1A64F17 /* Build configuration list for PBXNativeTarget "Pods-FinanceManagementSystem-FinanceManagementSystemUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E5CCC150F9C4A85D6F619E73A663A49 /* Debug */,
+				D1235E4DA156D31A6A09F205EA79A8A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -943,6 +1602,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		8DA41CBA4B931F1A9E7DE3E4D1E69EC9 /* Build configuration list for PBXNativeTarget "PieCharts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5A984A3BA2E80D228A5CEE569900643 /* Debug */,
+				6B69046C126E9024F7720F29FF3FCAD6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A476A331E996DC82BDA1CD0E8A43F8B6 /* Build configuration list for PBXNativeTarget "iOSDropDown" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -952,20 +1620,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		D09C1487D74DC65260309D8B63928216 /* Build configuration list for PBXNativeTarget "ChartLegends" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF569C6891EE77E820659367CC128073 /* Debug */,
+				B090D406910C71821209DAB1E306BE32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D1C8D81673C6E6E57C9CBA4CE6FCCFA7 /* Build configuration list for PBXNativeTarget "Pods-FinanceManagementSystemTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				948FD2F1C2255D63EB8AF06D5C6E9BCB /* Debug */,
 				C7EB1C7A974FFCA06A40D528E8590BD7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D9CF2352D936C3D799C88E00BDB268D5 /* Build configuration list for PBXNativeTarget "Pods-FinanceManagementSystem" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A02AB28FC3C16B45785EEB58D6B78875 /* Debug */,
-				9BF219B43C5484D828964CC4828CE28B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

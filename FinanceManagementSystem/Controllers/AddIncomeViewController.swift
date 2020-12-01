@@ -34,7 +34,7 @@ class AddIncomeViewController: UIViewController {
     @IBOutlet weak var chooseTheCatefory: DropDown!
     
 
-    
+    let defaults = UserDefaults()
     let transparetView = UIView()
     let tableView = UITableView()
     var selectedButton = UIButton()
@@ -47,8 +47,9 @@ class AddIncomeViewController: UIViewController {
     var namesOfAgents = [String]()
     var incomeCategories = [String]()
     var categories = [String]()
+    let model = Model()
 
-    var accounts = [Accounts]()
+ 
     
 
     let date = Date()
@@ -68,7 +69,7 @@ class AddIncomeViewController: UIViewController {
         getProjects {
         }
         
-        getAccounts {
+        model.getAccounts {
             print("sa")
         }
         
@@ -112,50 +113,24 @@ class AddIncomeViewController: UIViewController {
     }
   
     
-     func getAccounts(completed: @escaping () -> ()) {
-        let urlString = "https://fms-neobis.herokuapp.com/cash_accounts"
-        guard let url = URL(string: urlString) else {
-            completed()
-            return
-        }
-        
-        let session = URLSession.shared
-        
-        let task = session.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                print("Error: \(error)")
-            }
-            do {
-                let result: [CashAccounts] = try JSONDecoder().decode([CashAccounts].self, from: data!)
-                
-                for index in 0..<result.count {
-                    let resp = Accounts(name: result[index].name, sumInAccounts: result[index].sumInAccount)
-                   
-                    self.accounts.append(resp)
-                
-                }
-                
-            } catch {
-            
-                print("ERROR")
-            }
-            completed()
-            
-        }
-        task.resume()
-            
-    }
+
     
      func getAgents(completed: @escaping () -> ()) {
         let urlString = "https://fms-neobis.herokuapp.com/contractors"
+        
+        
         guard let url = URL(string: urlString) else {
             completed()
             return
         }
         
+        let token = defaults.object(forKey:"token") as? String ?? ""
+        var request = URLRequest(url: url)
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
         let session = URLSession.shared
         
-        let task = session.dataTask(with: url) { (data, response, error) in
+        let task = session.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print("Error: \(error)")
             }
@@ -163,7 +138,8 @@ class AddIncomeViewController: UIViewController {
                 let result: [Agents] = try JSONDecoder().decode([Agents].self, from: data!)
                 print(result)
                 for index in 0..<result.count {
-                    self.namesOfAgents.append(result[index].name)
+                    print(result[index].name)
+                    self.namesOfAgents.append(result[index].name ?? "-")
                 }
             } catch {
                 
@@ -183,9 +159,13 @@ class AddIncomeViewController: UIViewController {
             return
         }
         
+        let token = defaults.object(forKey:"token") as? String ?? ""
+        var request = URLRequest(url: url)
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
         let session = URLSession.shared
         
-        let task = session.dataTask(with: url) { (data, response, error) in
+        let task = session.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print("Error: \(error)")
             }
@@ -194,7 +174,7 @@ class AddIncomeViewController: UIViewController {
                 print(result)
                 for index in 0..<result.count {
                     print(result[index].categoryName)
-                    self.incomeCategories.append(result[index].categoryName)
+                    self.incomeCategories.append(result[index].categoryName ?? "")
                 }
             } catch {
                 
@@ -214,9 +194,13 @@ class AddIncomeViewController: UIViewController {
             return
         }
         
+        let token = defaults.object(forKey:"token") as? String ?? ""
+        var request = URLRequest(url: url)
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
         let session = URLSession.shared
         
-        let task = session.dataTask(with: url) { (data, response, error) in
+        let task = session.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print("Error: \(error)")
             }
@@ -225,7 +209,7 @@ class AddIncomeViewController: UIViewController {
                 print(result)
                 for index in 0..<result.count {
                     print(result[index].name)
-                    self.categories.append(result[index].name)
+                    self.categories.append(result[index].name ?? "")
                 }
             } catch {
                 
@@ -241,13 +225,22 @@ class AddIncomeViewController: UIViewController {
   
     func createDropDownButtons() {
         var acounts = [String]()
-        for i in 0..<accounts.count {
-            acounts.append(accounts[i].name)
+        for i in 0..<model.accounts.count {
+            acounts.append(model.accounts[i].name)
         }
         textFieldForContractor.optionArray = namesOfAgents
         chooseTheCatefory.optionArray = incomeCategories
         chooseBillButton.optionArray = acounts
         chooseProjectButton.optionArray = categories
+        textFieldForContractor.checkMarkEnabled = false
+        chooseTheCatefory.checkMarkEnabled = false
+        chooseProjectButton.checkMarkEnabled = false
+        chooseBillButton.checkMarkEnabled = false
+        textFieldForContractor.selectedRowColor = .black
+        chooseBillButton.selectedRowColor = .black
+        chooseTheCatefory.selectedRowColor = .black
+        chooseProjectButton.selectedRowColor = .black
+
     }
     
    
@@ -272,6 +265,7 @@ class AddIncomeViewController: UIViewController {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd-MM-yyyy"
             let income = IncomeData(actualDate: dateFormatter.string(from: datePicker.date), cashAccount: chooseBillButton.text ?? "", category: chooseTheCatefory.text ?? "", contractor: textFieldForContractor.text ?? "", description: descriptionTextView.text, status: true, sumOfTransaction: Int(textFieldForSumm.text ?? "") ?? 0, tags: textFieldForTags.text ?? "")
+            print(income)
             let postRequest = APIRequest(endpoint: "income_transaction")
             postRequest.save(income, completion: { result in
 
@@ -294,6 +288,18 @@ class AddIncomeViewController: UIViewController {
                     }
                     
                 case .failure(let error):
+                    DispatchQueue.main.async {
+                        self.indicatorView.stopAnimating()
+                        self.view.isUserInteractionEnabled = true
+                        let alert = UIAlertController(title: "Ошибка сервера", message: "Попробуйте отправить запрос позже или обратитесь администратору", preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
+                            
+                            self.navigationController?.popViewController(animated: true)
+                            
+                        }))
+                        self.present(alert, animated: true)
+                    }
                     print("ERROR: \(error)")
                 }
                

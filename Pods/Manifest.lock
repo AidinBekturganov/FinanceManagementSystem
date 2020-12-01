@@ -1,16 +1,24 @@
 PODS:
+  - ChartLegends (0.0.6)
   - iOSDropDown (0.3.4)
+  - PieCharts (0.0.7)
 
 DEPENDENCIES:
+  - ChartLegends
   - iOSDropDown
+  - PieCharts
 
 SPEC REPOS:
   trunk:
+    - ChartLegends
     - iOSDropDown
+    - PieCharts
 
 SPEC CHECKSUMS:
+  ChartLegends: bd0b58d74772f35dc14fc6a3ff245cccf3204a59
   iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
+  PieCharts: 30e50dfa7dc19e5b84e9878d32089673ef5d0453
 
-PODFILE CHECKSUM: 690c3d0ee70a5308224694769540e1fc33befcd1
+PODFILE CHECKSUM: d2fa31d15c13dd8085c1a908c31e26c573dfea7a
 
 COCOAPODS: 1.9.3

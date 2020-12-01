@@ -32,7 +32,7 @@ class DetailOfTransactionViewController: UIViewController {
     
     func updateUserInterface() {
         print(item.date)
-        dateLabel.text = item.date
+        dateLabel.text = "\(item.date)"
         cashAccountLabel.text = item.account
         categoryLabel.text = "Категория: \(item.category)"
         projectLabel.text = "Проект: \(item.project)"
