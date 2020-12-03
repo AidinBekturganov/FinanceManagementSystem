@@ -116,7 +116,7 @@ class AddIncomeViewController: UIViewController {
 
     
      func getAgents(completed: @escaping () -> ()) {
-        let urlString = "https://fms-neobis.herokuapp.com/contractors"
+        let urlString = "https://fms-neobis.herokuapp.com/contractors/not_archived"
         
         
         guard let url = URL(string: urlString) else {
@@ -153,7 +153,7 @@ class AddIncomeViewController: UIViewController {
     }
     
      func getCategory(completed: @escaping () -> ()) {
-        let urlString = "https://fms-neobis.herokuapp.com/incomes_categories"
+        let urlString = "https://fms-neobis.herokuapp.com/incomes_categories/not_archived"
         guard let url = URL(string: urlString) else {
             completed()
             return
@@ -264,8 +264,9 @@ class AddIncomeViewController: UIViewController {
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd-MM-yyyy"
+    
             let income = IncomeData(actualDate: dateFormatter.string(from: datePicker.date), cashAccount: chooseBillButton.text ?? "", category: chooseTheCatefory.text ?? "", contractor: textFieldForContractor.text ?? "", description: descriptionTextView.text, status: true, sumOfTransaction: Int(textFieldForSumm.text ?? "") ?? 0, tags: textFieldForTags.text ?? "")
-            print(income)
+            
             let postRequest = APIRequest(endpoint: "income_transaction")
             postRequest.save(income, completion: { result in
 

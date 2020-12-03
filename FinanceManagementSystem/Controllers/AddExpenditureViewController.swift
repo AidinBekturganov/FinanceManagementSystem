@@ -37,6 +37,7 @@ class AddExpenditureViewController: ViewController {
     var namesOfAgents = [String]()
     var incomeCategories = [String]()
     var categories = [String]()
+    var defaults = UserDefaults()
 
     var accounts = [Accounts]()
     
@@ -101,15 +102,19 @@ class AddExpenditureViewController: ViewController {
   
     
      func getAccounts(completed: @escaping () -> ()) {
-        let urlString = "https://fms-neobis.herokuapp.com/cash_accounts"
+        let urlString = "https://fms-neobis.herokuapp.com/cash_accounts/not_archived"
         guard let url = URL(string: urlString) else {
             completed()
             return
         }
         
+        let token = defaults.object(forKey:"token") as? String ?? ""
+        var request = URLRequest(url: url)
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
         let session = URLSession.shared
         
-        let task = session.dataTask(with: url) { (data, response, error) in
+        let task = session.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print("Error: \(error)")
             }
@@ -135,15 +140,19 @@ class AddExpenditureViewController: ViewController {
     }
     
      func getAgents(completed: @escaping () -> ()) {
-        let urlString = "https://fms-neobis.herokuapp.com/contractors"
+        let urlString = "https://fms-neobis.herokuapp.com/contractors/not_archived"
         guard let url = URL(string: urlString) else {
             completed()
             return
         }
         
+        let token = defaults.object(forKey:"token") as? String ?? ""
+        var request = URLRequest(url: url)
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
         let session = URLSession.shared
         
-        let task = session.dataTask(with: url) { (data, response, error) in
+        let task = session.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print("Error: \(error)")
             }
@@ -165,15 +174,19 @@ class AddExpenditureViewController: ViewController {
     }
     
      func getCategory(completed: @escaping () -> ()) {
-        let urlString = "https://fms-neobis.herokuapp.com/expenses_categories"
+        let urlString = "https://fms-neobis.herokuapp.com/expenses_categories/not_archived"
         guard let url = URL(string: urlString) else {
             completed()
             return
         }
         
+        let token = defaults.object(forKey:"token") as? String ?? ""
+        var request = URLRequest(url: url)
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
         let session = URLSession.shared
         
-        let task = session.dataTask(with: url) { (data, response, error) in
+        let task = session.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print("Error: \(error)")
             }
@@ -202,9 +215,13 @@ class AddExpenditureViewController: ViewController {
             return
         }
         
+        let token = defaults.object(forKey:"token") as? String ?? ""
+        var request = URLRequest(url: url)
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
         let session = URLSession.shared
         
-        let task = session.dataTask(with: url) { (data, response, error) in
+        let task = session.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print("Error: \(error)")
             }

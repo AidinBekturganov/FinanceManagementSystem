@@ -94,7 +94,7 @@ class ExchangeViewController: UIViewController {
     
     
      func getAccounts(completed: @escaping () -> ()) {
-        let urlString = "https://fms-neobis.herokuapp.com/cash_accounts"
+        let urlString = "https://fms-neobis.herokuapp.com/cash_accounts/not_archived"
         guard let url = URL(string: urlString) else {
             completed()
             return

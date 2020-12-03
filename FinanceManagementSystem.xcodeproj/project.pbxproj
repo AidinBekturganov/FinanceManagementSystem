@@ -178,13 +178,13 @@
 		CE11597825682E7500BBCB2C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CEA48459254412D300B3976F /* AddIncomeViewController.swift */,
 				CE90609E254ECA4200313D02 /* BookOfTransactionsViewController.swift */,
 				CE11597D25682EF900BBCB2C /* MainPageViewController.swift */,
 				CEA53670256907E9004762AB /* BillsTableViewCell.swift */,
 				CEA55536255414F400B8B68D /* TransactionTableViewCell.swift */,
 				CE76702A255FB0A400036C3E /* AuthViewController.swift */,
 				CE5D23A5253471C600AC0678 /* ViewController.swift */,
+				CEA48459254412D300B3976F /* AddIncomeViewController.swift */,
 				CE9366F72547C54F008EEBE0 /* AddExpenditureViewController.swift */,
 				CE9366FC25480E2E008EEBE0 /* ExchangeViewController.swift */,
 				CEA5553B25554B1E00B8B68D /* DetailOfTransactionViewController.swift */,

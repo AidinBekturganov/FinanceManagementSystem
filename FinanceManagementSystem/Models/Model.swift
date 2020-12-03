@@ -18,7 +18,7 @@ class Model {
     
  
     func getAccounts(completed: @escaping () -> ()) {
-       let urlString = "https://fms-neobis.herokuapp.com/cash_accounts"
+       let urlString = "https://fms-neobis.herokuapp.com/cash_accounts/not_archived"
         let token = defaults.object(forKey:"token") as? String ?? ""
        guard let url = URL(string: urlString) else {
            completed()
@@ -107,6 +107,22 @@ struct Transactions {
     var numberOfPages: Int
 }
 
+//final class IncomeData: Codable {
+//    var actualDate: String?
+//    var cashAccount: String?
+//    var category: String?
+//    var status: Bool
+//    var sumOfTransaction: Int?
+//    
+//    init(actualDate: String, cashAccount: String, category: String, status: Bool, sumOfTransaction: Int) {
+//        self.actualDate = actualDate
+//        self.cashAccount = cashAccount
+//        self.category = category
+//        self.status = status
+//        self.sumOfTransaction = sumOfTransaction
+//    }
+//    
+//}
 
 
 final class IncomeData: Codable {
@@ -118,7 +134,7 @@ final class IncomeData: Codable {
     var status: Bool
     var sumOfTransaction: Int?
     var tags: String?
-    
+
     init(actualDate: String, cashAccount: String, category: String, contractor: String, description: String, status: Bool, sumOfTransaction: Int, tags: String) {
         self.actualDate = actualDate
         self.cashAccount = cashAccount
@@ -129,15 +145,15 @@ final class IncomeData: Codable {
         self.sumOfTransaction = sumOfTransaction
         self.tags = tags
     }
-    
+
 }
 
 final class CreatCashAccount: Codable {
 
-    var name: String?
+    var categoryName: String?
     
-    init(name: String) {
-        self.name = name
+    init(categoryName: String) {
+        self.categoryName = categoryName
     }
     
 }

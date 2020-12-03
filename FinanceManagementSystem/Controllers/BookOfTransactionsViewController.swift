@@ -4,7 +4,7 @@
 //
 //  Created by User on 11/1/20.
 //
-
+import Foundation
 import UIKit
 
 extension Date {
@@ -37,7 +37,7 @@ class BookOfTransactionsViewController: UIViewController {
         indicatorView.startAnimating()
         self.view.isUserInteractionEnabled = false
         
-        getData {
+        getData(page: 1) {
             print("Done")
             DispatchQueue.main.async {
                 self.attemptToAssembleGroupedTransactions()
@@ -87,9 +87,31 @@ class BookOfTransactionsViewController: UIViewController {
         indicatorView.color = UIColor.green
         view.addSubview(indicatorView)
     }
+    var r = "Демир"
+    var a = ""
+    var page = 1
+    var trans = [ModelOfBook]()
     
-    func getData(completed: @escaping () -> ()) {
-        let urlString = "https://fms-neobis.herokuapp.com/transactions?pageNumber=1&transactionsInPage=20"
+    func getData(page: Int, completed: @escaping () -> ()) {
+       // let new = r.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+        let urlString = "https://fms-neobis.herokuapp.com/transactions?pageNumber=\(page)&transactionsInPage=20"
+//        var urlString = URLComponents(string: "https://fms-neobis.herokuapp.com/transactions")!
+//        urlString.queryItems = []
+//        if a == "" {
+//
+//        } else {
+//            urlString.queryItems?.append(URLQueryItem(name: "contractor", value: a))
+//
+//        }
+//
+//        urlString.queryItems?.append(URLQueryItem(name: "pageNumber", value: "1"))
+//        urlString.queryItems?.append(URLQueryItem(name: "transactionsInPage", value: "10"))
+        
+//        urlString.queryItems = [
+//            URLQueryItem(name: "cashAccount", value: "Демир"),
+//            URLQueryItem(name: "pageNumber", value: "1"),
+//            URLQueryItem(name: "transactionsInPage", value: "10")
+//        ]
         
         guard let url = URL(string: urlString) else {
             completed()
@@ -98,6 +120,8 @@ class BookOfTransactionsViewController: UIViewController {
         
         let token = defaults.object(forKey:"token") as? String ?? ""
         var request = URLRequest(url: url)
+        //print(urlString.url!)
+
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
         let session = URLSession.shared
@@ -106,13 +130,13 @@ class BookOfTransactionsViewController: UIViewController {
             if let error = error {
                 print("Error: \(error)")
             }
-            print(response)
             
             do {
                 let result = try JSONDecoder().decode(ModelsOfBook.self, from: data ?? Data())
                 print(result)
                 self.number = Int(result.numberOfPages)
-                for i in 0..<result.transactions.count {
+                self.trans = self.trans + result.transactions
+                for i in 0..<self.trans.count {
                     //print("HERE IS THE TRANSACTION \(result[i].actualDate ?? "")")
                     self.date = Date.dateFromCustomString(customString: result.transactions[i].actualDate ?? "")
                     self.account =
@@ -168,14 +192,14 @@ class BookOfTransactionsViewController: UIViewController {
         setupIndicator()
         indicatorView.startAnimating()
         self.view.isUserInteractionEnabled = false
-        getData {
-            DispatchQueue.main.async {
-                self.attemptToAssembleGroupedTransactions()
-                self.tableView.reloadData()
-                self.indicatorView.stopAnimating()
-                self.view.isUserInteractionEnabled = true
-            }
-        }
+//        getData(page: page) {
+//            DispatchQueue.main.async {
+//                self.attemptToAssembleGroupedTransactions()
+//                self.tableView.reloadData()
+//                self.indicatorView.stopAnimating()
+//                self.view.isUserInteractionEnabled = true
+//            }
+//        }
     }
     
 }
@@ -183,47 +207,47 @@ class BookOfTransactionsViewController: UIViewController {
 
 extension BookOfTransactionsViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return transactionsArray.count
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
-    {
-        let view = UIView()
-        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.15)
-        let label = UILabel()
-        label.frame = CGRect(x: 17, y: 5, width: 144, height: 35)
-        label.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
-        label.font = UIFont(name: "Roboto-Medium", size: 22)
-        view.addSubview(label)
-        if let firstMessageInSection = transactionsArray[section].first {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd-MM-yyyy"
-            let dateString = dateFormatter.string(from: firstMessageInSection.date)
-            let todayDateString = dateFormatter.string(from: todayDate)
-            
-            
-            
-            if dateString == todayDateString {
-             
-                label.text = "Сегодня"
-
-            } else {
-                    label.text = dateString
-            }
-        }
-        
-       
-      return view
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        50
-    }
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return transactionsArray.count
+//    }
+//    
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+//    {
+//        let view = UIView()
+//        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.15)
+//        let label = UILabel()
+//        label.frame = CGRect(x: 17, y: 5, width: 144, height: 35)
+//        label.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
+//        label.font = UIFont(name: "Roboto-Medium", size: 22)
+//        view.addSubview(label)
+//        if let firstMessageInSection = transactionsArray[section].first {
+//            let dateFormatter = DateFormatter()
+//            dateFormatter.dateFormat = "dd-MM-yyyy"
+//            let dateString = dateFormatter.string(from: firstMessageInSection.date)
+//            let todayDateString = dateFormatter.string(from: todayDate)
+//            
+//            
+//            
+//            if dateString == todayDateString {
+//             
+//                label.text = "Сегодня"
+//
+//            } else {
+//                    label.text = dateString
+//            }
+//        }
+//        
+//       
+//      return view
+//    }
+//    
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        50
+//    }
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return transactionsArray[section].count
+        return model.transactions.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -236,7 +260,22 @@ extension BookOfTransactionsViewController: UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TransactionTableViewCell
-        cell.trans = transactionsArray[indexPath.section][indexPath.row]
+        print(indexPath.row, model.transactions.count - 1)
+        if indexPath.row == model.transactions.count - 1 {
+            page += 1
+            getData(page: page) {
+                DispatchQueue.main.async {
+                    print("EXECUTED THIS GET")
+                    self.attemptToAssembleGroupedTransactions()
+                    self.tableView.reloadData()
+                    self.indicatorView.stopAnimating()
+                    self.view.isUserInteractionEnabled = true
+                }
+            }
+            
+            
+        }
+        cell.trans = model.transactions[indexPath.row]
         return cell
     }
     

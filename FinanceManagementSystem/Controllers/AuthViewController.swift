@@ -22,9 +22,9 @@ class AuthViewController: UIViewController {
         signInButton.layer.borderWidth = 1
         signInButton.layer.borderColor = UIColor(red: 196/255, green: 196/255, blue: 196/255, alpha: 0.85).cgColor
         
-//        let cash = CreatCashAccount(name: "Java")
+//        let cash = CreatCashAccount(categoryName: "Коммунальные услуги")
 //
-//        let postRequest = APIRequest(endpoint: "projects")
+//        let postRequest = APIRequest(endpoint: "expenses_categories")
 //        postRequest.saveNewCashAccount(cash, completion: { result in
 //
 //            switch result {
