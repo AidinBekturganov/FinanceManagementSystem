@@ -308,6 +308,206 @@ class AddIncomeViewController: UIViewController {
 
             })
             
+            postRequest.save(income, completion: { result in
+
+                switch result {
+                case .success(let message):
+                    
+                    print("SUCCCESS \(message.message)")
+                    DispatchQueue.main.async {
+                        self.indicatorView.stopAnimating()
+                        self.view.isUserInteractionEnabled = true
+                        let alert = UIAlertController(title: "Вывод", message: message.message, preferredStyle: .alert)
+
+                        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
+                           
+                                self.navigationController?.popViewController(animated: true)
+                            
+                        }))
+                        self.present(alert, animated: true)
+                        
+                    }
+                    
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        self.indicatorView.stopAnimating()
+                        self.view.isUserInteractionEnabled = true
+                        let alert = UIAlertController(title: "Ошибка сервера", message: "Попробуйте отправить запрос позже или обратитесь администратору", preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
+                            
+                            self.navigationController?.popViewController(animated: true)
+                            
+                        }))
+                        self.present(alert, animated: true)
+                    }
+                    print("ERROR: \(error)")
+                }
+               
+                
+
+            })
+            
+            postRequest.save(income, completion: { result in
+
+                switch result {
+                case .success(let message):
+                    
+                    print("SUCCCESS \(message.message)")
+                    DispatchQueue.main.async {
+                        self.indicatorView.stopAnimating()
+                        self.view.isUserInteractionEnabled = true
+                        let alert = UIAlertController(title: "Вывод", message: message.message, preferredStyle: .alert)
+
+                        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
+                           
+                                self.navigationController?.popViewController(animated: true)
+                            
+                        }))
+                        self.present(alert, animated: true)
+                        
+                    }
+                    
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        self.indicatorView.stopAnimating()
+                        self.view.isUserInteractionEnabled = true
+                        let alert = UIAlertController(title: "Ошибка сервера", message: "Попробуйте отправить запрос позже или обратитесь администратору", preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
+                            
+                            self.navigationController?.popViewController(animated: true)
+                            
+                        }))
+                        self.present(alert, animated: true)
+                    }
+                    print("ERROR: \(error)")
+                }
+               
+                
+
+            })
+            
+            postRequest.save(income, completion: { result in
+
+                switch result {
+                case .success(let message):
+                    
+                    print("SUCCCESS \(message.message)")
+                    DispatchQueue.main.async {
+                        self.indicatorView.stopAnimating()
+                        self.view.isUserInteractionEnabled = true
+                        let alert = UIAlertController(title: "Вывод", message: message.message, preferredStyle: .alert)
+
+                        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
+                           
+                                self.navigationController?.popViewController(animated: true)
+                            
+                        }))
+                        self.present(alert, animated: true)
+                        
+                    }
+                    
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        self.indicatorView.stopAnimating()
+                        self.view.isUserInteractionEnabled = true
+                        let alert = UIAlertController(title: "Ошибка сервера", message: "Попробуйте отправить запрос позже или обратитесь администратору", preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
+                            
+                            self.navigationController?.popViewController(animated: true)
+                            
+                        }))
+                        self.present(alert, animated: true)
+                    }
+                    print("ERROR: \(error)")
+                }
+               
+                
+
+            })
+            
+            postRequest.save(income, completion: { result in
+
+                switch result {
+                case .success(let message):
+                    
+                    print("SUCCCESS \(message.message)")
+                    DispatchQueue.main.async {
+                        self.indicatorView.stopAnimating()
+                        self.view.isUserInteractionEnabled = true
+                        let alert = UIAlertController(title: "Вывод", message: message.message, preferredStyle: .alert)
+
+                        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
+                           
+                                self.navigationController?.popViewController(animated: true)
+                            
+                        }))
+                        self.present(alert, animated: true)
+                        
+                    }
+                    
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        self.indicatorView.stopAnimating()
+                        self.view.isUserInteractionEnabled = true
+                        let alert = UIAlertController(title: "Ошибка сервера", message: "Попробуйте отправить запрос позже или обратитесь администратору", preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
+                            
+                            self.navigationController?.popViewController(animated: true)
+                            
+                        }))
+                        self.present(alert, animated: true)
+                    }
+                    print("ERROR: \(error)")
+                }
+               
+                
+
+            })
+            
+            postRequest.save(income, completion: { result in
+
+                switch result {
+                case .success(let message):
+                    
+                    print("SUCCCESS \(message.message)")
+                    DispatchQueue.main.async {
+                        self.indicatorView.stopAnimating()
+                        self.view.isUserInteractionEnabled = true
+                        let alert = UIAlertController(title: "Вывод", message: message.message, preferredStyle: .alert)
+
+                        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
+                           
+                                self.navigationController?.popViewController(animated: true)
+                            
+                        }))
+                        self.present(alert, animated: true)
+                        
+                    }
+                    
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        self.indicatorView.stopAnimating()
+                        self.view.isUserInteractionEnabled = true
+                        let alert = UIAlertController(title: "Ошибка сервера", message: "Попробуйте отправить запрос позже или обратитесь администратору", preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
+                            
+                            self.navigationController?.popViewController(animated: true)
+                            
+                        }))
+                        self.present(alert, animated: true)
+                    }
+                    print("ERROR: \(error)")
+                }
+               
+                
+
+            })
+            
             
         } else {
             let alert = UIAlertController(title: "Не заполнены обязательные поля", message: "Пожалуйста заполните поля зеленого цвета", preferredStyle: .alert)

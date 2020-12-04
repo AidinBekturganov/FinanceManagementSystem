@@ -150,10 +150,10 @@ final class IncomeData: Codable {
 
 final class CreatCashAccount: Codable {
 
-    var categoryName: String?
+    var name: String?
     
-    init(categoryName: String) {
-        self.categoryName = categoryName
+    init(name: String) {
+        self.name = name
     }
     
 }

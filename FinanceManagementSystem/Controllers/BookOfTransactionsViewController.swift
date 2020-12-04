@@ -37,7 +37,19 @@ class BookOfTransactionsViewController: UIViewController {
         indicatorView.startAnimating()
         self.view.isUserInteractionEnabled = false
         
-        getData(page: 1) {
+        var urlString = URLComponents(string: "https://fms-neobis.herokuapp.com/transactions")!
+        urlString.queryItems = []
+//        if a == "" {
+//
+//        } else {
+//            urlString.queryItems?.append(URLQueryItem(name: "typeOfTransaction", value: "Доход"))
+//
+//        }
+
+        urlString.queryItems?.append(URLQueryItem(name: "pageNumber", value: "\(page)"))
+        urlString.queryItems?.append(URLQueryItem(name: "transactionsInPage", value: "20"))
+        
+        getData(page: page, url: urlString) {
             print("Done")
             DispatchQueue.main.async {
                 self.attemptToAssembleGroupedTransactions()
@@ -92,7 +104,88 @@ class BookOfTransactionsViewController: UIViewController {
     var page = 1
     var trans = [ModelOfBook]()
     
-    func getData(page: Int, completed: @escaping () -> ()) {
+    func filter(page: Int, completed: @escaping () -> ()) {
+        // let new = r.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+//         let urlString = "https://fms-neobis.herokuapp.com/transactions?pageNumber=\(page)&transactionsInPage=20"
+         var urlString = URLComponents(string: "https://fms-neobis.herokuapp.com/transactions")!
+         urlString.queryItems = []
+         if a == "" {
+ 
+         } else {
+             urlString.queryItems?.append(URLQueryItem(name: "typeOfTransaction", value: "Доход"))
+ 
+         }
+ 
+         urlString.queryItems?.append(URLQueryItem(name: "pageNumber", value: "\(page)"))
+         urlString.queryItems?.append(URLQueryItem(name: "transactionsInPage", value: "50"))
+         
+//         urlString.queryItems = [
+//             URLQueryItem(name: "cashAccount", value: "Демир"),
+//             URLQueryItem(name: "pageNumber", value: "1"),
+//             URLQueryItem(name: "transactionsInPage", value: "10")
+//         ]
+         
+//        guard let url = URL(string: urlString.url!) else {
+//             completed()
+//             return
+//         }
+         
+         let token = defaults.object(forKey:"token") as? String ?? ""
+        var request = URLRequest(url: urlString.url!)
+         //print(urlString.url!)
+
+         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+         
+         let session = URLSession.shared
+         
+         let task = session.dataTask(with: request) { (data, response, error) in
+             if let error = error {
+                 print("Error: \(error)")
+             }
+             
+             do {
+                 let result = try JSONDecoder().decode(ModelsOfBook.self, from: data ?? Data())
+                 print(result)
+                 self.trans = []
+                 self.number = Int(result.numberOfPages)
+                 self.trans = self.trans + result.transactions
+                 for i in 0..<self.trans.count {
+                     //print("HERE IS THE TRANSACTION \(result[i].actualDate ?? "")")
+                     self.date = Date.dateFromCustomString(customString: self.trans[i].actualDate ?? "")
+                     self.account =
+                         self.trans[i].cashAccount ?? ""
+                     self.project = self.trans[i].project ?? "-"
+                     self.category = self.trans[i].category ?? "-"
+                     self.type = self.trans[i].type ?? ""
+                     self.contractor = self.trans[i].contractor ?? "-"
+                     self.description1 = self.trans[i].description ?? "-"
+                     self.sumOfTransaction = self.trans[i].sumOfTransaction ?? 0
+                     for index in 0..<self.trans[i].tags.count {
+                         if self.trans[i].tags[index].name == "" {
+
+                         } else {
+                             let name1 = self.trans[i].tags[index].name ?? "-"
+                             self.tags.append(name1)
+                         }
+
+                     }
+                     let trans = Transactions(date: self.date, account: self.account, cashAccount: self.account, project: self.project, type: self.type, category: self.category, contractor: self.contractor, description1: self.description1, sumOfTransaction: self.sumOfTransaction, tags: self.tags, numberOfPages: self.number)
+
+
+
+                     self.model.transactions.append(trans)
+
+                 }
+             } catch {
+                 print("ERROR IN CATCHING DATA OF BOOK")
+             }
+             completed()
+         }
+         task.resume()
+     }
+     
+    
+    func getData(page: Int, url: URLComponents, completed: @escaping () -> ()) {
        // let new = r.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
         let urlString = "https://fms-neobis.herokuapp.com/transactions?pageNumber=\(page)&transactionsInPage=20"
 //        var urlString = URLComponents(string: "https://fms-neobis.herokuapp.com/transactions")!
@@ -113,13 +206,13 @@ class BookOfTransactionsViewController: UIViewController {
 //            URLQueryItem(name: "transactionsInPage", value: "10")
 //        ]
         
-        guard let url = URL(string: urlString) else {
-            completed()
-            return
-        }
+//        guard let url = URL(string: urlString) else {
+//            completed()
+//            return
+//        }
         
         let token = defaults.object(forKey:"token") as? String ?? ""
-        var request = URLRequest(url: url)
+        var request = URLRequest(url: url.url!)
         //print(urlString.url!)
 
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
@@ -134,24 +227,25 @@ class BookOfTransactionsViewController: UIViewController {
             do {
                 let result = try JSONDecoder().decode(ModelsOfBook.self, from: data ?? Data())
                 print(result)
+                self.trans = []
                 self.number = Int(result.numberOfPages)
                 self.trans = self.trans + result.transactions
                 for i in 0..<self.trans.count {
                     //print("HERE IS THE TRANSACTION \(result[i].actualDate ?? "")")
-                    self.date = Date.dateFromCustomString(customString: result.transactions[i].actualDate ?? "")
+                    self.date = Date.dateFromCustomString(customString: self.trans[i].actualDate ?? "")
                     self.account =
-                        result.transactions[i].cashAccount ?? ""
-                    self.project = result.transactions[i].project ?? "-"
-                    self.category = result.transactions[i].category ?? "-"
-                    self.type = result.transactions[i].type ?? ""
-                    self.contractor = result.transactions[i].contractor ?? "-"
-                    self.description1 = result.transactions[i].description ?? "-"
-                    self.sumOfTransaction = result.transactions[i].sumOfTransaction ?? 0
-                    for index in 0..<result.transactions[i].tags.count {
-                        if result.transactions[i].tags[index].name == "" {
+                        self.trans[i].cashAccount ?? ""
+                    self.project = self.trans[i].project ?? "-"
+                    self.category = self.trans[i].category ?? "-"
+                    self.type = self.trans[i].type ?? ""
+                    self.contractor = self.trans[i].contractor ?? "-"
+                    self.description1 = self.trans[i].description ?? "-"
+                    self.sumOfTransaction = self.trans[i].sumOfTransaction ?? 0
+                    for index in 0..<self.trans[i].tags.count {
+                        if self.trans[i].tags[index].name == "" {
 
                         } else {
-                            let name1 = result.transactions[i].tags[index].name ?? "-"
+                            let name1 = self.trans[i].tags[index].name ?? "-"
                             self.tags.append(name1)
                         }
 
@@ -184,15 +278,36 @@ class BookOfTransactionsViewController: UIViewController {
             }
         }
     }
+    
+    var flag = false
 
     @IBAction func updateBarButtonPressed(_ sender: Any) {
-        transactionsArray = []
         model.transactions = []
-        tableView.reloadData()
-        setupIndicator()
-        indicatorView.startAnimating()
-        self.view.isUserInteractionEnabled = false
-//        getData(page: page) {
+        flag = true
+        page = 1
+        
+        var urlString = URLComponents(string: "https://fms-neobis.herokuapp.com/transactions")!
+        urlString.queryItems = []
+       
+        urlString.queryItems?.append(URLQueryItem(name: "typeOfTransaction", value: "Расход"))
+
+        urlString.queryItems?.append(URLQueryItem(name: "pageNumber", value: "\(page)"))
+        urlString.queryItems?.append(URLQueryItem(name: "transactionsInPage", value: "20"))
+        
+        getData(page: page, url: urlString) {
+            DispatchQueue.main.async {
+                print("EXECUTED THIS GET IN FILTER")
+                self.attemptToAssembleGroupedTransactions()
+                self.tableView.reloadData()
+                self.indicatorView.stopAnimating()
+                self.view.isUserInteractionEnabled = true
+                
+            }
+        }
+
+        
+//        filter(page: 1) {
+//            print("DONE FILTERING")
 //            DispatchQueue.main.async {
 //                self.attemptToAssembleGroupedTransactions()
 //                self.tableView.reloadData()
@@ -260,21 +375,65 @@ extension BookOfTransactionsViewController: UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TransactionTableViewCell
-        print(indexPath.row, model.transactions.count - 1)
-        if indexPath.row == model.transactions.count - 1 {
-            page += 1
-            getData(page: page) {
-                DispatchQueue.main.async {
-                    print("EXECUTED THIS GET")
-                    self.attemptToAssembleGroupedTransactions()
-                    self.tableView.reloadData()
-                    self.indicatorView.stopAnimating()
-                    self.view.isUserInteractionEnabled = true
+        if flag {
+            
+            if indexPath.row == model.transactions.count - 1 {
+               
+                if model.transactions[indexPath.row].numberOfPages - page == 0 {
+                    
+                } else {
+                    page += 1
+                    var urlString = URLComponents(string: "https://fms-neobis.herokuapp.com/transactions")!
+                    urlString.queryItems = []
+                   
+                    urlString.queryItems?.append(URLQueryItem(name: "typeOfTransaction", value: "Расход"))
+
+                    urlString.queryItems?.append(URLQueryItem(name: "pageNumber", value: "\(page)"))
+                    urlString.queryItems?.append(URLQueryItem(name: "transactionsInPage", value: "20"))
+                    
+                    getData(page: page, url: urlString) {
+                        DispatchQueue.main.async {
+                            print("EXECUTED THIS GET IN FILTER")
+                            self.attemptToAssembleGroupedTransactions()
+                            self.tableView.reloadData()
+                            self.indicatorView.stopAnimating()
+                            self.view.isUserInteractionEnabled = true
+                            
+                        }
+                    }
+
                 }
+                
             }
-            
-            
+        } else {
+            if indexPath.row == model.transactions.count - 1 {
+               
+                if model.transactions[indexPath.row].numberOfPages - page == 0 {
+                    
+                } else {
+                    page += 1
+                    print("HERE IS THE PAGE\(page)")
+                    
+                    var urlString = URLComponents(string: "https://fms-neobis.herokuapp.com/transactions")!
+                    urlString.queryItems = []
+                    urlString.queryItems?.append(URLQueryItem(name: "pageNumber", value: "\(page)"))
+                    urlString.queryItems?.append(URLQueryItem(name: "transactionsInPage", value: "20"))
+                    
+                    getData(page: page, url: urlString) {
+                        DispatchQueue.main.async {
+                            print("EXECUTED THIS GET")
+                            self.attemptToAssembleGroupedTransactions()
+                            self.tableView.reloadData()
+                            self.indicatorView.stopAnimating()
+                            self.view.isUserInteractionEnabled = true
+                            
+                        }
+                    }
+                }
+                
+            }
         }
+        
         cell.trans = model.transactions[indexPath.row]
         return cell
     }
