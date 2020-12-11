@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		93924538ADDD9C37F3517373 /* Pods_FinanceManagementSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91CC4DF69C02FA80E334835F /* Pods_FinanceManagementSystem.framework */; };
 		A70500E2FCCADF61715B57D2 /* Pods_FinanceManagementSystemTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EDCA8BB69937CC322D32B54 /* Pods_FinanceManagementSystemTests.framework */; };
+		CE0CE21825814554002C96E3 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0CE21725814554002C96E3 /* MainTableViewCell.swift */; };
 		CE11595D256661E300BBCB2C /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11595C256661E300BBCB2C /* TestViewController.swift */; };
 		CE11596525682BB600BBCB2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE11596425682BB500BBCB2C /* Assets.xcassets */; };
 		CE11597225682CA800BBCB2C /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE11596F25682CA800BBCB2C /* Roboto-Regular.ttf */; };
 		CE11597325682CA800BBCB2C /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE11597025682CA800BBCB2C /* Roboto-Medium.ttf */; };
 		CE11597425682CA800BBCB2C /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE11597125682CA800BBCB2C /* Roboto-Light.ttf */; };
-		CE11597E25682EF900BBCB2C /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11597D25682EF900BBCB2C /* MainPageViewController.swift */; };
+		CE1C320225828E9A00A41915 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1C320125828E9A00A41915 /* ProgressBar.swift */; };
+		CE1C320A25828EED00A41915 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1C320925828EED00A41915 /* Timer.swift */; };
+		CE1C32142582A67E00A41915 /* CashAccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1C32132582A67E00A41915 /* CashAccountsViewController.swift */; };
+		CE1C321C2582A6B100A41915 /* CashAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1C321B2582A6B100A41915 /* CashAccountTableViewCell.swift */; };
 		CE5D23A2253471C600AC0678 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5D23A1253471C600AC0678 /* AppDelegate.swift */; };
 		CE5D23A4253471C600AC0678 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5D23A3253471C600AC0678 /* SceneDelegate.swift */; };
 		CE5D23A6253471C600AC0678 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5D23A5253471C600AC0678 /* ViewController.swift */; };
@@ -22,6 +26,7 @@
 		CE5D23AE253471C900AC0678 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE5D23AC253471C900AC0678 /* LaunchScreen.storyboard */; };
 		CE5D23B9253471C900AC0678 /* FinanceManagementSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5D23B8253471C900AC0678 /* FinanceManagementSystemTests.swift */; };
 		CE5D23C4253471C900AC0678 /* FinanceManagementSystemUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5D23C3253471C900AC0678 /* FinanceManagementSystemUITests.swift */; };
+		CE6BC66F2583475000064D43 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BC66E2583475000064D43 /* PageViewController.swift */; };
 		CE73ADD92572C1CA00718BA3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73ADD82572C1CA00718BA3 /* Constants.swift */; };
 		CE75988F25497ACC0017595F /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75988E25497ACC0017595F /* APIRequest.swift */; };
 		CE75989425497CBB0017595F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75989325497CBB0017595F /* Model.swift */; };
@@ -37,6 +42,7 @@
 		CEA5553C25554B1E00B8B68D /* DetailOfTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA5553B25554B1E00B8B68D /* DetailOfTransactionViewController.swift */; };
 		CEA9E97D254FC3A40015527A /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA9E97C254FC3A40015527A /* iOSDropDown.framework */; };
 		CEAAE9862556C14E00844173 /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAAE9852556C14E00844173 /* FilterTableViewController.swift */; };
+		CEB40AC825812C5400ED9A43 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB40AC725812C5400ED9A43 /* MainViewController.swift */; };
 		DD5F028BF367BCBA2985604E /* Pods_FinanceManagementSystem_FinanceManagementSystemUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B736F1775BAC8B5B6D0E081 /* Pods_FinanceManagementSystem_FinanceManagementSystemUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,12 +73,16 @@
 		8EDCA8BB69937CC322D32B54 /* Pods_FinanceManagementSystemTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinanceManagementSystemTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91CC4DF69C02FA80E334835F /* Pods_FinanceManagementSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinanceManagementSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96F3265E1C34DE5406F504AE /* Pods-FinanceManagementSystem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinanceManagementSystem.debug.xcconfig"; path = "Target Support Files/Pods-FinanceManagementSystem/Pods-FinanceManagementSystem.debug.xcconfig"; sourceTree = "<group>"; };
+		CE0CE21725814554002C96E3 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		CE11595C256661E300BBCB2C /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		CE11596425682BB500BBCB2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE11596F25682CA800BBCB2C /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "FinanceManagementSystem/Assets/Fonts/Roboto-Regular.ttf"; sourceTree = SOURCE_ROOT; };
 		CE11597025682CA800BBCB2C /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Medium.ttf"; path = "FinanceManagementSystem/Assets/Fonts/Roboto-Medium.ttf"; sourceTree = SOURCE_ROOT; };
 		CE11597125682CA800BBCB2C /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Light.ttf"; path = "FinanceManagementSystem/Assets/Fonts/Roboto-Light.ttf"; sourceTree = SOURCE_ROOT; };
-		CE11597D25682EF900BBCB2C /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
+		CE1C320125828E9A00A41915 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		CE1C320925828EED00A41915 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		CE1C32132582A67E00A41915 /* CashAccountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashAccountsViewController.swift; sourceTree = "<group>"; };
+		CE1C321B2582A6B100A41915 /* CashAccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashAccountTableViewCell.swift; sourceTree = "<group>"; };
 		CE5D239E253471C600AC0678 /* FinanceManagementSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceManagementSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5D23A1253471C600AC0678 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE5D23A3253471C600AC0678 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +96,7 @@
 		CE5D23BF253471C900AC0678 /* FinanceManagementSystemUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinanceManagementSystemUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5D23C3253471C900AC0678 /* FinanceManagementSystemUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceManagementSystemUITests.swift; sourceTree = "<group>"; };
 		CE5D23C5253471C900AC0678 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE6BC66E2583475000064D43 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		CE73ADD82572C1CA00718BA3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CE75988E25497ACC0017595F /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		CE75989325497CBB0017595F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -101,6 +112,7 @@
 		CEA5553B25554B1E00B8B68D /* DetailOfTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOfTransactionViewController.swift; sourceTree = "<group>"; };
 		CEA9E97C254FC3A40015527A /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEAAE9852556C14E00844173 /* FilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
+		CEB40AC725812C5400ED9A43 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,16 +190,12 @@
 		CE11597825682E7500BBCB2C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CE90609E254ECA4200313D02 /* BookOfTransactionsViewController.swift */,
-				CE11597D25682EF900BBCB2C /* MainPageViewController.swift */,
+				CE1C32122582A61900A41915 /* Journal */,
+				CE1C32112582A5FF00A41915 /* Transactions */,
+				CE76702A255FB0A400036C3E /* AuthViewController.swift */,
 				CEA53670256907E9004762AB /* BillsTableViewCell.swift */,
 				CEA55536255414F400B8B68D /* TransactionTableViewCell.swift */,
-				CE76702A255FB0A400036C3E /* AuthViewController.swift */,
 				CE5D23A5253471C600AC0678 /* ViewController.swift */,
-				CEA48459254412D300B3976F /* AddIncomeViewController.swift */,
-				CE9366F72547C54F008EEBE0 /* AddExpenditureViewController.swift */,
-				CE9366FC25480E2E008EEBE0 /* ExchangeViewController.swift */,
-				CEA5553B25554B1E00B8B68D /* DetailOfTransactionViewController.swift */,
 				CEAAE9852556C14E00844173 /* FilterTableViewController.swift */,
 				CE76702F255FB12D00036C3E /* DesignableView.swift */,
 				CE11595C256661E300BBCB2C /* TestViewController.swift */,
@@ -203,6 +211,32 @@
 				CE73ADD82572C1CA00718BA3 /* Constants.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		CE1C32112582A5FF00A41915 /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				CEA48459254412D300B3976F /* AddIncomeViewController.swift */,
+				CE9366F72547C54F008EEBE0 /* AddExpenditureViewController.swift */,
+				CE9366FC25480E2E008EEBE0 /* ExchangeViewController.swift */,
+			);
+			path = Transactions;
+			sourceTree = "<group>";
+		};
+		CE1C32122582A61900A41915 /* Journal */ = {
+			isa = PBXGroup;
+			children = (
+				CEA5553B25554B1E00B8B68D /* DetailOfTransactionViewController.swift */,
+				CE1C32132582A67E00A41915 /* CashAccountsViewController.swift */,
+				CE1C321B2582A6B100A41915 /* CashAccountTableViewCell.swift */,
+				CE90609E254ECA4200313D02 /* BookOfTransactionsViewController.swift */,
+				CEB40AC725812C5400ED9A43 /* MainViewController.swift */,
+				CE0CE21725814554002C96E3 /* MainTableViewCell.swift */,
+				CE1C320125828E9A00A41915 /* ProgressBar.swift */,
+				CE1C320925828EED00A41915 /* Timer.swift */,
+				CE6BC66E2583475000064D43 /* PageViewController.swift */,
+			);
+			path = Journal;
 			sourceTree = "<group>";
 		};
 		CE5D2395253471C600AC0678 = {
@@ -503,19 +537,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE1C321C2582A6B100A41915 /* CashAccountTableViewCell.swift in Sources */,
 				CE5D23A6253471C600AC0678 /* ViewController.swift in Sources */,
 				CEA5553C25554B1E00B8B68D /* DetailOfTransactionViewController.swift in Sources */,
+				CE1C32142582A67E00A41915 /* CashAccountsViewController.swift in Sources */,
 				CE75988F25497ACC0017595F /* APIRequest.swift in Sources */,
 				CE9366FD25480E2E008EEBE0 /* ExchangeViewController.swift in Sources */,
 				CEA53671256907E9004762AB /* BillsTableViewCell.swift in Sources */,
+				CEB40AC825812C5400ED9A43 /* MainViewController.swift in Sources */,
 				CE767030255FB12D00036C3E /* DesignableView.swift in Sources */,
 				CE5D23A2253471C600AC0678 /* AppDelegate.swift in Sources */,
+				CE6BC66F2583475000064D43 /* PageViewController.swift in Sources */,
 				CE5D23A4253471C600AC0678 /* SceneDelegate.swift in Sources */,
+				CE1C320A25828EED00A41915 /* Timer.swift in Sources */,
 				CEA4845A254412D300B3976F /* AddIncomeViewController.swift in Sources */,
-				CE11597E25682EF900BBCB2C /* MainPageViewController.swift in Sources */,
 				CEAAE9862556C14E00844173 /* FilterTableViewController.swift in Sources */,
 				CE76702B255FB0A400036C3E /* AuthViewController.swift in Sources */,
+				CE1C320225828E9A00A41915 /* ProgressBar.swift in Sources */,
 				CE11595D256661E300BBCB2C /* TestViewController.swift in Sources */,
+				CE0CE21825814554002C96E3 /* MainTableViewCell.swift in Sources */,
 				CEA55537255414F400B8B68D /* TransactionTableViewCell.swift in Sources */,
 				CE90609F254ECA4200313D02 /* BookOfTransactionsViewController.swift in Sources */,
 				CE9366F82547C54F008EEBE0 /* AddExpenditureViewController.swift in Sources */,

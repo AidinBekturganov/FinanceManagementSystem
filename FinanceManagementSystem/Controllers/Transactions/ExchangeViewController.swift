@@ -76,6 +76,15 @@ class ExchangeViewController: UIViewController {
 
     }
     
+    func transitionViewController() {
+        
+        let authPage = storyboard?.instantiateViewController(identifier: Constants.Storyboard.authViewController) as? AuthViewController
+        
+        view.window?.rootViewController = authPage
+        view.window?.makeKeyAndVisible()
+        
+    }
+    
     func createDropDownButtons() {
         var acounts = [String]()
         for i in 0..<accounts.count {
@@ -121,7 +130,20 @@ class ExchangeViewController: UIViewController {
                 }
                 
             } catch {
-            
+                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 404 else {
+                   
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "Ошибка авторизации", message: "Пожалуйста авторизуйтесь", preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
+                            
+                            self.transitionViewController()
+                            
+                        }))
+                        self.present(alert, animated: true)
+                    }
+                    return
+                }
                 print("ERROR")
             }
             completed()

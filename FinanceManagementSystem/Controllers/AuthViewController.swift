@@ -12,15 +12,31 @@ class AuthViewController: UIViewController {
     @IBOutlet weak var loginFIedl: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var viewForCoinsImage: UIView!
     
     var indicatorView = UIActivityIndicatorView()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        signInButton.layer.cornerRadius = 20
-        signInButton.layer.borderWidth = 1
-        signInButton.layer.borderColor = UIColor(red: 196/255, green: 196/255, blue: 196/255, alpha: 0.85).cgColor
+        
+        UIGraphicsBeginImageContext(viewForCoinsImage.frame.size)
+           UIImage(named: "coin")?.draw(in: viewForCoinsImage.bounds)
+           let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+           UIGraphicsEndImageContext()
+        viewForCoinsImage.contentMode = UIView.ContentMode.scaleToFill
+        viewForCoinsImage.backgroundColor = UIColor(patternImage: image)
+        
+        
+        //viewForCoinsImage.backgroundColor = UIColor(patternImage: UIImage(named: "coin") ?? UIImage())
+        signInButton.layer.cornerRadius = 16
+        signInButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        signInButton.layer.shadowOffset = CGSize(width: 0.0, height: 2.5)
+        signInButton.layer.shadowOpacity = 0.8
+        signInButton.layer.shadowRadius = 0.0
+        signInButton.layer.masksToBounds = false
+//        signInButton.layer.borderWidth = 1
+//        signInButton.layer.borderColor = UIColor(red: 196/255, green: 196/255, blue: 196/255, alpha: 0.85).cgColor
         
 //        let cash = CreatCashAccount(name: "Санира")
 //
@@ -53,13 +69,13 @@ class AuthViewController: UIViewController {
 //
 //        })
         
-        
+        setupIndicator()
     }
     func setupIndicator() {
         indicatorView.center = self.view.center
         indicatorView.hidesWhenStopped = true
         indicatorView.style = .large
-        indicatorView.color = UIColor.green
+        indicatorView.color = UIColor.white
         view.addSubview(indicatorView)
         
     }
@@ -99,7 +115,7 @@ class AuthViewController: UIViewController {
     
     func transitionViewController() {
         
-        let mainPage = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homePageViewController) as? UITabBarController
+        let mainPage = storyboard?.instantiateViewController(identifier: Constants.Storyboard.mainPages) as? PageViewController
         
         view.window?.rootViewController = mainPage
         view.window?.makeKeyAndVisible()
@@ -107,8 +123,8 @@ class AuthViewController: UIViewController {
     }
     
     @IBAction func signInButtonPressed(_ sender: Any) {
-        //        self.indicatorView.startAnimating()
-        //        self.view.isUserInteractionEnabled = false
+        self.indicatorView.startAnimating()
+        self.view.isUserInteractionEnabled = false
         guard let login = URL(string: "https://fms-neobis.herokuapp.com/login") else {
             print("ERROR IN LOGIN URL")
             return
@@ -128,9 +144,10 @@ class AuthViewController: UIViewController {
             
             let dataTask = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
                 guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200, let jsonData = data else {
+                   
                     print("ERROR IN HTTPRESP")
-                    //                    self.indicatorView.stopAnimating()
-                    //                    self.view.isUserInteractionEnabled = true
+                    self.indicatorView.stopAnimating()
+                    self.view.isUserInteractionEnabled = true
                     DispatchQueue.main.async {
                         let alert = UIAlertController(title: "Ошибка", message: "Неправильный логин или пароль, повторите попытку еще раз", preferredStyle: .alert)
                         
@@ -144,6 +161,7 @@ class AuthViewController: UIViewController {
                     return
                 }
                 
+                
                 if let data = data {
                     do {
                         let messageData = try JSONDecoder().decode(tokenAr.self, from: jsonData)
@@ -152,10 +170,12 @@ class AuthViewController: UIViewController {
                         
                         self.userDefaults.set(messageData.token, forKey: "token")
                         DispatchQueue.main.async {
+                            self.indicatorView.stopAnimating()
+                            self.view.isUserInteractionEnabled = true
                             self.transitionViewController()
+                            
                         }
-                        //                    self.indicatorView.stopAnimating()
-                        //                    self.view.isUserInteractionEnabled = true
+                        
                     } catch {
                         DispatchQueue.main.async {
                             let alert = UIAlertController(title: "Ошибка сервера", message: "Ошибка сервера, сервер не вернул ответ, попробуйте отправить запрос позже", preferredStyle: .alert)

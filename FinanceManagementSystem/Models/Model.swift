@@ -132,16 +132,18 @@ final class IncomeData: Codable {
     var contractor: String?
     var description: String?
     var status: Bool
+    var project: String?
     var sumOfTransaction: Int?
     var tags: String?
 
-    init(actualDate: String, cashAccount: String, category: String, contractor: String, description: String, status: Bool, sumOfTransaction: Int, tags: String) {
+    init(actualDate: String, cashAccount: String, category: String, contractor: String?, description: String?, status: Bool, project: String?, sumOfTransaction: Int, tags: String?) {
         self.actualDate = actualDate
         self.cashAccount = cashAccount
         self.category = category
         self.contractor = contractor
         self.description = description
         self.status = status
+        self.project = project
         self.sumOfTransaction = sumOfTransaction
         self.tags = tags
     }
