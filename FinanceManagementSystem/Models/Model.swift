@@ -15,6 +15,7 @@ class Model {
     var accounts = [Accounts]()
     var transactions = [Transactions]()
     let defaults = UserDefaults()
+    var accountsArray = [String]()
     
  
     func getAccounts(completed: @escaping () -> ()) {
@@ -40,7 +41,7 @@ class Model {
                
                for index in 0..<result.count {
                    let resp = Accounts(name: result[index].name ?? "", sumInAccounts: result[index].sumInAccount ?? 0)
-                  
+                self.accountsArray.append(resp.name)
                 self.accounts.append(resp)
                
                }
