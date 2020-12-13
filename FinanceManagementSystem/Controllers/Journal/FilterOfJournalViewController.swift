@@ -1,26 +1,34 @@
 //
-//  IncomeViewController.swift
+//  FilterOfJournalViewController.swift
 //  FinanceManagementSystem
 //
-//  Created by User on 12/11/20.
+//  Created by User on 12/13/20.
 //
 
 import UIKit
 
+struct FilteredValiables {
+    var dateFrom: Date
+    var dateTo: Date
+    var category: String
+    var cashAccount: String
+    var type: String
+    var contractor: String
+}
 
-
-class IncomeViewController: UIViewController {
-
-    @IBOutlet weak var sumTextFirld: UITextField!
-    @IBOutlet weak var categoryButton: UIButton!
-    @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var cashAccount: UIButton!
-    @IBOutlet weak var tagTextField: UITextField!
-    @IBOutlet weak var projectButtin: UIButton!
-    @IBOutlet weak var agentButton: UIButton!
-    @IBOutlet weak var addIncomeButton: UIButton!
-    @IBOutlet weak var descriptionButton: UITextView!
+class FilterOfJournalViewController: UIViewController {
     
+    @IBOutlet weak var cashAccountButton: UIButton!
+    @IBOutlet weak var typeButton: UIButton!
+    @IBOutlet weak var categoryButton: UIButton!
+    @IBOutlet weak var datePickerFrom: UIDatePicker!
+    @IBOutlet weak var datePickerTo: UIDatePicker!
+    @IBOutlet weak var contractorButton: UIButton!
+    @IBOutlet weak var filterButton: UIButton!
+    
+    var filterItem: FilteredValiables!
+        
+        
     var selectedButton = UIButton()
     var dataSource = [String]()
     
@@ -33,19 +41,16 @@ class IncomeViewController: UIViewController {
     let model = Model()
     let date = Date()
     var theChooseFromPickerView: String? = ""
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        datePickerFrom.setDate(Date().addingTimeInterval((-24*60*60) * 30), animated: true)
         
-        view.backgroundColor = .white
-        
-      
         getCategory {
             self.getAgents {
                 self.model.getAccounts {
-                    self.getProjects {
+                    self.getCategoryOfExpense {
+                        
                         DispatchQueue.main.async {
                             self.indicatorView.stopAnimating()
                             self.view.isUserInteractionEnabled = true
@@ -56,6 +61,11 @@ class IncomeViewController: UIViewController {
         }
         
         createAButton()
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        filterItem = FilteredValiables(dateFrom: datePickerFrom.date, dateTo: datePickerTo.date, category: categoryButton.titleLabel?.text ?? "" == "Выбрать категорию" ? "" : categoryButton.titleLabel?.text ?? "", cashAccount: cashAccountButton.titleLabel?.text ?? "" == "Выбрать счет" ? "" : cashAccountButton.titleLabel?.text ?? "", type: typeButton.titleLabel?.text ?? "" == "Выбрать тип" ? "" : typeButton.titleLabel?.text ?? "", contractor: contractorButton.titleLabel?.text ?? "" == "Выбрать контрагента" ? "" : contractorButton.titleLabel?.text ?? "")
     }
     
     
@@ -65,17 +75,6 @@ class IncomeViewController: UIViewController {
         indicatorView.style = .large
         indicatorView.color = UIColor.green
         view.addSubview(indicatorView)
-    }
-  
-    
-    func createAButton() {
-        descriptionButton.layer.cornerRadius = 10
-        addIncomeButton.layer.cornerRadius = 16
-        addIncomeButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
-        addIncomeButton.layer.shadowOffset = CGSize(width: 0.0, height: 2.5)
-        addIncomeButton.layer.shadowOpacity = 0.8
-        addIncomeButton.layer.shadowRadius = 0.0
-        addIncomeButton.layer.masksToBounds = false
     }
     
     func transitionViewController() {
@@ -87,6 +86,16 @@ class IncomeViewController: UIViewController {
         
     }
     
+    
+    
+    func createAButton() {
+        filterButton.layer.cornerRadius = 16
+        filterButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        filterButton.layer.shadowOffset = CGSize(width: 0.0, height: 2.5)
+        filterButton.layer.shadowOpacity = 0.8
+        filterButton.layer.shadowRadius = 0.0
+        filterButton.layer.masksToBounds = false
+    }
     
     
     func getAgents(completed: @escaping () -> ()) {
@@ -113,6 +122,54 @@ class IncomeViewController: UIViewController {
                print(result)
                for index in 0..<result.count {
                    self.namesOfAgents.append(result[index].name ?? "Без имени")
+               }
+           } catch {
+               guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 404 else {
+                  
+                   DispatchQueue.main.async {
+                       let alert = UIAlertController(title: "Ошибка авторизации", message: "Пожалуйста авторизуйтесь", preferredStyle: .alert)
+                       
+                       alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
+                           
+                           self.transitionViewController()
+                           
+                       }))
+                       self.present(alert, animated: true)
+                   }
+                   return
+               }
+               print("ERROR")
+           }
+           completed()
+           
+       }
+       task.resume()
+           
+   }
+    
+    func getCategoryOfExpense(completed: @escaping () -> ()) {
+       let urlString = "https://fms-neobis.herokuapp.com/expenses_categories/not_archived"
+       guard let url = URL(string: urlString) else {
+           completed()
+           return
+       }
+       
+       let token = defaults.object(forKey:"token") as? String ?? ""
+       var request = URLRequest(url: url)
+       request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+       
+       let session = URLSession.shared
+       
+       let task = session.dataTask(with: request) { (data, response, error) in
+           if let error = error {
+               print("Error: \(error)")
+           }
+           do {
+               let result: [IncomeCategories] = try JSONDecoder().decode([IncomeCategories].self, from: data!)
+               print(result)
+               for index in 0..<result.count {
+                   print(result[index].categoryName)
+                   self.incomeCategories.append(result[index].categoryName ?? "Без назавния")
                }
            } catch {
                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 404 else {
@@ -233,9 +290,7 @@ class IncomeViewController: UIViewController {
        task.resume()
            
    }
-
     
-  
     private func pickerViewFire(selectedButton: UIButton) {
         
         let message = "\n\n\n\n\n\n"
@@ -290,97 +345,34 @@ class IncomeViewController: UIViewController {
     @IBAction func cashButtonPressed(_ sender: Any) {
   
         dataSource = model.accountsArray
-        selectedButton = cashAccount
+        selectedButton = cashAccountButton
         pickerViewFire(selectedButton: selectedButton)
     }
     
-    @IBAction func projectButtonPressed(_ sender: Any) {
+ 
+    @IBAction func typeButtonPressed(_ sender: Any) {
 
-        dataSource = categories
-        selectedButton = projectButtin
-        dataSource.append("Без проекта")
+        dataSource = ["Доход", "Расход", "Перевод"]
+        //dataSource.append("Без контрагента")
+        selectedButton = typeButton
         pickerViewFire(selectedButton: selectedButton)
     }
     
     @IBAction func agentButtonPressed(_ sender: Any) {
 
         dataSource = namesOfAgents
-        dataSource.append("Без контрагента")
-        selectedButton = agentButton
+        //dataSource.append("Без контрагента")
+        selectedButton = contractorButton
         pickerViewFire(selectedButton: selectedButton)
     }
     
-    @IBAction func addBittonPressed(_ sender: Any) {
-        if sumTextFirld.text != "" && sumTextFirld.text != "0" && categoryButton.titleLabel?.text != "Выбрать категорию" && categoryButton.titleLabel?.text != "" && cashAccount.titleLabel?.text != "Выбрать счет" && cashAccount.titleLabel?.text != "" {
-            
-            setupIndicator()
-            indicatorView.startAnimating()
-            self.view.isUserInteractionEnabled = false
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd-MM-yyyy"
-            
-            let income = IncomeData(actualDate: dateFormatter.string(from: datePicker.date), cashAccount: cashAccount.titleLabel?.text ?? "", category: categoryButton.titleLabel?.text ?? "", contractor: (agentButton.titleLabel?.text == "Выбрать контрагента" ? nil : agentButton.titleLabel?.text) == "Без контрагента" ? nil : (agentButton.titleLabel?.text == "Выбрать контрагента" ? nil : agentButton.titleLabel?.text), description: descriptionButton.text == "" ? nil : descriptionButton.text, status: true, project: (projectButtin.titleLabel?.text == "Выбрать проект" ? nil : projectButtin.titleLabel?.text) == "Без проекта" ? nil : (projectButtin.titleLabel?.text == "Выбрать проект" ? nil : projectButtin.titleLabel?.text), sumOfTransaction: Int(sumTextFirld.text ?? "") ?? 0, tags: tagTextField.text == "" ? nil : tagTextField.text)
-
-            
-            let postRequest = APIRequest(endpoint: "income_transaction")
-            postRequest.save(income, completion: { result in
-
-                switch result {
-                case .success(let message):
-                    
-                    print("SUCCCESS \(message.message)")
-                    DispatchQueue.main.async {
-                        self.indicatorView.stopAnimating()
-                        self.view.isUserInteractionEnabled = true
-                        let alert = UIAlertController(title: "Вывод", message: message.message, preferredStyle: .alert)
-
-                        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
-                           
-                                self.navigationController?.popViewController(animated: true)
-                            
-                        }))
-                        self.present(alert, animated: true)
-                        
-                    }
-                    
-                case .failure(let error):
-                    
-                    DispatchQueue.main.async {
-                        self.indicatorView.stopAnimating()
-                        self.view.isUserInteractionEnabled = true
-                        let alert = UIAlertController(title: "Ошибка сервера", message: "Попробуйте отправить запрос позже или обратитесь администратору", preferredStyle: .alert)
-                        
-                        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
-                            
-                            self.navigationController?.popViewController(animated: true)
-                            
-                        }))
-                        self.present(alert, animated: true)
-                    }
-                    print("ERROR: \(error)")
-                }
-               
-                
-
-            })
-        } else {
-            self.indicatorView.stopAnimating()
-            self.view.isUserInteractionEnabled = true
-            let alert = UIAlertController(title: "Вниммание", message: "Заполните обязательные поля", preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
-                
-                self.navigationController?.popViewController(animated: true)
-                
-            }))
-            self.present(alert, animated: true)
-        }
+    @IBAction func filterButtonPressed(_ sender: Any) {
     }
     
 }
 
-extension IncomeViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+
+extension FilterOfJournalViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -394,9 +386,11 @@ extension IncomeViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        theChooseFromPickerView = dataSource[row]
+        if !dataSource.isEmpty {
+            theChooseFromPickerView = dataSource[row]
+        }
         
-        print("HERE IT IS \(theChooseFromPickerView)")
+      //  print("HERE IT IS \(theChooseFromPickerView)")
     }
     
 }

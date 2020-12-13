@@ -11,6 +11,11 @@ struct Sum: Codable {
     var sum: Double
 }
 
+struct Accounts {
+    var name: String?
+    var sumInAccounts: Double?
+}
+
 class Model {
     var accounts = [Accounts]()
     var transactions = [Transactions]()
@@ -41,7 +46,7 @@ class Model {
                
                for index in 0..<result.count {
                    let resp = Accounts(name: result[index].name ?? "", sumInAccounts: result[index].sumInAccount ?? 0)
-                self.accountsArray.append(resp.name)
+                self.accountsArray.append(resp.name ?? "")
                 self.accounts.append(resp)
                
                }
@@ -104,7 +109,7 @@ struct Transactions {
     var contractor: String
     var description1: String
     var sumOfTransaction: Double
-    var tags: [String]
+    //var tags: [String]
     var numberOfPages: Int
 }
 
@@ -161,6 +166,12 @@ final class CreatCashAccount: Codable {
     
 }
 
+struct Sums: Codable {
+    var sumOfExpenses: Double
+    var sumOfIncomes: Double
+}
+
+
 final class ExchangeData: Codable {
     var actualDate: String
     var description: String?
@@ -173,7 +184,7 @@ final class ExchangeData: Codable {
   
 
     
-    init(actualDate: String, fromCashAccount: String, toCashAccount: String, tags: String, description: String, sumOfTransaction: Double) {
+    init(actualDate: String, fromCashAccount: String, toCashAccount: String, tags: String?, description: String?, sumOfTransaction: Double) {
         self.actualDate = actualDate
         self.tags = tags
         self.fromCashAccount = fromCashAccount
@@ -192,19 +203,19 @@ struct ModelsOfBook: Codable {
 
 
 struct ModelOfBook: Codable {
-    var actualDate: String?
-    var cashAccount: String?
-    var type: String?
-    var category: String?
+    var actualDate: String
+    var cashAccount: String
+    var type: String
+    var category: String
     var project: String?
     var contractor: String?
     var description: String?
-    var sumOfTransaction: Double?
-    var tags: [Tags]
+    var sumOfTransaction: Double
+//    var tags: [Tags]?
 }
 
 struct Tags: Codable {
-    var name: String?
+    var createdBy: String?
 }
 
 struct Agents: Codable {

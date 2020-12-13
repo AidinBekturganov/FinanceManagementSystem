@@ -27,47 +27,12 @@ class AuthViewController: UIViewController {
         viewForCoinsImage.contentMode = UIView.ContentMode.scaleToFill
         viewForCoinsImage.backgroundColor = UIColor(patternImage: image)
         
-        
-        //viewForCoinsImage.backgroundColor = UIColor(patternImage: UIImage(named: "coin") ?? UIImage())
         signInButton.layer.cornerRadius = 16
         signInButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
         signInButton.layer.shadowOffset = CGSize(width: 0.0, height: 2.5)
         signInButton.layer.shadowOpacity = 0.8
         signInButton.layer.shadowRadius = 0.0
         signInButton.layer.masksToBounds = false
-//        signInButton.layer.borderWidth = 1
-//        signInButton.layer.borderColor = UIColor(red: 196/255, green: 196/255, blue: 196/255, alpha: 0.85).cgColor
-        
-//        let cash = CreatCashAccount(name: "Санира")
-//
-//        let postRequest = APIRequest(endpoint: "contractors")
-//        postRequest.saveNewCashAccount(cash, completion: { result in
-//
-//            switch result {
-//            case .success(let message):
-//
-//                print("SUCCCESS \(message.message)")
-//                DispatchQueue.main.async {
-//                    //                self.indicatorView.stopAnimating()
-//                    //                self.view.isUserInteractionEnabled = true
-//                    let alert = UIAlertController(title: "Вывод", message: message.message, preferredStyle: .alert)
-//
-//                    alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
-//
-//                        //self.navigationController?.popViewController(animated: true)
-//
-//                    }))
-//                    self.present(alert, animated: true)
-//
-//                }
-//
-//            case .failure(let error):
-//                print("ERROR: \(error)")
-//            }
-//
-//
-//
-//        })
         
         setupIndicator()
     }

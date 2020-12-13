@@ -35,7 +35,21 @@ class ExpenseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+          getCategory {
+              self.getAgents {
+                  self.model.getAccounts {
+                      self.getProjects {
+                          DispatchQueue.main.async {
+                              self.indicatorView.stopAnimating()
+                              self.view.isUserInteractionEnabled = true
+                          }
+                      }
+                  }
+              }
+          }
+          
+          createAButton()
     }
     
     func setupIndicator() {
@@ -70,7 +84,7 @@ class ExpenseViewController: UIViewController {
     private func pickerViewFire(selectedButton: UIButton) {
         
         let message = "\n\n\n\n\n\n"
-        let alert = UIAlertController(title: "Please Select City", message: message, preferredStyle: UIAlertController.Style.actionSheet)
+        let alert = UIAlertController(title: "Выберите один из варинтов", message: message, preferredStyle: UIAlertController.Style.actionSheet)
         alert.isModalInPopover = true
          
         let pickerFrame = UIPickerView(frame: CGRect(x: 5, y: 20, width: view.frame.width - 20, height: 140)) // CGRectMake(left, top, width, height) - left and top are like margins
@@ -81,7 +95,7 @@ class ExpenseViewController: UIViewController {
         //Add the picker to the alert controller
         pickerFrame.dataSource = self
         alert.view.addSubview(pickerFrame)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: {
+        let okAction = UIAlertAction(title: "Готово", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
             
             if self.theChooseFromPickerView == "" && !self.dataSource.isEmpty {
@@ -101,7 +115,10 @@ class ExpenseViewController: UIViewController {
             
         })
         alert.addAction(okAction)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        let cancelAction = UIAlertAction(title: "Отменить", style: .destructive, handler: {_ in
+            self.theChooseFromPickerView = ""
+            self.dataSource = []
+        })
         alert.addAction(cancelAction)
         self.parent!.present(alert, animated: true, completion: {  })
         
@@ -296,7 +313,7 @@ class ExpenseViewController: UIViewController {
             let income = IncomeData(actualDate: dateFormatter.string(from: datePicker.date), cashAccount: cashAccount.titleLabel?.text ?? "", category: categoryButton.titleLabel?.text ?? "", contractor: agentButton.titleLabel?.text == "Выбрать контрагента" ? nil : agentButton.titleLabel?.text, description: descriptionButton.text == "" ? nil : descriptionButton.text, status: true, project: projectButtin.titleLabel?.text == "Выбрать проект" ? nil : projectButtin.titleLabel?.text, sumOfTransaction: Int(sumTextFirld.text ?? "") ?? 0, tags: tagTextField.text == "" ? nil : tagTextField.text)
 
             
-            let postRequest = APIRequest(endpoint: "income_transaction")
+            let postRequest = APIRequest(endpoint: "expense_transaction")
             postRequest.save(income, completion: { result in
 
                 switch result {
@@ -352,3 +369,26 @@ class ExpenseViewController: UIViewController {
     }
 
 }
+
+
+
+extension ExpenseViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return dataSource.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return dataSource[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        theChooseFromPickerView = dataSource[row]
+        print("HERE IT IS \(theChooseFromPickerView)")
+    }
+    
+}
+

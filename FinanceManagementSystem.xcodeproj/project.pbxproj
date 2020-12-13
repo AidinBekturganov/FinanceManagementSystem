@@ -19,6 +19,7 @@
 		CE1C320A25828EED00A41915 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1C320925828EED00A41915 /* Timer.swift */; };
 		CE1C32142582A67E00A41915 /* CashAccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1C32132582A67E00A41915 /* CashAccountsViewController.swift */; };
 		CE1C321C2582A6B100A41915 /* CashAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1C321B2582A6B100A41915 /* CashAccountTableViewCell.swift */; };
+		CE5741C02586121B00EC1187 /* FilterOfJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5741BF2586121B00EC1187 /* FilterOfJournalViewController.swift */; };
 		CE5D23A2253471C600AC0678 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5D23A1253471C600AC0678 /* AppDelegate.swift */; };
 		CE5D23A4253471C600AC0678 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5D23A3253471C600AC0678 /* SceneDelegate.swift */; };
 		CE5D23A6253471C600AC0678 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5D23A5253471C600AC0678 /* ViewController.swift */; };
@@ -38,9 +39,6 @@
 		CE767030255FB12D00036C3E /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76702F255FB12D00036C3E /* DesignableView.swift */; };
 		CE77B4062568D35B00E0DCFC /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE77B4052568D35B00E0DCFC /* Roboto-Bold.ttf */; };
 		CE90609F254ECA4200313D02 /* BookOfTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90609E254ECA4200313D02 /* BookOfTransactionsViewController.swift */; };
-		CE9366F82547C54F008EEBE0 /* AddExpenditureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9366F72547C54F008EEBE0 /* AddExpenditureViewController.swift */; };
-		CE9366FD25480E2E008EEBE0 /* ExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9366FC25480E2E008EEBE0 /* ExchangeViewController.swift */; };
-		CEA4845A254412D300B3976F /* AddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA48459254412D300B3976F /* AddIncomeViewController.swift */; };
 		CEA53671256907E9004762AB /* BillsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA53670256907E9004762AB /* BillsTableViewCell.swift */; };
 		CEA55537255414F400B8B68D /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA55536255414F400B8B68D /* TransactionTableViewCell.swift */; };
 		CEA5553C25554B1E00B8B68D /* DetailOfTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA5553B25554B1E00B8B68D /* DetailOfTransactionViewController.swift */; };
@@ -87,6 +85,7 @@
 		CE1C320925828EED00A41915 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		CE1C32132582A67E00A41915 /* CashAccountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashAccountsViewController.swift; sourceTree = "<group>"; };
 		CE1C321B2582A6B100A41915 /* CashAccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashAccountTableViewCell.swift; sourceTree = "<group>"; };
+		CE5741BF2586121B00EC1187 /* FilterOfJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOfJournalViewController.swift; sourceTree = "<group>"; };
 		CE5D239E253471C600AC0678 /* FinanceManagementSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceManagementSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5D23A1253471C600AC0678 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE5D23A3253471C600AC0678 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,9 +111,6 @@
 		CE76702F255FB12D00036C3E /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		CE77B4052568D35B00E0DCFC /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		CE90609E254ECA4200313D02 /* BookOfTransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookOfTransactionsViewController.swift; sourceTree = "<group>"; };
-		CE9366F72547C54F008EEBE0 /* AddExpenditureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenditureViewController.swift; sourceTree = "<group>"; };
-		CE9366FC25480E2E008EEBE0 /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
-		CEA48459254412D300B3976F /* AddIncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeViewController.swift; sourceTree = "<group>"; };
 		CEA53670256907E9004762AB /* BillsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillsTableViewCell.swift; sourceTree = "<group>"; };
 		CEA55536255414F400B8B68D /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		CEA5553B25554B1E00B8B68D /* DetailOfTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOfTransactionViewController.swift; sourceTree = "<group>"; };
@@ -219,9 +215,6 @@
 		CE1C32112582A5FF00A41915 /* Transactions */ = {
 			isa = PBXGroup;
 			children = (
-				CEA48459254412D300B3976F /* AddIncomeViewController.swift */,
-				CE9366F72547C54F008EEBE0 /* AddExpenditureViewController.swift */,
-				CE9366FC25480E2E008EEBE0 /* ExchangeViewController.swift */,
 				CE6BC68425836F3A00064D43 /* MainTransactionsViewController.swift */,
 				CE6BC68925836F4B00064D43 /* IncomeViewController.swift */,
 				CE6BC68E25836F5800064D43 /* ExpenseViewController.swift */,
@@ -242,6 +235,7 @@
 				CE1C320125828E9A00A41915 /* ProgressBar.swift */,
 				CE1C320925828EED00A41915 /* Timer.swift */,
 				CE6BC66E2583475000064D43 /* PageViewController.swift */,
+				CE5741BF2586121B00EC1187 /* FilterOfJournalViewController.swift */,
 			);
 			path = Journal;
 			sourceTree = "<group>";
@@ -563,7 +557,6 @@
 				CE1C32142582A67E00A41915 /* CashAccountsViewController.swift in Sources */,
 				CE75988F25497ACC0017595F /* APIRequest.swift in Sources */,
 				CE6BC68A25836F4B00064D43 /* IncomeViewController.swift in Sources */,
-				CE9366FD25480E2E008EEBE0 /* ExchangeViewController.swift in Sources */,
 				CEA53671256907E9004762AB /* BillsTableViewCell.swift in Sources */,
 				CEB40AC825812C5400ED9A43 /* MainViewController.swift in Sources */,
 				CE767030255FB12D00036C3E /* DesignableView.swift in Sources */,
@@ -573,8 +566,8 @@
 				CE5D23A4253471C600AC0678 /* SceneDelegate.swift in Sources */,
 				CE6BC68525836F3A00064D43 /* MainTransactionsViewController.swift in Sources */,
 				CE6BC69425836F6D00064D43 /* TransferViewController.swift in Sources */,
+				CE5741C02586121B00EC1187 /* FilterOfJournalViewController.swift in Sources */,
 				CE1C320A25828EED00A41915 /* Timer.swift in Sources */,
-				CEA4845A254412D300B3976F /* AddIncomeViewController.swift in Sources */,
 				CEAAE9862556C14E00844173 /* FilterTableViewController.swift in Sources */,
 				CE76702B255FB0A400036C3E /* AuthViewController.swift in Sources */,
 				CE1C320225828E9A00A41915 /* ProgressBar.swift in Sources */,
@@ -582,7 +575,6 @@
 				CE0CE21825814554002C96E3 /* MainTableViewCell.swift in Sources */,
 				CEA55537255414F400B8B68D /* TransactionTableViewCell.swift in Sources */,
 				CE90609F254ECA4200313D02 /* BookOfTransactionsViewController.swift in Sources */,
-				CE9366F82547C54F008EEBE0 /* AddExpenditureViewController.swift in Sources */,
 				CE75989425497CBB0017595F /* Model.swift in Sources */,
 				CE73ADD92572C1CA00718BA3 /* Constants.swift in Sources */,
 			);

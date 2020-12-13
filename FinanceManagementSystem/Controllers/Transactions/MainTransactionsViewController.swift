@@ -56,6 +56,7 @@ class MainTransactionsViewController: UIViewController {
 
     }
     
+
     @IBAction func didTapSegment(segment: UISegmentedControl) {
         
         if segmentControl.selectedSegmentIndex == 0 {
@@ -77,45 +78,8 @@ class MainTransactionsViewController: UIViewController {
                     self.view2.alpha = 0
                 })
         }
-        
-        print(segment.selectedSegmentIndex)
-        
-//        test.isHidden = true
-//        view3.isHidden = true
-//        view2.isHidden = true
-//        //transferView.view.isHidden = true
-//
-//        if segment.selectedSegmentIndex == 0 {
-//            view3.isHidden = false
-//
-//
-//            print("DID IT")
-//        } else if segment.selectedSegmentIndex == 1 {
-//            view2.isHidden = false
-//
-//        } else if segment.selectedSegmentIndex == 2 {
-//            test.isHidden = false
-//        }
     }
 }
-//
-//        incomeView.view.isHidden = true
-//        expenseView.view.isHidden = true
-//        transferView.view.isHidden = true
-//        //transferView.view.isHidden = true
-//
-//        if segment.selectedSegmentIndex == 0 {
-//            incomeView.view.isHidden = false
-//
-//
-//            print("DID IT")
-//        } else if segment.selectedSegmentIndex == 1 {
-//            expenseView.view.isHidden = false
-//
-//        } else if segment.selectedSegmentIndex == 2 {
-//            transferView.view.isHidden = false
-//        }
-//    }
 
 
 
