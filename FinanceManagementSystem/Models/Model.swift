@@ -16,13 +16,178 @@ struct Accounts {
     var sumInAccounts: Double?
 }
 
+struct AnalyticsIncomeDataForGraphic: Codable {
+    var date: String
+    var sumOfTransaction: Double
+}
+
+struct ArrayAnalyticsDataForGraphicIncome {
+    var data: String
+    var sumOfTransaction: Double
+}
+
+struct ArrayAnalyticsDataForGraphicExpense {
+    var data: String
+    var sumOfTransaction: Double
+}
+
+struct IncomeDataAnalytics {
+    var name: String
+    var sum: Double
+}
+
+struct ExpenseDataAnalytics {
+    var name: String
+    var sum: Double
+}
+
+struct IncomeAnalyticsData: Codable {
+    var name: String
+    var sum: Double
+}
+
 class Model {
     var accounts = [Accounts]()
     var transactions = [Transactions]()
+    var analyticsForIncome = [IncomeDataAnalytics]()
+    var analyticsForExpense = [ExpenseDataAnalytics]()
+    var analyticsForIncomeGraph = [ArrayAnalyticsDataForGraphicIncome]()
+    var analyticsForExpenseGraph = [ArrayAnalyticsDataForGraphicExpense]()
     let defaults = UserDefaults()
     var accountsArray = [String]()
     
+    
  
+    func getAnalyticsForIncomeCat(urlString: URLComponents, completed: @escaping () -> ()) {
+        let token = defaults.object(forKey:"token") as? String ?? ""
+
+        var request = URLRequest(url: urlString.url!)
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+       
+       let session = URLSession.shared
+       
+       let task = session.dataTask(with: request) { (data, response, error) in
+           if let error = error {
+               print("Error: \(error)")
+           }
+           do {
+               let result: [IncomeAnalyticsData] = try JSONDecoder().decode([IncomeAnalyticsData].self, from: data!)
+               
+               for index in 0..<result.count {
+                    print(result[index].name)
+                let data = IncomeDataAnalytics(name: result[index].name, sum: result[index].sum)
+                self.analyticsForIncome.append(data)
+               }
+               
+           } catch {
+           
+               print("ERROR IN GETTING Analytics For income")
+           }
+           completed()
+           
+       }
+       task.resume()
+           
+   }
+    
+    func getAnalyticsForExpenseCat(urlString: URLComponents, completed: @escaping () -> ()) {
+        let token = defaults.object(forKey:"token") as? String ?? ""
+
+        var request = URLRequest(url: urlString.url!)
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+       
+       let session = URLSession.shared
+       
+       let task = session.dataTask(with: request) { (data, response, error) in
+           if let error = error {
+               print("Error: \(error)")
+           }
+           do {
+               let result: [IncomeAnalyticsData] = try JSONDecoder().decode([IncomeAnalyticsData].self, from: data!)
+               
+               for index in 0..<result.count {
+                    print("HERE IT IS \(result[index].name)")
+                let data = ExpenseDataAnalytics(name: result[index].name, sum: result[index].sum)
+                self.analyticsForExpense.append(data)
+               }
+               
+           } catch {
+           
+               print("ERROR IN GETTING Analytics For expense")
+           }
+           completed()
+           
+       }
+       task.resume()
+           
+   }
+    
+    func getAnalyticsForIncomeGrapghic(urlString: URLComponents, completed: @escaping () -> ()) {
+        let token = defaults.object(forKey:"token") as? String ?? ""
+
+        var request = URLRequest(url: urlString.url!)
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+       
+       let session = URLSession.shared
+       
+       let task = session.dataTask(with: request) { (data, response, error) in
+           if let error = error {
+               print("Error: \(error)")
+           }
+           do {
+               let result: [AnalyticsIncomeDataForGraphic] = try JSONDecoder().decode([AnalyticsIncomeDataForGraphic].self, from: data!)
+               
+               for index in 0..<result.count {
+                let data = ArrayAnalyticsDataForGraphicIncome(data: result[index].date, sumOfTransaction: result[index].sumOfTransaction)
+                    self.analyticsForIncomeGraph.append(data)
+               }
+               
+           } catch {
+           
+               print("ERROR IN GETTING Analytics For income")
+           }
+           completed()
+           
+       }
+       task.resume()
+           
+   }
+    
+    func getAnalyticsForExpenseGrapghic(urlString: URLComponents, completed: @escaping () -> ()) {
+        let token = defaults.object(forKey:"token") as? String ?? ""
+
+        var request = URLRequest(url: urlString.url!)
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+       
+       let session = URLSession.shared
+       
+       let task = session.dataTask(with: request) { (data, response, error) in
+           if let error = error {
+               print("Error: \(error)")
+           }
+           do {
+               let result: [AnalyticsIncomeDataForGraphic] = try JSONDecoder().decode([AnalyticsIncomeDataForGraphic].self, from: data!)
+               
+               for index in 0..<result.count {
+                let data = ArrayAnalyticsDataForGraphicExpense(data: result[index].date, sumOfTransaction: result[index].sumOfTransaction)
+                    self.analyticsForExpenseGraph.append(data)
+               }
+               
+           } catch {
+           
+               print("ERROR IN GETTING Analytics For income")
+           }
+           completed()
+           
+       }
+       task.resume()
+           
+   }
+    
     func getAccounts(completed: @escaping () -> ()) {
        let urlString = "https://fms-neobis.herokuapp.com/cash_accounts/not_archived"
         let token = defaults.object(forKey:"token") as? String ?? ""

@@ -10,6 +10,7 @@ target 'FinanceManagementSystem' do
   pod 'PieCharts'
   pod 'iOSDropDown'
   pod 'ChartLegends'
+  pod 'Charts'
 
   target 'FinanceManagementSystemTests' do
     inherit! :search_paths

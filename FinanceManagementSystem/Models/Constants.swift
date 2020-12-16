@@ -15,6 +15,7 @@ struct Constants {
         static let mainViewController = "main"
         static let cashAccountViewController = "cash"
         static let mainPages = "PageViewController"
+        static let journalViewController = "MainViewController"
     }
     
 }

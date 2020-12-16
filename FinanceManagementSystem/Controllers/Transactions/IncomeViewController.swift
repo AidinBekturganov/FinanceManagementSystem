@@ -88,6 +88,16 @@ class IncomeViewController: UIViewController {
     }
     
     
+    func transitionBackToViewController() {
+        
+        let journalPage = storyboard?.instantiateViewController(identifier: Constants.Storyboard.mainPages) as? PageViewController
+        
+        view.window?.rootViewController = journalPage
+        view.window?.makeKeyAndVisible()
+        
+    }
+    
+    
     
     func getAgents(completed: @escaping () -> ()) {
        let urlString = "https://fms-neobis.herokuapp.com/contractors/not_archived"
@@ -337,7 +347,7 @@ class IncomeViewController: UIViewController {
 
                         alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
                            
-                                self.navigationController?.popViewController(animated: true)
+                            self.transitionBackToViewController()
                             
                         }))
                         self.present(alert, animated: true)

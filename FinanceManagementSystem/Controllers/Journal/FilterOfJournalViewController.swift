@@ -10,7 +10,6 @@ import UIKit
 struct FilteredValiables {
     var dateFrom: Date
     var dateTo: Date
-    var category: String
     var cashAccount: String
     var type: String
     var contractor: String
@@ -65,7 +64,7 @@ class FilterOfJournalViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        filterItem = FilteredValiables(dateFrom: datePickerFrom.date, dateTo: datePickerTo.date, category: categoryButton.titleLabel?.text ?? "" == "Выбрать категорию" ? "" : categoryButton.titleLabel?.text ?? "", cashAccount: cashAccountButton.titleLabel?.text ?? "" == "Выбрать счет" ? "" : cashAccountButton.titleLabel?.text ?? "", type: typeButton.titleLabel?.text ?? "" == "Выбрать тип" ? "" : typeButton.titleLabel?.text ?? "", contractor: contractorButton.titleLabel?.text ?? "" == "Выбрать контрагента" ? "" : contractorButton.titleLabel?.text ?? "")
+        filterItem = FilteredValiables(dateFrom: datePickerFrom.date, dateTo: datePickerTo.date, cashAccount: cashAccountButton.titleLabel?.text ?? "" == "Выбрать счет" ? "" : cashAccountButton.titleLabel?.text ?? "", type: typeButton.titleLabel?.text ?? "" == "Выбрать тип" ? "" : typeButton.titleLabel?.text ?? "", contractor: contractorButton.titleLabel?.text ?? "" == "Выбрать контрагента" ? "" : contractorButton.titleLabel?.text ?? "")
     }
     
     

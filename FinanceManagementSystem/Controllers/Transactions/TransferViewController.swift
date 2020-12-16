@@ -72,6 +72,15 @@ class TransferViewController: UIViewController {
         
     }
     
+    func transitionBackToViewController() {
+        
+        let journalPage = storyboard?.instantiateViewController(identifier: Constants.Storyboard.journalViewController) as? MainViewController
+        
+        view.window?.rootViewController = journalPage
+        view.window?.makeKeyAndVisible()
+        
+    }
+    
     
     private func pickerViewFire(selectedButton: UIButton) {
         
@@ -158,7 +167,7 @@ class TransferViewController: UIViewController {
 
                         alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
                            
-                                self.navigationController?.popViewController(animated: true)
+                            self.transitionBackToViewController()
                             
                         }))
                         self.present(alert, animated: true)

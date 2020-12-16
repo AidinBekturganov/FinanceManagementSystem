@@ -44,6 +44,8 @@
 		CEA5553C25554B1E00B8B68D /* DetailOfTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA5553B25554B1E00B8B68D /* DetailOfTransactionViewController.swift */; };
 		CEA9E97D254FC3A40015527A /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA9E97C254FC3A40015527A /* iOSDropDown.framework */; };
 		CEAAE9862556C14E00844173 /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAAE9852556C14E00844173 /* FilterTableViewController.swift */; };
+		CEAAE9E8258697F90092774B /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAAE9E7258697F90092774B /* AnalyticsViewController.swift */; };
+		CEAAE9F82586A0920092774B /* AnalyticsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAAE9F72586A0920092774B /* AnalyticsTableViewController.swift */; };
 		CEB40AC825812C5400ED9A43 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB40AC725812C5400ED9A43 /* MainViewController.swift */; };
 		DD5F028BF367BCBA2985604E /* Pods_FinanceManagementSystem_FinanceManagementSystemUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B736F1775BAC8B5B6D0E081 /* Pods_FinanceManagementSystem_FinanceManagementSystemUITests.framework */; };
 /* End PBXBuildFile section */
@@ -116,6 +118,8 @@
 		CEA5553B25554B1E00B8B68D /* DetailOfTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOfTransactionViewController.swift; sourceTree = "<group>"; };
 		CEA9E97C254FC3A40015527A /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEAAE9852556C14E00844173 /* FilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
+		CEAAE9E7258697F90092774B /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
+		CEAAE9F72586A0920092774B /* AnalyticsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTableViewController.swift; sourceTree = "<group>"; };
 		CEB40AC725812C5400ED9A43 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -198,6 +202,8 @@
 				CE6BC67A25836F0700064D43 /* New Group */,
 				CE1C32122582A61900A41915 /* Journal */,
 				CE1C32112582A5FF00A41915 /* Transactions */,
+				CEAAE9E7258697F90092774B /* AnalyticsViewController.swift */,
+				CEAAE9F72586A0920092774B /* AnalyticsTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -562,6 +568,7 @@
 				CE767030255FB12D00036C3E /* DesignableView.swift in Sources */,
 				CE5D23A2253471C600AC0678 /* AppDelegate.swift in Sources */,
 				CE6BC68F25836F5800064D43 /* ExpenseViewController.swift in Sources */,
+				CEAAE9E8258697F90092774B /* AnalyticsViewController.swift in Sources */,
 				CE6BC66F2583475000064D43 /* PageViewController.swift in Sources */,
 				CE5D23A4253471C600AC0678 /* SceneDelegate.swift in Sources */,
 				CE6BC68525836F3A00064D43 /* MainTransactionsViewController.swift in Sources */,
@@ -570,6 +577,7 @@
 				CE1C320A25828EED00A41915 /* Timer.swift in Sources */,
 				CEAAE9862556C14E00844173 /* FilterTableViewController.swift in Sources */,
 				CE76702B255FB0A400036C3E /* AuthViewController.swift in Sources */,
+				CEAAE9F82586A0920092774B /* AnalyticsTableViewController.swift in Sources */,
 				CE1C320225828E9A00A41915 /* ProgressBar.swift in Sources */,
 				CE11595D256661E300BBCB2C /* TestViewController.swift in Sources */,
 				CE0CE21825814554002C96E3 /* MainTableViewCell.swift in Sources */,
