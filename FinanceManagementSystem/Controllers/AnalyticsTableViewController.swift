@@ -39,8 +39,11 @@ class AnalyticsTableViewController: UITableViewController {
         let urlStringForGraphOfIncome = URLComponents(string: "https://fms-neobis.herokuapp.com/analytics/incomes_graphs")!
         let urlStringForExpensePieChart = URLComponents(string: "https://fms-neobis.herokuapp.com/analytics/expenses_categories")!
         let urlStringForGraphOfExpense = URLComponents(string: "https://fms-neobis.herokuapp.com/analytics/expenses_graphs")!
+        self.piechartForIncome.backgroundColor = UIColor(red: 111/255, green: 207/255, blue: 151/255, alpha: 1)
+        self.pieChartForExpense.backgroundColor = UIColor(red: 111/255, green: 207/255, blue: 151/255, alpha: 1)
+        self.lineChartForIncome.backgroundColor = UIColor(red: 111/255, green: 207/255, blue: 151/255, alpha: 1)
+        self.lineChartForExpense.backgroundColor = UIColor(red: 111/255, green: 207/255, blue: 151/255, alpha: 1)
 
-       
         model.getAnalyticsForExpenseGrapghic(urlString: urlStringForGraphOfExpense) {
             DispatchQueue.main.async {
                 for index in 0..<self.model.analyticsForExpenseGraph.count {
@@ -56,6 +59,7 @@ class AnalyticsTableViewController: UITableViewController {
         model.getAnalyticsForIncomeGrapghic(urlString: urlStringForGraphOfIncome) {
             DispatchQueue.main.async {
                 for index in 0..<self.model.analyticsForIncomeGraph.count {
+                    
                     self.dateArray.append(self.model.analyticsForIncomeGraph[index].data)
                     self.sum.append(self.model.analyticsForIncomeGraph[index].sumOfTransaction)
                    
@@ -70,7 +74,7 @@ class AnalyticsTableViewController: UITableViewController {
             DispatchQueue.main.async {
                 
                 for index in 0..<self.model.analyticsForExpense.count {
-                    let entry1 = PieChartDataEntry(value: self.model.analyticsForExpense[index].sum, label: self.model.analyticsForExpense[index].name)
+                    let entry1 = PieChartDataEntry(value: self.model.analyticsForExpense[index].sum ?? 0.0, label: self.model.analyticsForExpense[index].name ?? "")
                     self.arrayForExpensePieChart.append(entry1)
                 }
                 
@@ -78,7 +82,11 @@ class AnalyticsTableViewController: UITableViewController {
                 let data = PieChartData(dataSet: dataSet)
                 dataSet.colors = ChartColorTemplates.colorful()
                 self.pieChartForExpense.data = data
+                self.pieChartForExpense.legend.formSize = 4
+                self.pieChartForExpense.entryLabelFont = UIFont(name: "Roboto-Regular", size: 7) ?? UIFont()
+                self.pieChartForExpense.legend.font = UIFont(name: "Roboto-Regular", size: 7) ?? UIFont()
                 self.pieChartForExpense.chartDescription?.text = "Категории расходов"
+                self.pieChartForExpense.holeColor = UIColor(red: 111/255, green: 207/255, blue: 151/255, alpha: 1)
                 self.pieChartForExpense.notifyDataSetChanged()
             }
         }
@@ -95,6 +103,10 @@ class AnalyticsTableViewController: UITableViewController {
                 let data = PieChartData(dataSet: dataSet)
                 dataSet.colors = ChartColorTemplates.colorful()
                 self.piechartForIncome.data = data
+                self.piechartForIncome.legend.formSize = 4
+                self.piechartForIncome.chartDescription?.font = UIFont(name: "Roboto-Regular", size: 7) ?? UIFont()
+                self.piechartForIncome.entryLabelFont = UIFont(name: "Roboto-Regular", size: 7) ?? UIFont()
+                self.piechartForIncome.legend.font = UIFont(name: "Roboto-Regular", size: 7) ?? UIFont()
                 self.piechartForIncome.chartDescription?.text = "Категории дохода"
                 self.piechartForIncome.notifyDataSetChanged()
             }
@@ -105,18 +117,21 @@ class AnalyticsTableViewController: UITableViewController {
 
     }
     
-    func setChartForExpense(date: [String], sum: [Double]){
+    func setChartForExpense(date: [String], sum: [Double]) {
         lineChartForExpense.rightAxis.enabled = false
         let xAxis = lineChartForExpense.xAxis
         xAxis.labelFont = .systemFont(ofSize: 6)
         
         xAxis.setLabelCount(1, force: false)
         xAxis.labelPosition = .bottom
+        for i in 0..<sum.count {
+            print("HERE IT IS \(sum[i])")
+        }
         
         lineChartForExpense.setBarChartData(xValues: date, yValues: sum, label: "Расход")
     }
     
-    func setChart(date: [String], sum: [Double]){
+    func setChart(date: [String], sum: [Double]) {
         lineChartForIncome.rightAxis.enabled = false
         let xAxis = lineChartForIncome.xAxis
         xAxis.labelFont = .systemFont(ofSize: 6)
@@ -131,6 +146,8 @@ class AnalyticsTableViewController: UITableViewController {
     
     @IBAction func dateToGraphIncomePressed(_ sender: Any) {
         lineChartValues = []
+//        dateArray = []
+//        sum = []
         model.analyticsForIncomeGraph = []
         lineChartForIncome.clearValues()
         var urlStringForGraphOfIncome = URLComponents(string: "https://fms-neobis.herokuapp.com/analytics/incomes_graphs")!
@@ -142,6 +159,8 @@ class AnalyticsTableViewController: UITableViewController {
         urlStringForGraphOfIncome.queryItems?.append(URLQueryItem(name: "toDate", value: "\(dateFormatter.string(from: dateToForGrapghOfIncome.date))"))
        
         model.getAnalyticsForIncomeGrapghic(urlString: urlStringForGraphOfIncome) {
+            self.dateArray = []
+            self.sum = []
             DispatchQueue.main.async {
                 for index in 0..<self.model.analyticsForIncomeGraph.count {
                     self.dateArray.append(self.model.analyticsForIncomeGraph[index].data)
@@ -157,6 +176,8 @@ class AnalyticsTableViewController: UITableViewController {
     
     @IBAction func dateGraphIncomePressed(_ sender: Any) {
         lineChartValues = []
+//        dateArray = []
+//        sum = []
         model.analyticsForIncomeGraph = []
         lineChartForIncome.clearValues()
         var urlStringForGraphOfIncome = URLComponents(string: "https://fms-neobis.herokuapp.com/analytics/incomes_graphs")!
@@ -168,6 +189,8 @@ class AnalyticsTableViewController: UITableViewController {
         urlStringForGraphOfIncome.queryItems?.append(URLQueryItem(name: "toDate", value: "\(dateFormatter.string(from: dateToForGrapghOfIncome.date))"))
        
         model.getAnalyticsForIncomeGrapghic(urlString: urlStringForGraphOfIncome) {
+            self.dateArray = []
+            self.sum = []
             DispatchQueue.main.async {
                 for index in 0..<self.model.analyticsForIncomeGraph.count {
                     self.dateArray.append(self.model.analyticsForIncomeGraph[index].data)
@@ -230,7 +253,7 @@ class AnalyticsTableViewController: UITableViewController {
             DispatchQueue.main.async {
                 
                 for index in 0..<self.model.analyticsForExpense.count {
-                    let entry1 = PieChartDataEntry(value: self.model.analyticsForExpense[index].sum, label: self.model.analyticsForExpense[index].name)
+                    let entry1 = PieChartDataEntry(value: self.model.analyticsForExpense[index].sum ?? 0.0, label: self.model.analyticsForExpense[index].name ?? "")
                     self.arrayForExpensePieChart.append(entry1)
                 }
                 
@@ -245,6 +268,8 @@ class AnalyticsTableViewController: UITableViewController {
     }
     
     @IBAction func dateFromToExpensePressed(_ sender: Any) {
+        dateArrayForExpense = []
+        sumForExpense = []
         lineChartValues = []
         model.analyticsForExpenseGraph = []
         lineChartForExpense.clearValues()
@@ -284,7 +309,7 @@ class AnalyticsTableViewController: UITableViewController {
             DispatchQueue.main.async {
                 
                 for index in 0..<self.model.analyticsForExpense.count {
-                    let entry1 = PieChartDataEntry(value: self.model.analyticsForExpense[index].sum, label: self.model.analyticsForExpense[index].name)
+                    let entry1 = PieChartDataEntry(value: self.model.analyticsForExpense[index].sum ?? 0.0, label: self.model.analyticsForExpense[index].name ?? "")
                     self.arrayForExpensePieChart.append(entry1)
                 }
                 
@@ -299,6 +324,8 @@ class AnalyticsTableViewController: UITableViewController {
     }
     
     @IBAction func dateFromGrapghExpensePressed(_ sender: Any) {
+        self.dateArrayForExpense = []
+        self.sumForExpense = []
         lineChartValues = []
         model.analyticsForExpenseGraph = []
         lineChartForExpense.clearValues()
@@ -339,6 +366,7 @@ class AnalyticsTableViewController: UITableViewController {
                 
                 for index in 0..<self.model.analyticsForIncome.count {
                     let entry1 = PieChartDataEntry(value: self.model.analyticsForIncome[index].sum, label: self.model.analyticsForIncome[index].name)
+                    //print("HERE IT IS \(self.model.analyticsForIncome[index].sum)")
                     self.array.append(entry1)
                 }
                 let dataSet = PieChartDataSet(entries: self.array, label: "Категории")
@@ -368,7 +396,13 @@ extension LineChartView {
         var labels: [String] = []
         
         func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-            return labels[Int(value)]
+            //print("HERE IT IS THE COUNT OF LABEL \(value)")
+            if value == -value {
+                
+            } else {
+                return labels[Int((value))]
+            }
+            return ""
         }
         
         init(labels: [String]) {
@@ -383,14 +417,15 @@ extension LineChartView {
         
         for i in 0..<yValues.count {
             let dataEntry = ChartDataEntry(x: Double(i), y: yValues[i])
+            print(yValues[i])
             dataEntries.append(dataEntry)
         }
         
         let chartDataSet = LineChartDataSet(entries: dataEntries, label: label)
         chartDataSet.drawCirclesEnabled = false
         chartDataSet.mode = .cubicBezier
-        chartDataSet.fill = Fill(color: .black)
-        chartDataSet.setColor(UIColor(red: 0, green: 0, blue: 0, alpha: 1))
+        chartDataSet.fill = Fill(color: UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1))
+        chartDataSet.setColor(UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1))
         chartDataSet.fillAlpha = 0.8
         chartDataSet.drawFilledEnabled = true
 

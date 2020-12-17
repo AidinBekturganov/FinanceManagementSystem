@@ -37,13 +37,13 @@ struct IncomeDataAnalytics {
 }
 
 struct ExpenseDataAnalytics {
-    var name: String
-    var sum: Double
+    var name: String?
+    var sum: Double?
 }
 
 struct IncomeAnalyticsData: Codable {
-    var name: String
-    var sum: Double
+    var name: String?
+    var sum: Double?
 }
 
 class Model {
@@ -75,8 +75,7 @@ class Model {
                let result: [IncomeAnalyticsData] = try JSONDecoder().decode([IncomeAnalyticsData].self, from: data!)
                
                for index in 0..<result.count {
-                    print(result[index].name)
-                let data = IncomeDataAnalytics(name: result[index].name, sum: result[index].sum)
+                let data = IncomeDataAnalytics(name: result[index].name ?? "", sum: result[index].sum ?? 0.0)
                 self.analyticsForIncome.append(data)
                }
                
@@ -139,15 +138,20 @@ class Model {
            }
            do {
                let result: [AnalyticsIncomeDataForGraphic] = try JSONDecoder().decode([AnalyticsIncomeDataForGraphic].self, from: data!)
-               
-               for index in 0..<result.count {
-                let data = ArrayAnalyticsDataForGraphicIncome(data: result[index].date, sumOfTransaction: result[index].sumOfTransaction)
-                    self.analyticsForIncomeGraph.append(data)
-               }
+            if result.count == 1 {
+                
+            } else {
+                for index in 0..<result.count {
+                 let data = ArrayAnalyticsDataForGraphicIncome(data: result[index].date, sumOfTransaction: result[index].sumOfTransaction)
+                     print("THIS IS THE DATE FOR TEST \(result[index].date)")
+                     self.analyticsForIncomeGraph.append(data)
+                }
+            }
+              
                
            } catch {
            
-               print("ERROR IN GETTING Analytics For income")
+               print("ERROR IN GETTING Graphic For income")
            }
            completed()
            
@@ -171,15 +175,20 @@ class Model {
            }
            do {
                let result: [AnalyticsIncomeDataForGraphic] = try JSONDecoder().decode([AnalyticsIncomeDataForGraphic].self, from: data!)
+            if result.count == 1 {
+                
+            } else {
+                for index in 0..<result.count {
+                 let data = ArrayAnalyticsDataForGraphicExpense(data: result[index].date, sumOfTransaction: result[index].sumOfTransaction)
+                     self.analyticsForExpenseGraph.append(data)
+                }
+            }
+
                
-               for index in 0..<result.count {
-                let data = ArrayAnalyticsDataForGraphicExpense(data: result[index].date, sumOfTransaction: result[index].sumOfTransaction)
-                    self.analyticsForExpenseGraph.append(data)
-               }
                
            } catch {
            
-               print("ERROR IN GETTING Analytics For income")
+               print("ERROR IN GETTING Graphic For expense")
            }
            completed()
            

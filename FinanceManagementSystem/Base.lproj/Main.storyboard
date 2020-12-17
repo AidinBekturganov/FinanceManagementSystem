@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CIT-Ae-GHf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yyl-f9-FHx">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
@@ -1983,67 +1983,65 @@
                         <sections>
                             <tableViewSection headerTitle="Доходы" id="oqf-vq-Uf1">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="383" id="RVn-h1-rek">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="383"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="338" id="RVn-h1-rek">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="338"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RVn-h1-rek" id="Si4-GF-SbV">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="383"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="338"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sHc-89-c1q" customClass="LineChartView" customModule="Charts">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="328"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="288"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 </view>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="hlh-hp-aLe">
-                                                    <rect key="frame" x="22" y="347" width="131" height="33"/>
+                                                    <rect key="frame" x="22" y="295" width="131" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="131" id="JlK-im-rs3"/>
                                                         <constraint firstAttribute="height" constant="33" id="LfX-UQ-yV4"/>
                                                     </constraints>
                                                     <locale key="locale" localeIdentifier="ru_KG"/>
                                                     <connections>
-                                                        <action selector="dateFromIncomAnal:" destination="yyl-f9-FHx" eventType="valueChanged" id="YVu-gy-Nmr"/>
-                                                        <action selector="dateGraphIncomePressed:" destination="yyl-f9-FHx" eventType="valueChanged" id="HHg-9Z-vQd"/>
+                                                        <action selector="dateGraphIncomePressed:" destination="yyl-f9-FHx" eventType="valueChanged" id="uIy-dS-VcA"/>
                                                     </connections>
                                                 </datePicker>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="M5o-fA-hoy">
-                                                    <rect key="frame" x="261" y="347" width="131" height="33"/>
+                                                    <rect key="frame" x="261" y="295" width="131" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="131" id="V9u-25-6C5"/>
                                                         <constraint firstAttribute="height" constant="33" id="y3Y-0M-t3p"/>
                                                     </constraints>
                                                     <locale key="locale" localeIdentifier="ru_KG"/>
                                                     <connections>
-                                                        <action selector="dateToGraphIncomePressed:" destination="yyl-f9-FHx" eventType="valueChanged" id="DbA-70-yI2"/>
-                                                        <action selector="dateToIncomeAnal:" destination="yyl-f9-FHx" eventType="valueChanged" id="KPT-cH-1cI"/>
+                                                        <action selector="dateToGraphIncomePressed:" destination="yyl-f9-FHx" eventType="valueChanged" id="FSN-3W-s65"/>
                                                     </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="M5o-fA-hoy" secondAttribute="bottom" constant="3" id="2I7-0A-4rV"/>
+                                                <constraint firstAttribute="bottom" secondItem="M5o-fA-hoy" secondAttribute="bottom" constant="10" id="2I7-0A-4rV"/>
                                                 <constraint firstAttribute="trailing" secondItem="sHc-89-c1q" secondAttribute="trailing" id="6pb-dp-KpI"/>
                                                 <constraint firstAttribute="trailing" secondItem="M5o-fA-hoy" secondAttribute="trailing" constant="22" id="DKU-IC-Lla"/>
                                                 <constraint firstItem="sHc-89-c1q" firstAttribute="top" secondItem="Si4-GF-SbV" secondAttribute="top" id="M7d-Se-eT6"/>
-                                                <constraint firstItem="hlh-hp-aLe" firstAttribute="top" secondItem="sHc-89-c1q" secondAttribute="bottom" constant="19" id="VUH-x6-zMo"/>
-                                                <constraint firstAttribute="bottom" secondItem="hlh-hp-aLe" secondAttribute="bottom" constant="3" id="bPD-o0-hmd"/>
+                                                <constraint firstAttribute="bottom" secondItem="hlh-hp-aLe" secondAttribute="bottom" constant="10" id="bPD-o0-hmd"/>
+                                                <constraint firstAttribute="bottom" secondItem="sHc-89-c1q" secondAttribute="bottom" constant="50" id="kYx-Nn-Fr2"/>
                                                 <constraint firstItem="hlh-hp-aLe" firstAttribute="leading" secondItem="Si4-GF-SbV" secondAttribute="leading" constant="22" id="pZH-si-eRF"/>
                                                 <constraint firstItem="sHc-89-c1q" firstAttribute="leading" secondItem="Si4-GF-SbV" secondAttribute="leading" id="rXJ-ut-oSz"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="550" id="b37-cy-DNg">
-                                        <rect key="frame" x="0.0" y="411" width="414" height="550"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="338" id="b37-cy-DNg">
+                                        <rect key="frame" x="0.0" y="366" width="414" height="338"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b37-cy-DNg" id="LLs-mq-yCf">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="550"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="338"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Qe-SH-QmR" customClass="PieChartView" customModule="Charts">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="504"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="288"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 </view>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="kqj-tK-9AG">
-                                                    <rect key="frame" x="20" y="512" width="131" height="33"/>
+                                                    <rect key="frame" x="20" y="295" width="131" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="33" id="1Tb-kK-W5j"/>
                                                         <constraint firstAttribute="width" constant="131" id="pYW-D9-YEZ"/>
@@ -2054,7 +2052,7 @@
                                                     </connections>
                                                 </datePicker>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="54J-VD-qd3">
-                                                    <rect key="frame" x="258" y="512" width="131" height="33"/>
+                                                    <rect key="frame" x="258" y="294" width="131" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="131" id="DkU-WG-cMb"/>
                                                         <constraint firstAttribute="height" constant="33" id="bUU-a5-qxk"/>
@@ -2066,13 +2064,13 @@
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="9Qe-SH-QmR" secondAttribute="bottom" constant="46" id="Ilr-PD-63E"/>
+                                                <constraint firstAttribute="bottom" secondItem="9Qe-SH-QmR" secondAttribute="bottom" constant="50" id="Ilr-PD-63E"/>
                                                 <constraint firstItem="9Qe-SH-QmR" firstAttribute="top" secondItem="LLs-mq-yCf" secondAttribute="top" id="P5E-gN-PPC"/>
                                                 <constraint firstItem="9Qe-SH-QmR" firstAttribute="leading" secondItem="LLs-mq-yCf" secondAttribute="leading" id="Xhc-R8-ENy"/>
-                                                <constraint firstItem="54J-VD-qd3" firstAttribute="bottom" secondItem="LLs-mq-yCf" secondAttribute="bottomMargin" constant="6" id="csk-Wk-f9f"/>
+                                                <constraint firstItem="54J-VD-qd3" firstAttribute="bottom" secondItem="LLs-mq-yCf" secondAttribute="bottomMargin" id="csk-Wk-f9f"/>
                                                 <constraint firstItem="kqj-tK-9AG" firstAttribute="leading" secondItem="LLs-mq-yCf" secondAttribute="leading" constant="20" id="jG3-pa-Fm1"/>
                                                 <constraint firstItem="54J-VD-qd3" firstAttribute="trailing" secondItem="LLs-mq-yCf" secondAttribute="trailingMargin" constant="-5" id="kof-W2-Yob"/>
-                                                <constraint firstAttribute="bottom" secondItem="kqj-tK-9AG" secondAttribute="bottom" constant="5" id="qig-d9-e9Y"/>
+                                                <constraint firstAttribute="bottom" secondItem="kqj-tK-9AG" secondAttribute="bottom" constant="10" id="qig-d9-e9Y"/>
                                                 <constraint firstAttribute="trailing" secondItem="9Qe-SH-QmR" secondAttribute="trailing" id="uxz-U0-UYV"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -2081,15 +2079,15 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Расходы" id="2eV-uS-Ket">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="383" id="kvO-lb-HiD">
-                                        <rect key="frame" x="0.0" y="1017" width="414" height="383"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="338" id="kvO-lb-HiD">
+                                        <rect key="frame" x="0.0" y="760" width="414" height="338"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kvO-lb-HiD" id="DvD-1h-4tP">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="383"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="338"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="d4P-LU-Awr">
-                                                    <rect key="frame" x="22" y="350" width="131" height="33"/>
+                                                    <rect key="frame" x="22" y="295" width="131" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="131" id="xRB-m7-byL"/>
                                                         <constraint firstAttribute="height" constant="33" id="yb6-xw-pqf"/>
@@ -2100,11 +2098,11 @@
                                                     </connections>
                                                 </datePicker>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MxL-MM-NPo" customClass="LineChartView" customModule="Charts">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="331"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="288"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 </view>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="q1z-Nr-l03">
-                                                    <rect key="frame" x="261" y="350" width="131" height="33"/>
+                                                    <rect key="frame" x="261" y="295" width="131" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="131" id="Dkp-wy-ahS"/>
                                                         <constraint firstAttribute="height" constant="33" id="TbO-mA-3B7"/>
@@ -2119,27 +2117,27 @@
                                                 <constraint firstItem="MxL-MM-NPo" firstAttribute="leading" secondItem="DvD-1h-4tP" secondAttribute="leading" id="15c-AU-42w"/>
                                                 <constraint firstAttribute="trailing" secondItem="MxL-MM-NPo" secondAttribute="trailing" id="YZ2-yY-umc"/>
                                                 <constraint firstAttribute="trailing" secondItem="q1z-Nr-l03" secondAttribute="trailing" constant="22" id="ZLG-Cq-eI2"/>
-                                                <constraint firstAttribute="bottom" secondItem="d4P-LU-Awr" secondAttribute="bottom" id="a2r-uy-93d"/>
-                                                <constraint firstItem="d4P-LU-Awr" firstAttribute="top" secondItem="MxL-MM-NPo" secondAttribute="bottom" constant="19" id="bex-yP-1k0"/>
+                                                <constraint firstAttribute="bottom" secondItem="d4P-LU-Awr" secondAttribute="bottom" constant="10" id="a2r-uy-93d"/>
                                                 <constraint firstItem="MxL-MM-NPo" firstAttribute="top" secondItem="DvD-1h-4tP" secondAttribute="top" id="h2u-uP-4xH"/>
-                                                <constraint firstAttribute="bottom" secondItem="q1z-Nr-l03" secondAttribute="bottom" id="itG-yo-6xk"/>
+                                                <constraint firstAttribute="bottom" secondItem="q1z-Nr-l03" secondAttribute="bottom" constant="10" id="itG-yo-6xk"/>
                                                 <constraint firstItem="d4P-LU-Awr" firstAttribute="leading" secondItem="DvD-1h-4tP" secondAttribute="leading" constant="22" id="jJD-ES-LHh"/>
+                                                <constraint firstAttribute="bottom" secondItem="MxL-MM-NPo" secondAttribute="bottom" constant="50" id="xCK-bd-mKT"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="550" id="bbW-hY-raC">
-                                        <rect key="frame" x="0.0" y="1400" width="414" height="550"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="338" id="bbW-hY-raC">
+                                        <rect key="frame" x="0.0" y="1098" width="414" height="338"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bbW-hY-raC" id="IeP-Ev-TxB">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="550"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="338"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PvK-kX-JXs" customClass="PieChartView" customModule="Charts">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="504"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="288"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 </view>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="AAJ-bK-Ssg">
-                                                    <rect key="frame" x="22" y="515" width="131" height="33"/>
+                                                    <rect key="frame" x="22" y="295" width="131" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="33" id="VKK-rL-zuq"/>
                                                         <constraint firstAttribute="width" constant="131" id="bTJ-4R-54D"/>
@@ -2150,7 +2148,7 @@
                                                     </connections>
                                                 </datePicker>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="NDK-Id-Rw7">
-                                                    <rect key="frame" x="261" y="515" width="131" height="33"/>
+                                                    <rect key="frame" x="261" y="295" width="131" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="131" id="BPQ-mH-hUu"/>
                                                         <constraint firstAttribute="height" constant="33" id="YiR-7i-Zza"/>
@@ -2162,12 +2160,12 @@
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="AAJ-bK-Ssg" secondAttribute="bottom" constant="2" id="5uw-pI-nd6"/>
+                                                <constraint firstAttribute="bottom" secondItem="AAJ-bK-Ssg" secondAttribute="bottom" constant="10" id="5uw-pI-nd6"/>
                                                 <constraint firstItem="PvK-kX-JXs" firstAttribute="leading" secondItem="IeP-Ev-TxB" secondAttribute="leading" id="7Tj-Xe-1XB"/>
                                                 <constraint firstAttribute="trailing" secondItem="PvK-kX-JXs" secondAttribute="trailing" id="FQe-7d-zCY"/>
                                                 <constraint firstItem="AAJ-bK-Ssg" firstAttribute="leading" secondItem="IeP-Ev-TxB" secondAttribute="leading" constant="22" id="Tnf-1b-uLw"/>
-                                                <constraint firstAttribute="bottom" secondItem="NDK-Id-Rw7" secondAttribute="bottom" constant="2" id="Ych-Bx-lT6"/>
-                                                <constraint firstAttribute="bottom" secondItem="PvK-kX-JXs" secondAttribute="bottom" constant="46" id="a37-T4-vAP"/>
+                                                <constraint firstAttribute="bottom" secondItem="NDK-Id-Rw7" secondAttribute="bottom" constant="10" id="Ych-Bx-lT6"/>
+                                                <constraint firstAttribute="bottom" secondItem="PvK-kX-JXs" secondAttribute="bottom" constant="50" id="a37-T4-vAP"/>
                                                 <constraint firstAttribute="trailing" secondItem="NDK-Id-Rw7" secondAttribute="trailing" constant="22" id="bhd-4z-w5k"/>
                                                 <constraint firstItem="PvK-kX-JXs" firstAttribute="top" secondItem="IeP-Ev-TxB" secondAttribute="top" id="m7X-r3-491"/>
                                             </constraints>
