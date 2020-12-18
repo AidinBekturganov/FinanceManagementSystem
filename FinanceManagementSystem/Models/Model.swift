@@ -46,6 +46,11 @@ struct IncomeAnalyticsData: Codable {
     var sum: Double?
 }
 
+struct SendEmailData: Codable {
+    var resultCode: String
+    var message: String
+}
+
 class Model {
     var accounts = [Accounts]()
     var transactions = [Transactions]()
@@ -55,9 +60,73 @@ class Model {
     var analyticsForExpenseGraph = [ArrayAnalyticsDataForGraphicExpense]()
     let defaults = UserDefaults()
     var accountsArray = [String]()
+    var sendEmailData = String()
+    var sendCodeAndPassData = String()
+
     
     
  
+    func sendEmailToReset(email: String, completed: @escaping () -> ()) {
+        let urlString = "https://fms-neobis.herokuapp.com/recovery/\(email)"
+        guard let url = URL(string: urlString) else {
+            completed()
+            return
+        }
+       
+       
+       let session = URLSession.shared
+       
+       let task = session.dataTask(with: url) { (data, response, error) in
+           if let error = error {
+               print("Error: \(error)")
+           }
+            
+           do {
+               let result = try JSONDecoder().decode(SendEmailData.self, from: data ?? Data())
+            self.sendEmailData = result.resultCode
+               
+           } catch {
+           
+               print("ERROR IN SENDING EMAIL")
+           }
+           completed()
+           
+       }
+       task.resume()
+           
+   }
+    
+    
+    func sendCodeAndPasswordToReset(code: String, password: String, completed: @escaping () -> ()) {
+        let urlString = "https://fms-neobis.herokuapp.com/recovery/\(code)/\(password)"
+        guard let url = URL(string: urlString) else {
+            completed()
+            return
+        }
+       
+       
+       let session = URLSession.shared
+       
+       let task = session.dataTask(with: url) { (data, response, error) in
+           if let error = error {
+               print("Error: \(error)")
+           }
+            
+           do {
+               let result = try JSONDecoder().decode(SendEmailData.self, from: data ?? Data())
+            self.sendCodeAndPassData = result.resultCode
+               
+           } catch {
+           
+               print("ERROR IN SENDING EMAIL")
+           }
+           completed()
+           
+       }
+       task.resume()
+           
+   }
+    
     func getAnalyticsForIncomeCat(urlString: URLComponents, completed: @escaping () -> ()) {
         let token = defaults.object(forKey:"token") as? String ?? ""
 
@@ -314,9 +383,9 @@ final class IncomeData: Codable {
     var status: Bool
     var project: String?
     var sumOfTransaction: Int?
-    var tags: String?
 
-    init(actualDate: String, cashAccount: String, category: String, contractor: String?, description: String?, status: Bool, project: String?, sumOfTransaction: Int, tags: String?) {
+
+    init(actualDate: String, cashAccount: String, category: String, contractor: String?, description: String?, status: Bool, project: String?, sumOfTransaction: Int) {
         self.actualDate = actualDate
         self.cashAccount = cashAccount
         self.category = category
@@ -325,7 +394,7 @@ final class IncomeData: Codable {
         self.status = status
         self.project = project
         self.sumOfTransaction = sumOfTransaction
-        self.tags = tags
+
     }
 
 }
@@ -351,16 +420,14 @@ final class ExchangeData: Codable {
     var description: String?
     var fromCashAccount: String?
     var sumOfTransaction: Double?
-    var tags: String?
     var toCashAccount: String?
    
    
   
 
     
-    init(actualDate: String, fromCashAccount: String, toCashAccount: String, tags: String?, description: String?, sumOfTransaction: Double) {
+    init(actualDate: String, fromCashAccount: String, toCashAccount: String, description: String?, sumOfTransaction: Double) {
         self.actualDate = actualDate
-        self.tags = tags
         self.fromCashAccount = fromCashAccount
         self.toCashAccount = toCashAccount
         self.description = description

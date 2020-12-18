@@ -14,8 +14,10 @@ struct Constants {
         static let authViewController = "AuthVC"
         static let mainViewController = "main"
         static let cashAccountViewController = "cash"
-        static let mainPages = "PageViewController"
+        static let mainPages = "tabBar"
         static let journalViewController = "MainViewController"
+        static let confirmationViewController = "confirm"
+        static let resetViewController = "reset"
     }
     
 }

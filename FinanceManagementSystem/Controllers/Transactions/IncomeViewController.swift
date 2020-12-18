@@ -90,7 +90,7 @@ class IncomeViewController: UIViewController {
     
     func transitionBackToViewController() {
         
-        let journalPage = storyboard?.instantiateViewController(identifier: Constants.Storyboard.mainPages) as? PageViewController
+        let journalPage = storyboard?.instantiateViewController(identifier: Constants.Storyboard.mainPages) as? UITabBarController
         
         view.window?.rootViewController = journalPage
         view.window?.makeKeyAndVisible()
@@ -308,14 +308,14 @@ class IncomeViewController: UIViewController {
 
         dataSource = categories
         selectedButton = projectButtin
-        dataSource.append("Без проекта")
+       
         pickerViewFire(selectedButton: selectedButton)
     }
     
     @IBAction func agentButtonPressed(_ sender: Any) {
 
         dataSource = namesOfAgents
-        dataSource.append("Без контрагента")
+ 
         selectedButton = agentButton
         pickerViewFire(selectedButton: selectedButton)
     }
@@ -330,7 +330,7 @@ class IncomeViewController: UIViewController {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd-MM-yyyy"
             
-            let income = IncomeData(actualDate: dateFormatter.string(from: datePicker.date), cashAccount: cashAccount.titleLabel?.text ?? "", category: categoryButton.titleLabel?.text ?? "", contractor: (agentButton.titleLabel?.text == "Выбрать контрагента" ? nil : agentButton.titleLabel?.text) == "Без контрагента" ? nil : (agentButton.titleLabel?.text == "Выбрать контрагента" ? nil : agentButton.titleLabel?.text), description: descriptionButton.text == "" ? nil : descriptionButton.text, status: true, project: (projectButtin.titleLabel?.text == "Выбрать проект" ? nil : projectButtin.titleLabel?.text) == "Без проекта" ? nil : (projectButtin.titleLabel?.text == "Выбрать проект" ? nil : projectButtin.titleLabel?.text), sumOfTransaction: Int(sumTextFirld.text ?? "") ?? 0, tags: tagTextField.text == "" ? nil : tagTextField.text)
+            let income = IncomeData(actualDate: dateFormatter.string(from: datePicker.date), cashAccount: cashAccount.titleLabel?.text ?? "", category: categoryButton.titleLabel?.text ?? "", contractor: (agentButton.titleLabel?.text == "Без контрагента" ? nil : agentButton.titleLabel?.text), description: descriptionButton.text == "" ? nil : descriptionButton.text, status: true, project: (projectButtin.titleLabel?.text == "Без проекта" ? nil : projectButtin.titleLabel?.text), sumOfTransaction: Int(sumTextFirld.text ?? "") ?? 0)
 
             
             let postRequest = APIRequest(endpoint: "income_transaction")

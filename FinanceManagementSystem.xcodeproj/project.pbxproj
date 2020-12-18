@@ -19,6 +19,7 @@
 		CE1C320A25828EED00A41915 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1C320925828EED00A41915 /* Timer.swift */; };
 		CE1C32142582A67E00A41915 /* CashAccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1C32132582A67E00A41915 /* CashAccountsViewController.swift */; };
 		CE1C321C2582A6B100A41915 /* CashAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1C321B2582A6B100A41915 /* CashAccountTableViewCell.swift */; };
+		CE3044B7258C14B700A31508 /* ResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3044B6258C14B700A31508 /* ResetViewController.swift */; };
 		CE5741C02586121B00EC1187 /* FilterOfJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5741BF2586121B00EC1187 /* FilterOfJournalViewController.swift */; };
 		CE5D23A2253471C600AC0678 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5D23A1253471C600AC0678 /* AppDelegate.swift */; };
 		CE5D23A4253471C600AC0678 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5D23A3253471C600AC0678 /* SceneDelegate.swift */; };
@@ -32,6 +33,8 @@
 		CE6BC68A25836F4B00064D43 /* IncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BC68925836F4B00064D43 /* IncomeViewController.swift */; };
 		CE6BC68F25836F5800064D43 /* ExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BC68E25836F5800064D43 /* ExpenseViewController.swift */; };
 		CE6BC69425836F6D00064D43 /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BC69325836F6D00064D43 /* TransferViewController.swift */; };
+		CE6D5BD7258BF869007A6B9B /* PassworResetViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6D5BD6258BF869007A6B9B /* PassworResetViewContoller.swift */; };
+		CE6D5BE7258C0B9A007A6B9B /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6D5BE6258C0B9A007A6B9B /* ConfirmationViewController.swift */; };
 		CE73ADD92572C1CA00718BA3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73ADD82572C1CA00718BA3 /* Constants.swift */; };
 		CE75988F25497ACC0017595F /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75988E25497ACC0017595F /* APIRequest.swift */; };
 		CE75989425497CBB0017595F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75989325497CBB0017595F /* Model.swift */; };
@@ -87,6 +90,7 @@
 		CE1C320925828EED00A41915 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		CE1C32132582A67E00A41915 /* CashAccountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashAccountsViewController.swift; sourceTree = "<group>"; };
 		CE1C321B2582A6B100A41915 /* CashAccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashAccountTableViewCell.swift; sourceTree = "<group>"; };
+		CE3044B6258C14B700A31508 /* ResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetViewController.swift; sourceTree = "<group>"; };
 		CE5741BF2586121B00EC1187 /* FilterOfJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOfJournalViewController.swift; sourceTree = "<group>"; };
 		CE5D239E253471C600AC0678 /* FinanceManagementSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceManagementSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5D23A1253471C600AC0678 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 		CE6BC68925836F4B00064D43 /* IncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeViewController.swift; sourceTree = "<group>"; };
 		CE6BC68E25836F5800064D43 /* ExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewController.swift; sourceTree = "<group>"; };
 		CE6BC69325836F6D00064D43 /* TransferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
+		CE6D5BD6258BF869007A6B9B /* PassworResetViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassworResetViewContoller.swift; sourceTree = "<group>"; };
+		CE6D5BE6258C0B9A007A6B9B /* ConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
 		CE73ADD82572C1CA00718BA3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CE75988E25497ACC0017595F /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		CE75989325497CBB0017595F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -204,6 +210,9 @@
 				CE1C32112582A5FF00A41915 /* Transactions */,
 				CEAAE9E7258697F90092774B /* AnalyticsViewController.swift */,
 				CEAAE9F72586A0920092774B /* AnalyticsTableViewController.swift */,
+				CE6D5BD6258BF869007A6B9B /* PassworResetViewContoller.swift */,
+				CE3044B6258C14B700A31508 /* ResetViewController.swift */,
+				CE6D5BE6258C0B9A007A6B9B /* ConfirmationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -570,16 +579,19 @@
 				CE6BC68F25836F5800064D43 /* ExpenseViewController.swift in Sources */,
 				CEAAE9E8258697F90092774B /* AnalyticsViewController.swift in Sources */,
 				CE6BC66F2583475000064D43 /* PageViewController.swift in Sources */,
+				CE3044B7258C14B700A31508 /* ResetViewController.swift in Sources */,
 				CE5D23A4253471C600AC0678 /* SceneDelegate.swift in Sources */,
 				CE6BC68525836F3A00064D43 /* MainTransactionsViewController.swift in Sources */,
 				CE6BC69425836F6D00064D43 /* TransferViewController.swift in Sources */,
 				CE5741C02586121B00EC1187 /* FilterOfJournalViewController.swift in Sources */,
 				CE1C320A25828EED00A41915 /* Timer.swift in Sources */,
+				CE6D5BD7258BF869007A6B9B /* PassworResetViewContoller.swift in Sources */,
 				CEAAE9862556C14E00844173 /* FilterTableViewController.swift in Sources */,
 				CE76702B255FB0A400036C3E /* AuthViewController.swift in Sources */,
 				CEAAE9F82586A0920092774B /* AnalyticsTableViewController.swift in Sources */,
 				CE1C320225828E9A00A41915 /* ProgressBar.swift in Sources */,
 				CE11595D256661E300BBCB2C /* TestViewController.swift in Sources */,
+				CE6D5BE7258C0B9A007A6B9B /* ConfirmationViewController.swift in Sources */,
 				CE0CE21825814554002C96E3 /* MainTableViewCell.swift in Sources */,
 				CEA55537255414F400B8B68D /* TransactionTableViewCell.swift in Sources */,
 				CE90609F254ECA4200313D02 /* BookOfTransactionsViewController.swift in Sources */,

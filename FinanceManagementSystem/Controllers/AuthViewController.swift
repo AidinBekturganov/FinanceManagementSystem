@@ -13,13 +13,39 @@ class AuthViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var viewForCoinsImage: UIView!
+    @IBOutlet weak var checkMark: UIButton!
     
     var indicatorView = UIActivityIndicatorView()
-    
+    var authtoken = ""
+    let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let login1 = userDefaults.object(forKey:"login") as? String
+        print("HERE IT IS \(login1)" ?? "")
         
+        if let login = userDefaults.object(forKey:"login") as? String ?? "" {
+            loginFIedl.text = login
+        }
+        
+        if let checkmark = userDefaults.object(forKey:"checkmark") as? Bool ?? false {
+            checkMark.isSelected = checkmark
+            if checkmark == true {
+                
+                
+                
+                if let password = userDefaults.object(forKey:"password") as? String ?? "" {
+                    passwordField.text = password
+                }
+
+            }
+        }
+        
+        
+        loginFIedl.attributedPlaceholder = NSAttributedString(string: "neobis@gmail.com",
+                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.7)])
+        passwordField.attributedPlaceholder = NSAttributedString(string: "******",
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.7)])
         UIGraphicsBeginImageContext(viewForCoinsImage.frame.size)
            UIImage(named: "coin")?.draw(in: viewForCoinsImage.bounds)
            let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
@@ -35,6 +61,8 @@ class AuthViewController: UIViewController {
         signInButton.layer.masksToBounds = false
         
         setupIndicator()
+        
+        
     }
     func setupIndicator() {
         indicatorView.center = self.view.center
@@ -50,8 +78,7 @@ class AuthViewController: UIViewController {
         var username: String
     }
     
-    var authtoken = ""
-    let userDefaults = UserDefaults.standard
+
     
     @IBAction func passW(_ sender: Any) {
         let getProjects = "https://fms-neobis.herokuapp.com/users/me"
@@ -78,9 +105,32 @@ class AuthViewController: UIViewController {
         task.resume()
     }
     
+    @IBAction func checkPressed(_ sender: Any) {
+        if checkMark.isSelected == false {
+            checkMark.isSelected = true
+            
+        } else if checkMark.isSelected == true {
+            
+            checkMark.isSelected = false
+            self.userDefaults.set(checkMark.isSelected, forKey: "checkmark")
+            
+
+        }
+    }
+    
+    @IBAction func unwindFromPasswordReset(segue: UIStoryboardSegue) {
+        let source = segue.source as! ResetViewController
+        
+    }
+    
+    @IBAction func unwindFromConfirmation(segue: UIStoryboardSegue) {
+        let source = segue.source as! ConfirmationViewController
+        
+    }
+    
     func transitionViewController() {
         
-        let mainPage = storyboard?.instantiateViewController(identifier: Constants.Storyboard.mainPages) as? PageViewController
+        let mainPage = storyboard?.instantiateViewController(identifier: Constants.Storyboard.mainPages) as? UITabBarController
         
         view.window?.rootViewController = mainPage
         view.window?.makeKeyAndVisible()
@@ -134,7 +184,16 @@ class AuthViewController: UIViewController {
                         print(messageData.token)
                         
                         self.userDefaults.set(messageData.token, forKey: "token")
+                      
                         DispatchQueue.main.async {
+                            if self.checkMark.isSelected {
+                            
+                                    self.userDefaults.set(self.checkMark.isSelected, forKey: "checkmark")
+                                    self.userDefaults.set(self.loginFIedl.text, forKey: "login")
+                                    self.userDefaults.set(self.passwordField.text, forKey: "password")
+                            
+                           
+                            }
                             self.indicatorView.stopAnimating()
                             self.view.isUserInteractionEnabled = true
                             self.transitionViewController()

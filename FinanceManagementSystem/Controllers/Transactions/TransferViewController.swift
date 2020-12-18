@@ -74,7 +74,7 @@ class TransferViewController: UIViewController {
     
     func transitionBackToViewController() {
         
-        let journalPage = storyboard?.instantiateViewController(identifier: Constants.Storyboard.journalViewController) as? MainViewController
+        let journalPage = storyboard?.instantiateViewController(identifier: Constants.Storyboard.mainPages) as? UITabBarController
         
         view.window?.rootViewController = journalPage
         view.window?.makeKeyAndVisible()
@@ -149,7 +149,7 @@ class TransferViewController: UIViewController {
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd-MM-yyyy"
-            let exchange = ExchangeData(actualDate: dateFormatter.string(from: datePicker.date), fromCashAccount: fromButton.titleLabel?.text ?? "", toCashAccount: toButton.titleLabel?.text ?? "", tags: tagTextFirld.text == "" ? nil : tagTextFirld.text, description: descriptionButton.text == "" ? nil : descriptionButton.text, sumOfTransaction: Double(sumTextFirld.text ?? "") ?? 0.0)
+            let exchange = ExchangeData(actualDate: dateFormatter.string(from: datePicker.date), fromCashAccount: fromButton.titleLabel?.text ?? "", toCashAccount: toButton.titleLabel?.text ?? "", description: descriptionButton.text == "" ? nil : descriptionButton.text, sumOfTransaction: Double(sumTextFirld.text ?? "") ?? 0.0)
            
 
             
