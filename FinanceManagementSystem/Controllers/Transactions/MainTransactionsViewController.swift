@@ -21,17 +21,17 @@ class MainTransactionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        
         UIView.animate(withDuration: 0.5, animations: {
-                self.test.alpha = 0
-                self.view3.alpha = 1
-                self.view2.alpha = 0
-            })
+            self.test.alpha = 0
+            self.view3.alpha = 1
+            self.view2.alpha = 0
+        })
     }
     
     private func create() {
@@ -46,37 +46,37 @@ class MainTransactionsViewController: UIViewController {
         incomeView.didMove(toParent: self)
         expenseView.didMove(toParent: self)
         transferView.didMove(toParent: self)
-
+        
         incomeView.view.frame = self.view.bounds
         expenseView.view.frame = self.view.bounds
         transferView.view.frame = self.view.bounds
         
         expenseView.view.isHidden = true
         transferView.view.isHidden = true
-
+        
     }
     
-
+    
     @IBAction func didTapSegment(segment: UISegmentedControl) {
         
         if segmentControl.selectedSegmentIndex == 0 {
             UIView.animate(withDuration: 0.5, animations: {
-                    self.test.alpha = 0
-                    self.view3.alpha = 1
-                    self.view2.alpha = 0
-                })
+                self.test.alpha = 0
+                self.view3.alpha = 1
+                self.view2.alpha = 0
+            })
         } else if segmentControl.selectedSegmentIndex == 1 {
             UIView.animate(withDuration: 0.5, animations: {
-                    self.test.alpha = 0
-                    self.view3.alpha = 0
-                    self.view2.alpha = 1
-                })
+                self.test.alpha = 0
+                self.view3.alpha = 0
+                self.view2.alpha = 1
+            })
         } else if segmentControl.selectedSegmentIndex == 2 {
             UIView.animate(withDuration: 0.5, animations: {
-                    self.test.alpha = 1
-                    self.view3.alpha = 0
-                    self.view2.alpha = 0
-                })
+                self.test.alpha = 1
+                self.view3.alpha = 0
+                self.view2.alpha = 0
+            })
         }
     }
 }

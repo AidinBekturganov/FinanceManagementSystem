@@ -8,7 +8,7 @@
 import UIKit
 
 class DetailOfTransactionViewController: UIViewController {
-
+    
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var projectLabel: UILabel!
@@ -19,7 +19,7 @@ class DetailOfTransactionViewController: UIViewController {
     @IBOutlet weak var cashAccountLabel: UILabel!
     @IBOutlet weak var descriptionLAbel: UITextView!
     
-
+    
     
     var item: Transactions!
     
@@ -37,13 +37,13 @@ class DetailOfTransactionViewController: UIViewController {
         categoryLabel.text = "Категория: \(item.category)"
         projectLabel.text = "Проект: \(item.project)"
         summLabel.text = "Сумма: \(String(item.sumOfTransaction))"
-       // tagLabel.text = "Тэг: \(item.tags.joined(separator: ", "))"
+        // tagLabel.text = "Тэг: \(item.tags.joined(separator: ", "))"
         typeLabel.text = "Тип: \(item.type)"
         agentLabel.text = "Контрагент: \(item.contractor)"
         descriptionLAbel.text = "Комментарий: \(item.description1)"
         
-       // print(item.tags.joined(separator: ", "))
+        // print(item.tags.joined(separator: ", "))
     }
-
-
+    
+    
 }

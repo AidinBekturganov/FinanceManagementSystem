@@ -9,7 +9,7 @@ import UIKit
 import Charts
 
 class AnalyticsViewController: UIViewController {
-
+    
     @IBOutlet weak var pie: PieChartView!
     
     lazy var chart = LineChartView()
@@ -29,6 +29,6 @@ class AnalyticsViewController: UIViewController {
         pie.chartDescription?.text = "Share of Widgets by Type"
         pie.notifyDataSetChanged()
     }
-
-
+    
+    
 }

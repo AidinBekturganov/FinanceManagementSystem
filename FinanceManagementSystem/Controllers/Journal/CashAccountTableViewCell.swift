@@ -8,8 +8,8 @@
 import UIKit
 
 class CashAccountTableViewCell: UITableViewCell {
-
-
+    
+    
     @IBOutlet weak var cashAccountLabel: UILabel!
     @IBOutlet weak var sumLabel: UILabel!
     @IBOutlet weak var view: UIView!

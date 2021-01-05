@@ -8,7 +8,7 @@
 import UIKit
 
 class MainTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var imageForAgent: UIImageView!
     @IBOutlet weak var agentLabel: UILabel!
@@ -23,7 +23,7 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var arrowImageView: UIImageView!
     @IBOutlet weak var agentImageView: UIImageView!
     
-
+    
     var trans: Transactions! {
         didSet {
             let dateFormatter = DateFormatter()

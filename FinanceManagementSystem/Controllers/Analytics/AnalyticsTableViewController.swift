@@ -9,7 +9,7 @@ import UIKit
 import Charts
 
 class AnalyticsTableViewController: UITableViewController {
-
+    
     @IBOutlet weak var lineChartForIncome: LineChartView!
     @IBOutlet weak var piechartForIncome: PieChartView!
     @IBOutlet weak var pieChartForExpense: PieChartView!
@@ -45,8 +45,8 @@ class AnalyticsTableViewController: UITableViewController {
                 for index in 0..<self.model.analyticsForExpenseGraph.count {
                     self.dateArrayForExpense.append(self.model.analyticsForExpenseGraph[index].data)
                     self.sumForExpense.append(self.model.analyticsForExpenseGraph[index].sumOfTransaction)
-                   
-
+                    
+                    
                 }
                 self.setChartForExpense(date: self.dateArrayForExpense, sum: self.sumForExpense)
             }
@@ -58,8 +58,8 @@ class AnalyticsTableViewController: UITableViewController {
                     
                     self.dateArray.append(self.model.analyticsForIncomeGraph[index].data)
                     self.sum.append(self.model.analyticsForIncomeGraph[index].sumOfTransaction)
-                   
-
+                    
+                    
                 }
                 self.setChart(date: self.dateArray, sum: self.sum)
             }
@@ -76,11 +76,16 @@ class AnalyticsTableViewController: UITableViewController {
                 
                 let dataSet = PieChartDataSet(entries: self.arrayForExpensePieChart, label: "Категории")
                 let data = PieChartData(dataSet: dataSet)
-                dataSet.entryLabelColor = .black
+                // dataSet.entryLabelColor = .black
                 dataSet.setColor(.black, alpha: 1.0)
                 dataSet.colors = ChartColorTemplates.colorful()
+                dataSet.xValuePosition = PieChartDataSet.ValuePosition.outsideSlice
+                dataSet.valueFont = UIFont(name: "Roboto-Regular", size: 9) ?? UIFont()
+                dataSet.valueColors = [UIColor.black]
                 self.pieChartForExpense.data = data
+                
                 self.pieChartForExpense.legend.formSize = 4
+                self.pieChartForExpense.entryLabelColor = .black
                 self.pieChartForExpense.entryLabelFont = UIFont(name: "Roboto-Regular", size: 7) ?? UIFont()
                 self.pieChartForExpense.legend.font = UIFont(name: "Roboto-Regular", size: 7) ?? UIFont()
                 self.pieChartForExpense.chartDescription?.text = "Категории расходов"
@@ -100,12 +105,17 @@ class AnalyticsTableViewController: UITableViewController {
                 let dataSet = PieChartDataSet(entries: self.array, label: "Категории")
                 let data = PieChartData(dataSet: dataSet)
                 dataSet.colors = ChartColorTemplates.colorful()
+                dataSet.xValuePosition = PieChartDataSet.ValuePosition.outsideSlice
+                dataSet.valueFont = UIFont(name: "Roboto-Regular", size: 9) ?? UIFont()
+                dataSet.valueColors = [UIColor.black]
+                
                 self.piechartForIncome.data = data
+                
                 self.piechartForIncome.legend.formSize = 4
+                self.piechartForIncome.entryLabelColor = .black
                 self.piechartForIncome.noDataText = "За этот период данных нет"
                 self.piechartForIncome.noDataTextColor = .black
-                //self.piechartForIncome.col
-                self.piechartForIncome.entryLabelColor = .black
+                
                 self.piechartForIncome.chartDescription?.font = UIFont(name: "Roboto-Regular", size: 7) ?? UIFont()
                 self.piechartForIncome.entryLabelFont = UIFont(name: "Roboto-Regular", size: 7) ?? UIFont()
                 self.piechartForIncome.legend.font = UIFont(name: "Roboto-Regular", size: 7) ?? UIFont()
@@ -114,7 +124,7 @@ class AnalyticsTableViewController: UITableViewController {
                 self.piechartForIncome.notifyDataSetChanged()
             }
         }
-
+        
     }
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -138,7 +148,7 @@ class AnalyticsTableViewController: UITableViewController {
         yAxis.labelFont = .systemFont(ofSize: 8)
         
         xAxis.setLabelCount(3, force: false)
-
+        
         xAxis.labelPosition = .bottom
         for i in 0..<sum.count {
             print("HERE IT IS \(sum[i])")
@@ -174,7 +184,7 @@ class AnalyticsTableViewController: UITableViewController {
         dateFormatter.dateFormat = "dd-MM-yyyy"
         urlStringForGraphOfIncome.queryItems?.append(URLQueryItem(name: "fromDate", value: "\(dateFormatter.string(from: analyticDateFrom.date))"))
         urlStringForGraphOfIncome.queryItems?.append(URLQueryItem(name: "toDate", value: "\(dateFormatter.string(from: analyticdateTo.date))"))
-       
+        
         model.getAnalyticsForIncomeGrapghic(urlString: urlStringForGraphOfIncome) {
             self.dateArray = []
             self.sum = []
@@ -182,8 +192,8 @@ class AnalyticsTableViewController: UITableViewController {
                 for index in 0..<self.model.analyticsForIncomeGraph.count {
                     self.dateArray.append(self.model.analyticsForIncomeGraph[index].data)
                     self.sum.append(self.model.analyticsForIncomeGraph[index].sumOfTransaction)
-                   
-
+                    
+                    
                 }
                 self.setChart(date: self.dateArray, sum: self.sum)
             }
@@ -211,13 +221,17 @@ class AnalyticsTableViewController: UITableViewController {
                 
                 let dataSet = PieChartDataSet(entries: self.arrayForExpensePieChart, label: "Категории")
                 let data = PieChartData(dataSet: dataSet)
+                dataSet.xValuePosition = PieChartDataSet.ValuePosition.outsideSlice
+                dataSet.valueFont = UIFont(name: "Roboto-Regular", size: 9) ?? UIFont()
+                dataSet.valueColors = [UIColor.black]
                 dataSet.colors = ChartColorTemplates.colorful()
+                dataSet.xValuePosition = PieChartDataSet.ValuePosition.outsideSlice
                 self.pieChartForExpense.data = data
                 self.pieChartForExpense.chartDescription?.text = "Категории расходов"
                 self.pieChartForExpense.notifyDataSetChanged()
             }
         }
-
+        
     }
     
     func getDataForLineChartExpense() {
@@ -233,14 +247,14 @@ class AnalyticsTableViewController: UITableViewController {
         dateFormatter.dateFormat = "dd-MM-yyyy"
         urlStringForGraphOfExpense.queryItems?.append(URLQueryItem(name: "fromDate", value: "\(dateFormatter.string(from: analyticDateFrom.date))"))
         urlStringForGraphOfExpense.queryItems?.append(URLQueryItem(name: "toDate", value: "\(dateFormatter.string(from: analyticdateTo.date))"))
-       
+        
         model.getAnalyticsForExpenseGrapghic(urlString: urlStringForGraphOfExpense) {
             DispatchQueue.main.async {
                 for index in 0..<self.model.analyticsForExpenseGraph.count {
                     self.dateArrayForExpense.append(self.model.analyticsForExpenseGraph[index].data)
                     self.sumForExpense.append(self.model.analyticsForExpenseGraph[index].sumOfTransaction)
-                   
-
+                    
+                    
                 }
                 self.setChartForExpense(date: self.dateArrayForExpense, sum: self.sumForExpense)
             }
@@ -267,12 +281,15 @@ class AnalyticsTableViewController: UITableViewController {
                 }
                 let dataSet = PieChartDataSet(entries: self.array, label: "Категории")
                 let data = PieChartData(dataSet: dataSet)
+                dataSet.xValuePosition = PieChartDataSet.ValuePosition.outsideSlice
+                dataSet.valueFont = UIFont(name: "Roboto-Regular", size: 9) ?? UIFont()
+                dataSet.valueColors = [UIColor.black]
                 dataSet.colors = ChartColorTemplates.colorful()
                 self.piechartForIncome.data = data
                 self.piechartForIncome.chartDescription?.text = "Категории дохода"
                 self.piechartForIncome.notifyDataSetChanged()
             }
-           
+            
         }
     }
     
@@ -294,7 +311,7 @@ class AnalyticsTableViewController: UITableViewController {
 }
 
 extension LineChartView {
-
+    
     private class LineChartFormatter: NSObject, IAxisValueFormatter {
         
         var labels: [String] = []
@@ -332,14 +349,14 @@ extension LineChartView {
         chartDataSet.setColor(UIColor(red: 111/255, green: 207/255, blue: 151/255, alpha: 1))
         chartDataSet.fillAlpha = 0.8
         chartDataSet.drawFilledEnabled = true
-
+        
         let chartData = LineChartData(dataSet: chartDataSet)
         chartData.setDrawValues(false)
         
         let chartFormatter = LineChartFormatter(labels: xValues)
         let xAxis = XAxis()
         
-     
+        
         xAxis.valueFormatter = chartFormatter
         self.xAxis.valueFormatter = xAxis.valueFormatter
         

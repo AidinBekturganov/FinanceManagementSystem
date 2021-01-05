@@ -12,7 +12,7 @@ struct SumInCash: Codable {
 }
 
 class CashAccountsViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sumInCashAccounts: UILabel!
     @IBOutlet weak var incomeLabel: UILabel!
@@ -41,21 +41,17 @@ class CashAccountsViewController: UIViewController {
         }
         getSums {
             
-                print("Done")
-
-                    DispatchQueue.main.async {
-                        
-                        
-                      
-                        self.incomeLabel.text = String(self.incomeSum)
-                        self.expenseLabel.text = String(self.expenseSum)
-                        self.proc = ((self.incomeSum - self.expenseSum) / self.incomeSum)
-                        self.viewForKickAss.progress = CGFloat(self.proc)
-                    }
-
+            print("Done")
+            
+            DispatchQueue.main.async {
+                self.incomeLabel.text = String(self.incomeSum)
+                self.expenseLabel.text = String(self.expenseSum)
+                self.proc = (self.expenseSum / self.incomeSum)
+                self.viewForKickAss.progress = CGFloat(self.proc)
+            }
             
         }
-            
+        
         
     }
     
@@ -74,95 +70,95 @@ class CashAccountsViewController: UIViewController {
     }
     
     func getSums(completed: @escaping () -> ()) {
-       let urlString = "https://fms-neobis.herokuapp.com/sums_expenses_and_incomes"
-       guard let url1 = URL(string: urlString) else {
-           completed()
-           return
-       }
-       
-       let token = defaults.object(forKey:"token") as? String ?? ""
-       var request = URLRequest(url: url1)
-       request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-       
-       let session = URLSession.shared
-       
-       let task = session.dataTask(with: request) { (data, response, error) in
-           if let error = error {
-               print("Error: \(error)")
-           }
-           do {
+        let urlString = "https://fms-neobis.herokuapp.com/sums_expenses_and_incomes"
+        guard let url1 = URL(string: urlString) else {
+            completed()
+            return
+        }
+        
+        let token = defaults.object(forKey:"token") as? String ?? ""
+        var request = URLRequest(url: url1)
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Error: \(error)")
+            }
+            do {
                 let result = try JSONDecoder().decode(Sums.self, from: data!)
                 self.incomeSum = result.sumOfIncomes
                 self.expenseSum = result.sumOfExpenses
-               
-              } catch {
-               guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 404 else {
-                  
-                   DispatchQueue.main.async {
-                       let alert = UIAlertController(title: "Ошибка авторизации в получении суммы", message: "Пожалуйста авторизуйтесь", preferredStyle: .alert)
-                       
-                       alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
-                           
-                           self.transitionViewController()
-                           
-                       }))
-                       self.present(alert, animated: true)
-                   }
-                   return
-               }
-               print("ERROR")
-           }
-           completed()
-           
-       }
-       task.resume()
-           
-   }
+                
+            } catch {
+                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 404 else {
+                    
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "Ошибка авторизации в получении суммы", message: "Пожалуйста авторизуйтесь", preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
+                            
+                            self.transitionViewController()
+                            
+                        }))
+                        self.present(alert, animated: true)
+                    }
+                    return
+                }
+                print("ERROR")
+            }
+            completed()
+            
+        }
+        task.resume()
+        
+    }
     
     func getCashAccointsSum(completed: @escaping () -> ()) {
-       let urlString = "https://fms-neobis.herokuapp.com/sum_in_cash_accounts"
-       guard let url = URL(string: urlString) else {
-           completed()
-           return
-       }
-       
-       let token = defaults.object(forKey:"token") as? String ?? ""
-       var request = URLRequest(url: url)
-       request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-       
-       let session = URLSession.shared
-       
-       let task = session.dataTask(with: request) { (data, response, error) in
-           if let error = error {
-               print("Error: \(error)")
-           }
-           do {
-               let result = try JSONDecoder().decode(SumInCash.self, from: data!)
-            self.sum = result.sumInCashAccounts ?? 0.0
-               
-           } catch {
-               guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 404 else {
-                  
-                   DispatchQueue.main.async {
-                       let alert = UIAlertController(title: "Ошибка авторизации", message: "Пожалуйста авторизуйтесь", preferredStyle: .alert)
-                       
-                       alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
-                           
-                           //self.transitionViewController()
-                           
-                       }))
-                       self.present(alert, animated: true)
-                   }
-                   return
-               }
-               print("ERROR")
-           }
-           completed()
-           
-       }
-       task.resume()
-           
-   }
+        let urlString = "https://fms-neobis.herokuapp.com/sum_in_cash_accounts"
+        guard let url = URL(string: urlString) else {
+            completed()
+            return
+        }
+        
+        let token = defaults.object(forKey:"token") as? String ?? ""
+        var request = URLRequest(url: url)
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Error: \(error)")
+            }
+            do {
+                let result = try JSONDecoder().decode(SumInCash.self, from: data!)
+                self.sum = result.sumInCashAccounts ?? 0.0
+                
+            } catch {
+                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 404 else {
+                    
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "Ошибка авторизации", message: "Пожалуйста авторизуйтесь", preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
+                            
+                            //self.transitionViewController()
+                            
+                        }))
+                        self.present(alert, animated: true)
+                    }
+                    return
+                }
+                print("ERROR")
+            }
+            completed()
+            
+        }
+        task.resume()
+        
+    }
     
     
     
@@ -171,6 +167,10 @@ class CashAccountsViewController: UIViewController {
 extension CashAccountsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         model.accounts.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

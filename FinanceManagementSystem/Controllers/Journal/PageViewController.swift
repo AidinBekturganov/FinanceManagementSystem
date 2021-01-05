@@ -8,7 +8,7 @@
 import UIKit
 
 class PageViewController: UIPageViewController {
-
+    
     weak var tutorialDelegate: PageViewControllerDelegate?
     
     private(set) lazy var orderedViewControllers: [UIViewController] = {
@@ -51,8 +51,8 @@ class PageViewController: UIPageViewController {
      */
     func scrollToNextViewController() {
         if let visibleViewController = viewControllers?.first,
-            let nextViewController = pageViewController(self, viewControllerAfter: visibleViewController) {
-                    scrollToViewController(viewController: nextViewController)
+           let nextViewController = pageViewController(self, viewControllerAfter: visibleViewController) {
+            scrollToViewController(viewController: nextViewController)
         }
     }
     
@@ -64,10 +64,10 @@ class PageViewController: UIPageViewController {
      */
     func scrollToViewController(index newIndex: Int) {
         if let firstViewController = viewControllers?.first,
-            let currentIndex = orderedViewControllers.firstIndex(of: firstViewController) {
+           let currentIndex = orderedViewControllers.firstIndex(of: firstViewController) {
             let direction: UIPageViewController.NavigationDirection = newIndex >= currentIndex ? .forward : .reverse
-                let nextViewController = orderedViewControllers[newIndex]
-                scrollToViewController(viewController: nextViewController, direction: direction)
+            let nextViewController = orderedViewControllers[newIndex]
+            scrollToViewController(viewController: nextViewController, direction: direction)
         }
     }
     
@@ -81,14 +81,14 @@ class PageViewController: UIPageViewController {
     private func scrollToViewController(viewController: UIViewController,
                                         direction: UIPageViewController.NavigationDirection = .forward) {
         setViewControllers([viewController],
-            direction: direction,
-            animated: true,
-            completion: { (finished) -> Void in
-                // Setting the view controller programmatically does not fire
-                // any delegate methods, so we have to manually notify the
-                // 'tutorialDelegate' of the new index.
-                self.notifyTutorialDelegateOfNewIndex()
-        })
+                           direction: direction,
+                           animated: true,
+                           completion: { (finished) -> Void in
+                            // Setting the view controller programmatically does not fire
+                            // any delegate methods, so we have to manually notify the
+                            // 'tutorialDelegate' of the new index.
+                            self.notifyTutorialDelegateOfNewIndex()
+                           })
     }
     
     /**
@@ -96,12 +96,12 @@ class PageViewController: UIPageViewController {
      */
     private func notifyTutorialDelegateOfNewIndex() {
         if let firstViewController = viewControllers?.first,
-            let index = orderedViewControllers.firstIndex(of: firstViewController) {
+           let index = orderedViewControllers.firstIndex(of: firstViewController) {
             tutorialDelegate?.pageViewController(pageViewController: self, didUpdatePageIndex: index)
         }
     }
     
-
+    
     
 }
 
@@ -109,45 +109,45 @@ extension PageViewController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController,
                             viewControllerBefore viewController: UIViewController) -> UIViewController? {
-            guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController) else {
-                return nil
-            }
-            
-            let previousIndex = viewControllerIndex - 1
-            
-            // User is on the first view controller and swiped left to loop to
-            // the last view controller.
-            guard previousIndex >= 0 else {
-                return orderedViewControllers.last
-            }
-            
-            guard orderedViewControllers.count > previousIndex else {
-                return nil
-            }
-            
-            return orderedViewControllers[previousIndex]
+        guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController) else {
+            return nil
+        }
+        
+        let previousIndex = viewControllerIndex - 1
+        
+        // User is on the first view controller and swiped left to loop to
+        // the last view controller.
+        guard previousIndex >= 0 else {
+            return orderedViewControllers.last
+        }
+        
+        guard orderedViewControllers.count > previousIndex else {
+            return nil
+        }
+        
+        return orderedViewControllers[previousIndex]
     }
-
+    
     func pageViewController(_ pageViewController: UIPageViewController,
                             viewControllerAfter viewController: UIViewController) -> UIViewController? {
-            guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController) else {
-                return nil
-            }
-            
-            let nextIndex = viewControllerIndex + 1
-            let orderedViewControllersCount = orderedViewControllers.count
-            
-            // User is on the last view controller and swiped right to loop to
-            // the first view controller.
-            guard orderedViewControllersCount != nextIndex else {
-                return orderedViewControllers.first
-            }
-            
-            guard orderedViewControllersCount > nextIndex else {
-                return nil
-            }
-            
-            return orderedViewControllers[nextIndex]
+        guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController) else {
+            return nil
+        }
+        
+        let nextIndex = viewControllerIndex + 1
+        let orderedViewControllersCount = orderedViewControllers.count
+        
+        // User is on the last view controller and swiped right to loop to
+        // the first view controller.
+        guard orderedViewControllersCount != nextIndex else {
+            return orderedViewControllers.first
+        }
+        
+        guard orderedViewControllersCount > nextIndex else {
+            return nil
+        }
+        
+        return orderedViewControllers[nextIndex]
     }
     
 }
@@ -170,7 +170,7 @@ protocol PageViewControllerDelegate: class {
      - parameter count: the total number of pages.
      */
     func pageViewController(pageViewController: PageViewController,
-        didUpdatePageCount count: Int)
+                            didUpdatePageCount count: Int)
     
     /**
      Called when the current index is updated.
@@ -179,6 +179,6 @@ protocol PageViewControllerDelegate: class {
      - parameter index: the index of the currently visible page.
      */
     func pageViewController(pageViewController: PageViewController,
-        didUpdatePageIndex index: Int)
+                            didUpdatePageIndex index: Int)
     
 }

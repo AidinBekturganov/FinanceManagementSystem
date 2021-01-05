@@ -8,7 +8,7 @@
 import UIKit
 
 class ExpenseViewController: UIViewController {
-
+    
     @IBOutlet weak var sumTextFirld: UITextField!
     @IBOutlet weak var categoryButton: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -18,6 +18,7 @@ class ExpenseViewController: UIViewController {
     @IBOutlet weak var agentButton: UIButton!
     @IBOutlet weak var addIncomeButton: UIButton!
     @IBOutlet weak var descriptionButton: UITextView!
+    @IBOutlet weak var successCheckMarkImageView: UIImageView!
     
     var selectedButton = UIButton()
     var dataSource = [String]()
@@ -25,9 +26,6 @@ class ExpenseViewController: UIViewController {
     let defaults = UserDefaults()
     var selectedTextField = UITextView()
     var indicatorView = UIActivityIndicatorView()
-    var namesOfAgents = [String]()
-    var incomeCategories = [String]()
-    var categories = [String]()
     let model = Model()
     let date = Date()
     var theChooseFromPickerView: String? = ""
@@ -36,30 +34,40 @@ class ExpenseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-          getCategory {
-              self.getAgents {
-                  self.model.getAccounts {
-                      self.getProjects {
-                          DispatchQueue.main.async {
-                              self.indicatorView.stopAnimating()
-                              self.view.isUserInteractionEnabled = true
-                          }
-                      }
-                  }
-              }
-          }
-          
-          createAButton()
+        sumTextFirld.becomeFirstResponder()
+        self.successCheckMarkImageView.isHidden = true
+        model.getCategoryExpense {
+            self.model.getAgents {
+                self.model.getAccounts {
+                    self.model.getProjects {
+                        DispatchQueue.main.async {
+                            self.indicatorView.stopAnimating()
+                            self.view.isUserInteractionEnabled = true
+                        }
+                    }
+                }
+            }
+        }
+        
+        createAButton()
+        setGestureToDissmis()
+    }
+    
+    func setGestureToDissmis() {
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
     }
     
     func setupIndicator() {
         indicatorView.center = self.view.center
         indicatorView.hidesWhenStopped = true
         indicatorView.style = .large
-        indicatorView.color = UIColor.green
+        indicatorView.color = UIColor.white
         view.addSubview(indicatorView)
+        
     }
-  
+    
     
     func createAButton() {
         descriptionButton.layer.cornerRadius = 10
@@ -94,12 +102,12 @@ class ExpenseViewController: UIViewController {
         let message = "\n\n\n\n\n\n"
         let alert = UIAlertController(title: "Выберите один из варинтов", message: message, preferredStyle: UIAlertController.Style.actionSheet)
         alert.isModalInPopover = true
-         
+        
         let pickerFrame = UIPickerView(frame: CGRect(x: 5, y: 20, width: view.frame.width - 20, height: 140)) // CGRectMake(left, top, width, height) - left and top are like margins
         pickerFrame.tag = 555
         //set the pickers datasource and delegate
         pickerFrame.delegate = self
-         
+        
         //Add the picker to the alert controller
         pickerFrame.dataSource = self
         alert.view.addSubview(pickerFrame)
@@ -118,8 +126,8 @@ class ExpenseViewController: UIViewController {
                 self.theChooseFromPickerView = ""
                 self.dataSource = []
             }
-        
-       
+            
+            
             
         })
         alert.addAction(okAction)
@@ -133,177 +141,32 @@ class ExpenseViewController: UIViewController {
     }
     
     
-    func getAgents(completed: @escaping () -> ()) {
-       let urlString = "https://fms-neobis.herokuapp.com/contractors/not_archived"
-       
-       
-       guard let url = URL(string: urlString) else {
-           completed()
-           return
-       }
-       
-       let token = defaults.object(forKey:"token") as? String ?? ""
-       var request = URLRequest(url: url)
-       request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-       
-       let session = URLSession.shared
-       
-       let task = session.dataTask(with: request) { (data, response, error) in
-           if let error = error {
-               print("Error: \(error)")
-           }
-           do {
-               let result: [Agents] = try JSONDecoder().decode([Agents].self, from: data!)
-               print(result)
-               for index in 0..<result.count {
-                   self.namesOfAgents.append(result[index].name ?? "Без имени")
-               }
-           } catch {
-               guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 404 else {
-                  
-                   DispatchQueue.main.async {
-                       let alert = UIAlertController(title: "Ошибка авторизации", message: "Пожалуйста авторизуйтесь", preferredStyle: .alert)
-                       
-                       alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
-                           
-                           self.transitionViewController()
-                           
-                       }))
-                       self.present(alert, animated: true)
-                   }
-                   return
-               }
-               print("ERROR")
-           }
-           completed()
-           
-       }
-       task.resume()
-           
-   }
-   
-    func getCategory(completed: @escaping () -> ()) {
-       let urlString = "https://fms-neobis.herokuapp.com/expenses_categories/not_archived"
-       guard let url = URL(string: urlString) else {
-           completed()
-           return
-       }
-       
-       let token = defaults.object(forKey:"token") as? String ?? ""
-       var request = URLRequest(url: url)
-       request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-       
-       let session = URLSession.shared
-       
-       let task = session.dataTask(with: request) { (data, response, error) in
-           if let error = error {
-               print("Error: \(error)")
-           }
-           do {
-               let result: [IncomeCategories] = try JSONDecoder().decode([IncomeCategories].self, from: data!)
-               print(result)
-               for index in 0..<result.count {
-                   print(result[index].categoryName)
-                   self.incomeCategories.append(result[index].categoryName ?? "Без назавния")
-               }
-           } catch {
-               guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 404 else {
-                  
-                   DispatchQueue.main.async {
-                       let alert = UIAlertController(title: "Ошибка авторизации", message: "Пожалуйста авторизуйтесь", preferredStyle: .alert)
-                       
-                       alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
-                           
-                           self.transitionViewController()
-                           
-                       }))
-                       self.present(alert, animated: true)
-                   }
-                   return
-               }
-               print("ERROR")
-           }
-           completed()
-           
-       }
-       task.resume()
-           
-   }
-   
-    func getProjects(completed: @escaping () -> ()) {
-       let urlString = "https://fms-neobis.herokuapp.com/projects/not_archived"
-       guard let url = URL(string: urlString) else {
-           completed()
-           return
-       }
-       
-       let token = defaults.object(forKey:"token") as? String ?? ""
-       var request = URLRequest(url: url)
-       request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-       
-       let session = URLSession.shared
-       
-       let task = session.dataTask(with: request) { (data, response, error) in
-           if let error = error {
-               print("Error: \(error)")
-           }
-           do {
-               let result: [Categories] = try JSONDecoder().decode([Categories].self, from: data!)
-               print(result)
-               for index in 0..<result.count {
-                   print(result[index].name)
-                   self.categories.append(result[index].name ?? "Без названия")
-               }
-           } catch {
-               guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 404 else {
-                  
-                   DispatchQueue.main.async {
-                       let alert = UIAlertController(title: "Ошибка авторизации", message: "Пожалуйста авторизуйтесь", preferredStyle: .alert)
-                       
-                       alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
-                           
-                           self.transitionViewController()
-                           
-                       }))
-                       self.present(alert, animated: true)
-                   }
-                   return
-               }
-               print("ERROR")
-           }
-           completed()
-           
-       }
-       task.resume()
-   }
-    
-    
     
     @IBAction func categoryPressed(_ sender: Any) {
-       
-        dataSource = incomeCategories
+        
+        dataSource = model.incomeCategories
         selectedButton = categoryButton
         pickerViewFire(selectedButton: selectedButton)
     }
     
     @IBAction func cashButtonPressed(_ sender: Any) {
-  
+        
         dataSource = model.accountsArray
         selectedButton = cashAccount
         pickerViewFire(selectedButton: selectedButton)
     }
     
     @IBAction func projectButtonPressed(_ sender: Any) {
-
-        dataSource = categories
+        
+        dataSource = model.categories
         selectedButton = projectButtin
         dataSource.append("Без проекта")
         pickerViewFire(selectedButton: selectedButton)
     }
     
     @IBAction func agentButtonPressed(_ sender: Any) {
-
-        dataSource = namesOfAgents
+        
+        dataSource = model.namesOfAgents
         dataSource.append("Без контрагента")
         selectedButton = agentButton
         pickerViewFire(selectedButton: selectedButton)
@@ -319,11 +182,11 @@ class ExpenseViewController: UIViewController {
             dateFormatter.dateFormat = "dd-MM-yyyy"
             
             let income = IncomeData(actualDate: dateFormatter.string(from: datePicker.date), cashAccount: cashAccount.titleLabel?.text ?? "", category: categoryButton.titleLabel?.text ?? "", contractor: (agentButton.titleLabel?.text == "Без контрагента" ? nil : agentButton.titleLabel?.text), description: descriptionButton.text == "" ? nil : descriptionButton.text, status: true, project: (projectButtin.titleLabel?.text == "Без проекта" ? nil : projectButtin.titleLabel?.text), sumOfTransaction: Int(sumTextFirld.text ?? "") ?? 0)
-
+            
             
             let postRequest = APIRequest(endpoint: "expense_transaction")
             postRequest.save(income, completion: { result in
-
+                
                 switch result {
                 case .success(let message):
                     
@@ -331,14 +194,14 @@ class ExpenseViewController: UIViewController {
                     DispatchQueue.main.async {
                         self.indicatorView.stopAnimating()
                         self.view.isUserInteractionEnabled = true
-                        let alert = UIAlertController(title: "Вывод", message: message.message, preferredStyle: .alert)
-
-                        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (i) in
-                           
-                                self.transitionBackToViewController()
-                            
-                        }))
-                        self.present(alert, animated: true)
+                        self.successCheckMarkImageView.isHidden = false
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            self.transitionBackToViewController()
+                        }
+                        
+                        
+                        
                         
                     }
                     
@@ -358,9 +221,9 @@ class ExpenseViewController: UIViewController {
                     }
                     print("ERROR: \(error)")
                 }
-               
                 
-
+                
+                
             })
         } else {
             self.indicatorView.stopAnimating()
@@ -375,7 +238,7 @@ class ExpenseViewController: UIViewController {
             self.present(alert, animated: true)
         }
     }
-
+    
 }
 
 

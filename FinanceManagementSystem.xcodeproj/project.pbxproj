@@ -41,6 +41,8 @@
 		CE76702B255FB0A400036C3E /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76702A255FB0A400036C3E /* AuthViewController.swift */; };
 		CE767030255FB12D00036C3E /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76702F255FB12D00036C3E /* DesignableView.swift */; };
 		CE77B4062568D35B00E0DCFC /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE77B4052568D35B00E0DCFC /* Roboto-Bold.ttf */; };
+		CE7BF416258D2EEC00D6DAE1 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7BF415258D2EEC00D6DAE1 /* ChangePasswordViewController.swift */; };
+		CE81791C258CDF52001D8167 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81791B258CDF52001D8167 /* ProfileViewController.swift */; };
 		CE90609F254ECA4200313D02 /* BookOfTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90609E254ECA4200313D02 /* BookOfTransactionsViewController.swift */; };
 		CEA53671256907E9004762AB /* BillsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA53670256907E9004762AB /* BillsTableViewCell.swift */; };
 		CEA55537255414F400B8B68D /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA55536255414F400B8B68D /* TransactionTableViewCell.swift */; };
@@ -118,6 +120,8 @@
 		CE76702A255FB0A400036C3E /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		CE76702F255FB12D00036C3E /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		CE77B4052568D35B00E0DCFC /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		CE7BF415258D2EEC00D6DAE1 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		CE81791B258CDF52001D8167 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CE90609E254ECA4200313D02 /* BookOfTransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookOfTransactionsViewController.swift; sourceTree = "<group>"; };
 		CEA53670256907E9004762AB /* BillsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillsTableViewCell.swift; sourceTree = "<group>"; };
 		CEA55536255414F400B8B68D /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
@@ -204,15 +208,12 @@
 		CE11597825682E7500BBCB2C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CE76702A255FB0A400036C3E /* AuthViewController.swift */,
 				CE6BC67A25836F0700064D43 /* New Group */,
 				CE1C32122582A61900A41915 /* Journal */,
+				CE81791A258CDF20001D8167 /* Auth */,
+				CE3B3BF42598888300EB6616 /* Settings */,
+				CE817919258CDF05001D8167 /* Analytics */,
 				CE1C32112582A5FF00A41915 /* Transactions */,
-				CEAAE9E7258697F90092774B /* AnalyticsViewController.swift */,
-				CEAAE9F72586A0920092774B /* AnalyticsTableViewController.swift */,
-				CE6D5BD6258BF869007A6B9B /* PassworResetViewContoller.swift */,
-				CE3044B6258C14B700A31508 /* ResetViewController.swift */,
-				CE6D5BE6258C0B9A007A6B9B /* ConfirmationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -253,6 +254,15 @@
 				CE5741BF2586121B00EC1187 /* FilterOfJournalViewController.swift */,
 			);
 			path = Journal;
+			sourceTree = "<group>";
+		};
+		CE3B3BF42598888300EB6616 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				CE81791B258CDF52001D8167 /* ProfileViewController.swift */,
+				CE7BF415258D2EEC00D6DAE1 /* ChangePasswordViewController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		CE5D2395253471C600AC0678 = {
@@ -322,6 +332,26 @@
 				CE11595C256661E300BBCB2C /* TestViewController.swift */,
 			);
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		CE817919258CDF05001D8167 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				CEAAE9E7258697F90092774B /* AnalyticsViewController.swift */,
+				CEAAE9F72586A0920092774B /* AnalyticsTableViewController.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		CE81791A258CDF20001D8167 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				CE76702A255FB0A400036C3E /* AuthViewController.swift */,
+				CE6D5BD6258BF869007A6B9B /* PassworResetViewContoller.swift */,
+				CE3044B6258C14B700A31508 /* ResetViewController.swift */,
+				CE6D5BE6258C0B9A007A6B9B /* ConfirmationViewController.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -566,12 +596,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE7BF416258D2EEC00D6DAE1 /* ChangePasswordViewController.swift in Sources */,
 				CE1C321C2582A6B100A41915 /* CashAccountTableViewCell.swift in Sources */,
 				CE5D23A6253471C600AC0678 /* ViewController.swift in Sources */,
 				CEA5553C25554B1E00B8B68D /* DetailOfTransactionViewController.swift in Sources */,
 				CE1C32142582A67E00A41915 /* CashAccountsViewController.swift in Sources */,
 				CE75988F25497ACC0017595F /* APIRequest.swift in Sources */,
 				CE6BC68A25836F4B00064D43 /* IncomeViewController.swift in Sources */,
+				CE81791C258CDF52001D8167 /* ProfileViewController.swift in Sources */,
 				CEA53671256907E9004762AB /* BillsTableViewCell.swift in Sources */,
 				CEB40AC825812C5400ED9A43 /* MainViewController.swift in Sources */,
 				CE767030255FB12D00036C3E /* DesignableView.swift in Sources */,
@@ -702,7 +734,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -757,7 +789,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

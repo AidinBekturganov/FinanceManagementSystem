@@ -11,6 +11,7 @@ target 'FinanceManagementSystem' do
   pod 'iOSDropDown'
   pod 'ChartLegends'
   pod 'Charts'
+  pod 'IQKeyboardManagerSwift'
 
   target 'FinanceManagementSystemTests' do
     inherit! :search_paths
